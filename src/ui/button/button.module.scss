@@ -1,0 +1,132 @@
+.button {
+  --border-radius: var(--radius-md);
+
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--border-color);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  height: var(--btn-height);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+
+  font-weight: 500;
+  letter-spacing: 1px;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+
+  &:active {
+    transform: scale(0.99);
+  }
+
+  transition: all 0.1s ease-in-out;
+}
+
+.primary-regular {
+  --btn-height: 3rem;
+  --text-color: var(--white);
+  --background-color: var(--primary);
+  --border-color: var(--primary);
+
+  &:hover {
+    --border-color: var(--primary-400);
+    --background-color: var(--primary-400);
+  }
+}
+
+.primary-outline {
+  --btn-height: 3rem;
+  --text-color: var(--primary);
+  --background-color: var(--white);
+  --border-color: var(--primary);
+}
+
+.primary-no-border {
+  --btn-height: 3rem;
+  --border-color: var(--white);
+  --background-color: var(--white);
+  --text-color: var(--primary);
+}
+
+.secondary-regular {
+  --btn-height: 3rem;
+  --text-color: var(--white);
+  --background-color: var(--secondary);
+  --border-color: var(--secondary);
+
+  &:hover {
+    --border-color: var(--secondary-500);
+    --background-color: var(--secondary-500);
+  }
+}
+
+.secondary-outline {
+  --text-color: var(--secondary);
+  --background-color: var(--white);
+  --border-color: var(--secondary);
+}
+
+.secondary-no-border {
+  --border-color: var(--white);
+  --background-color: var(--white);
+  --text-color: var(--secondary);
+}
+
+.size-sm {
+  --btn-height: 36px;
+}
+
+.size-md {
+  --btn-height: 48px;
+}
+
+.size-lg {
+  --btn-height: 56px;
+}
+
+.rounded-sm {
+  --border-radius: var(--radius-sm);
+}
+
+.rounded-md {
+  --border-radius: var(--radius-md);
+}
+
+.rounded-full {
+  --border-radius: 999px;
+}
+
+.children {
+  padding: 0 1rem;
+}
+
+.iconChild {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  width: 36px;
+  height: 36px;
+}
+
+// * Ripple
+
+.ripple {
+  opacity: 1;
+  transform: scale(0);
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  animation: ripple ease-in-out;
+}
+
+@keyframes ripple {
+  to {
+    opacity: 0;
+    transform: scale(50);
+  }
+}

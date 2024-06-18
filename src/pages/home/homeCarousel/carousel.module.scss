@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+
+  background: var(--primary-500);
+  width: 100%;
+  border-radius: var(--radius-md);
+
+  background-image: url("/images/random-shape-in-blue.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+
+  padding: 44px 32px;
+}
+
+.title {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  flex-basis: 264px;
+
+  height: 200px;
+
+  color: var(--white);
+  text-align: center;
+
+  p {
+    margin-top: .5rem;
+    font-weight: 300;
+    font-size: var(--fs-body-xl);
+  }
+
+  a {
+    padding: 12px 8px;
+  }
+}
+
+.carousel {
+  flex-grow: 1;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  background: var(--white);
+  border-radius: var(--radius-sm);
+  padding: 12px 8px;
+
+  span:has(img) {
+    height: 150px;
+
+    img {
+      object-fit: contain;
+    }
+  }
+
+  p {
+    font-size: var(--fs-body-xs);
+  }
+
+  div {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+
+    font-size: var(--fs-body-sm);
+
+    del {
+      color: var(--neutral-gray-700);
+    }
+  }
+}
+
+.discount {
+  display: inline-flex;
+  justify-content: center;
+
+  position: absolute;
+  top: 0.5rem;
+  left: 0;
+
+  font-size: var(--fs-body-sm);
+
+  background: var(--secondary-100);
+  color: var(--secondary);
+
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  width: 42px;
+  padding: 6px 0;
+}
