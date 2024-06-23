@@ -1,8 +1,8 @@
 import HomeBanner from "./HomeBanner.tsx";
-import HomeCategories from "./homeCategories/HomeCategories.tsx";
+import HomeCategories from "./HomeCategories.tsx";
 import HomeCarousel from "./homeCarousel/HomeCarousel.tsx";
 
-export default () => {
+const Home = () => {
   return (
     <>
       <HomeBanner />
@@ -11,3 +11,5 @@ export default () => {
     </>
   );
 };
+
+export default Home;

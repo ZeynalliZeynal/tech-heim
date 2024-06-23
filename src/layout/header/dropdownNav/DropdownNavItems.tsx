@@ -5,18 +5,15 @@ import Lottie from "lottie-react";
 import { getSubcategoriesById } from "../../../services/apiGetters.ts";
 import loadingSpinner from "../../../assets/animation/loading-spinner.json";
 import emptyList from "../../../assets/animation/empty-list.json";
-import styles from "./dropdown-nav-item.module.scss";
 
-// TODO: dont forget to generate the link later
-
-export default ({ categoryId }: { categoryId: number }) => {
+const DropdownNavItems = ({ categoryId }: { categoryId: number }) => {
   const { data: subcategories, isPending } = useQuery({
     queryKey: ["products/categories/subcategoriesById", categoryId],
     queryFn: () => getSubcategoriesById(categoryId),
   });
 
   return (
-    <div className={styles.itemsContainer}>
+    <div className="flex justify-center p-10 bg-neutral-gray-200">
       {isPending ? (
         <Lottie
           animationData={loadingSpinner}
@@ -25,18 +22,13 @@ export default ({ categoryId }: { categoryId: number }) => {
           }}
         />
       ) : !subcategories?.length || !subcategories ? (
-        <div className={styles.empty}>
+        <div className="flex flex-col justify-center items-center font-bold">
           <h4>No subcategory is available yet</h4>
-          <Lottie
-            animationData={emptyList}
-            style={{
-              width: "200px",
-            }}
-          />
+          <Lottie animationData={emptyList} className="w-[200px]" />
         </div>
       ) : (
-        <div className={styles.grid}>
-          <ul className={styles.ul}>
+        <div className="flex flex-col gap-8">
+          <ul className="grid gap-8 grid-cols-4 justify-center items-start max-h-[250px] overflow-y-auto pr-12">
             {subcategories?.map(
               ({
                 id,
@@ -47,10 +39,21 @@ export default ({ categoryId }: { categoryId: number }) => {
                 name: string;
                 image: string;
               }) => (
-                <li key={id} style={{ justifyContent: "center" }}>
-                  <Link to="/">
-                    <span className={styles.item} title={name}>
-                      <img src={image} alt={name} />
+                <li
+                  key={id}
+                  style={{ justifyContent: "center" }}
+                  className="rounded-md text-center hover:text-primary"
+                >
+                  <Link to="/" className="flex-col gap-4">
+                    <span
+                      className="w-[152px] group overflow-hidden"
+                      title={name}
+                    >
+                      <img
+                        src={image}
+                        alt={name}
+                        className="group-hover:rotate-1 group-hover:scale-105 transition"
+                      />
                     </span>
                     <h6>{name}</h6>
                   </Link>
@@ -58,11 +61,15 @@ export default ({ categoryId }: { categoryId: number }) => {
               ),
             )}{" "}
           </ul>
-          <div className={styles.viewAll}>
-            <Link to="/">View All</Link>
+          <div className="flex justify-center mx-auto text-body-md text-primary hover:underline group">
+            <Link to="/" className="group-hover:tracking-wider">
+              View All
+            </Link>
           </div>
         </div>
       )}
     </div>
   );
 };
+
+export default DropdownNavItems;

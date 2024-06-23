@@ -1,7 +1,13 @@
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+.container {
+  transition: var(--transition);
 }
 
 body {
@@ -20,7 +26,8 @@ span {
   display: inline-block;
 }
 
-img, svg {
+img,
+svg {
   width: 100% !important;
   height: 100% !important;
   object-fit: cover;

@@ -1,16 +1,13 @@
-import Logo from "../../ui/svgs/logo.tsx";
+import Logo from "../../../ui/svgs/logo.tsx";
 import NavList from "./NavList.tsx";
 import NavRight from "./NavRight.tsx";
 import { Link } from "react-router-dom";
 
-import styles from "./header.module.scss";
-
 const Navbar = () => {
   return (
-    <nav className={styles.nav}>
-      <Link to="/" className={styles.logo}>
+    <nav className="w-full flex justify-between">
+      <Link to="/">
         <Logo />
-        <div>Tech Heim</div>
       </Link>
       <NavList />
       <NavRight />

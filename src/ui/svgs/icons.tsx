@@ -1,11 +1,11 @@
 import { SvgProps } from "../../types/svgType.ts";
 
-export const SearchIcon = ({ width = 22, height = 22 }: SvgProps) => {
+export const SearchIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg viewBox="0 0 22 22" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -28,12 +28,12 @@ export const SearchIcon = ({ width = 22, height = 22 }: SvgProps) => {
   );
 };
 
-export const CartIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const CartIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -66,12 +66,12 @@ export const CartIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const UserIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const UserIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -88,38 +88,12 @@ export const UserIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const TabletIcon = ({ width = 24, height = 18 }: SvgProps) => {
+export const MonitorIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
-      }}
-    >
-      <svg viewBox="0 0 24 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path
-          d="M9.3438 3L14.6561 3C15.2006 3 15.6521 3.45333 15.6521 4C15.6521 4.54667 15.2006 5 14.6561 5L9.3438 5C8.79929 5 8.34775 4.54667 8.34775 4C8.34775 3.45333 8.79929 3 9.3438 3Z"
-          fill="currentColor"
-        />
-        <path
-          d="M-1.90735e-06 12.0857V5.91429C-1.90735e-06 1.37829 1.49581 0 6.4186 0L17.5814 0C22.5042 0 24 1.37829 24 5.91429V12.0857C24 16.6217 22.5042 18 17.5814 18H6.4186C1.49581 18 -1.90735e-06 16.6217 -1.90735e-06 12.0857ZM22.3256 5.91429C22.3256 2.232 21.5665 1.54286 17.5814 1.54286L6.4186 1.54286C2.43349 1.54286 1.67442 2.232 1.67442 5.91429V12.0857C1.67442 15.768 2.43349 16.4571 6.4186 16.4571H17.5814C21.5665 16.4571 22.3256 15.768 22.3256 12.0857V5.91429Z"
-          fill="currentColor"
-        />
-        <path
-          d="M10 13C10 11.8957 10.8957 11 12 11C13.1043 11 14 11.8957 14 13C14 14.1043 13.1043 15 12 15C10.8957 15 10 14.1043 10 13ZM12.7043 13C12.7043 12.6174 12.3913 12.3043 12.0087 12.3043C11.6261 12.3043 11.313 12.6174 11.313 13C11.313 13.3826 11.6261 13.6957 12.0087 13.6957C12.3913 13.6957 12.7043 13.3826 12.7043 13Z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-  );
-};
-
-export const MonitorIcon = ({ width = 24, height = 24 }: SvgProps) => {
-  return (
-    <span
-      style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -140,12 +114,12 @@ export const MonitorIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const MobileIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const MobileIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -162,12 +136,12 @@ export const MobileIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const WatchIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const WatchIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -184,12 +158,12 @@ export const WatchIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const CameraIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const CameraIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -206,12 +180,12 @@ export const CameraIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const ConsoleIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const ConsoleIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -236,12 +210,12 @@ export const ConsoleIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const NetworkIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const NetworkIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -262,12 +236,12 @@ export const NetworkIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const AccessoryIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const AccessoryIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -312,12 +286,12 @@ export const AccessoryIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const HeadphoneIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const HeadphoneIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg xmlns="http://www.w3.org/2000/svg" fill="none">
@@ -330,12 +304,12 @@ export const HeadphoneIcon = ({ width = 24, height = 24 }: SvgProps) => {
   );
 };
 
-export const TVIcon = ({ width = 24, height = 24 }: SvgProps) => {
+export const TVIcon = ({ size = 24 }: SvgProps) => {
   return (
     <span
       style={{
-        width: `${width}px`,
-        height: `${height}px`,
+        width: size + "px",
+        height: size + "px",
       }}
     >
       <svg

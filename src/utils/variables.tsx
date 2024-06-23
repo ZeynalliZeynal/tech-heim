@@ -1,4 +1,4 @@
-import { CategoriesIconsProps, NavLinksProps } from "../types/variableTypes.ts";
+import { CategoriesIconsProps, NavLinksProps } from '../types/variableTypes.ts';
 import {
   AccessoryIcon,
   CameraIcon,
@@ -10,41 +10,40 @@ import {
   TabletIcon,
   TVIcon,
   WatchIcon,
-} from "../ui/svgs/icons.tsx";
+} from '../ui/svgs/icons.tsx';
 
 export const NAV_LINKS: NavLinksProps[] = [
   {
-    to: "/",
-    name: "Home",
+    to: '/',
+    name: 'Home',
   },
   {
-    to: "/products",
-    name: "Products",
+    to: '/products',
+    name: 'Products',
     children: true,
   },
   {
-    to: "/blog",
-    name: "Blog",
+    to: '/blog',
+    name: 'Blog',
   },
   {
-    to: "/faq",
-    name: "FAQ",
+    to: '/faq',
+    name: 'FAQ',
   },
   {
-    to: "/contact",
-    name: "Contact Us",
+    to: '/contact',
+    name: 'Contact Us',
   },
 ];
 
 export const CATEGORIES_ICONS: CategoriesIconsProps = {
-  "Mobile Phones": <MobileIcon />,
-  "Laptops & Computers": <MonitorIcon />,
-  "Tablets & E-readers": <TabletIcon />,
+  'Mobile Phones': <MobileIcon />,
+  'Laptops & Computers': <MonitorIcon />,
   Wearables: <WatchIcon />,
   Audio: <HeadphoneIcon />,
   Cameras: <CameraIcon />,
   Gaming: <ConsoleIcon />,
   Networking: <NetworkIcon />,
   Accessories: <AccessoryIcon />,
-  "Household Appliances": <TVIcon />,
+  'Household Appliances': <TVIcon />,
 };

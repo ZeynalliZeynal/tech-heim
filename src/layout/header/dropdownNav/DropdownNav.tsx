@@ -7,7 +7,7 @@ import { useDropdown } from "../../../context/DropdownContext.tsx";
 import { getCategories } from "../../../services/apiGetters.ts";
 import { CATEGORIES_ICONS } from "../../../utils/variables.tsx";
 import DropdownNavItems from "./DropdownNavItems.tsx";
-import styles from "./dropdown-nav.module.scss";
+import classNames from "classnames";
 
 const DropdownNav = () => {
   const { isNavMenuOpen } = useDropdown();
@@ -19,9 +19,9 @@ const DropdownNav = () => {
   });
 
   return (
-    <div className={styles.wrap}>
+    <div className="fixed top-[100px] left-1/2 -translate-x-1/2 font-light container perspective-[2000px] perspective-origin-top">
       <motion.div
-        className={styles.container}
+        className="origin-top rounded-bl-md rounded-br-md overflow-hidden"
         animate={isNavMenuOpen ? "active" : "initial"}
         variants={{
           active: {
@@ -39,13 +39,18 @@ const DropdownNav = () => {
           display: "none",
         }}
       >
-        <div className={styles.bridge} />
-        <div className={styles.grid}>
-          <ul className={styles.list}>
+        <div className="p-6 absolute w-full -top-10 z-[900]" />
+        <div className="grid bg-white grid-cols-[300px_1fr]">
+          <ul className="relative flex-col items-start gap-4 z-[900] border-r border-neutral-gray-600 px-6 py-4">
             {categories?.map(({ id, name }) => (
-              <li className={styles.listItem} key={id}>
+              <li key={id}>
                 <NavLink
-                  className={styles.link}
+                  className={({ isActive }) =>
+                    classNames("gap-4", {
+                      "text-primary": isActive,
+                      "text-primary-100": categoryId === id,
+                    })
+                  }
                   data-ishovering={categoryId === id}
                   to={`/products/${name.replaceAll(" ", "").toLowerCase()}`}
                   onMouseEnter={() => setCategoryId(id)}
