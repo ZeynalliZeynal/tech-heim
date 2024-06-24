@@ -17,10 +17,6 @@ body {
   color: var(--black);
 }
 
-svg {
-  transition: var(--transition);
-}
-
 a {
   transition: var(--transition);
 }
@@ -68,9 +64,6 @@ h6 {
   animation: ripple ease-in-out;
 }
 
-span:has(svg) {
-  @apply transition;
-}
 
 button:active {
   @apply active:scale-[0.98] transition duration-100;

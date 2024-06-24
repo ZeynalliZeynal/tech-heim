@@ -1,6 +1,7 @@
 import HomeBanner from "./HomeBanner.tsx";
 import HomeCategories from "./HomeCategories.tsx";
 import HomeCarousel from "./homeCarousel/HomeCarousel.tsx";
+import HomeNew from "./homeNew/HomeNew.tsx";
 
 const Home = () => {
   return (
@@ -8,6 +9,7 @@ const Home = () => {
       <HomeBanner />
       <HomeCategories />
       <HomeCarousel />
+      <HomeNew />
     </>
   );
 };

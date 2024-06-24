@@ -1,4 +1,5 @@
 import { supabase } from "./supabase.ts";
+import { getWithinHours } from "../helpers/converters.ts";
 
 export const getCategories = async () => {
   const { data: categories, error } = await supabase
@@ -41,12 +42,12 @@ export const getDistinctSubcategories = async () => {
 };
 
 export const getProductsHasDiscount = async () => {
-  let query = supabase
+  const query = supabase
     .from("products")
     .select("*")
     .not("discount_percent", "is", null);
 
-  let { data: products, error } = await query;
+  const { data: products, error } = await query;
 
   if (error) {
     console.error(error.message);
@@ -97,4 +98,18 @@ export const getProductImages = async (colorId: number) => {
   }
 
   return images;
+};
+
+export const getNewProducts = async (hours: number) => {
+  const { data: newProducts, error } = await supabase
+    .from("products")
+    .select("*")
+    .gte("created_at", getWithinHours(hours));
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Error occurred. Couldn't get products.");
+  }
+
+  return newProducts;
 };
