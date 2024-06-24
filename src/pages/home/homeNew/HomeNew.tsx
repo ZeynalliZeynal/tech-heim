@@ -24,8 +24,4 @@ const HomeNew = () => {
   );
 };
 
-HomeNew.Panel = () => {
-  return <div>panel</div>;
-};
-
 export default HomeNew;
