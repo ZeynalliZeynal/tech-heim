@@ -1,0 +1,58 @@
+import { motion } from "framer-motion";
+import { useState } from "react";
+
+const ProductCardColors = ({ colors }) => {
+  const [tooltipIndex, setTooltipIndex] = useState(-1);
+
+  const handleMouseLeave = () => {
+    setTooltipIndex(-1);
+  };
+
+  const handleMouseEnter = (i: number) => {
+    setTooltipIndex(i);
+  };
+
+  return (
+    <div className="flex flex-col gap-2 absolute right-4 top-1/3 -translate-y-1/3">
+      {colors?.map((color, i) => (
+        <div
+          key={color.id}
+          className={
+            "cursor-auto size-3 border rounded-full border-neutral-gray-900 relative"
+          }
+          onMouseLeave={handleMouseLeave}
+          onMouseEnter={() => handleMouseEnter(i)}
+          style={{
+            background: color.hex_code,
+          }}
+        >
+          <motion.div
+            initial={{
+              scale: 0.9,
+              x: 15,
+              y: "-50%",
+              opacity: 0,
+              visibility: "hidden",
+            }}
+            variants={{
+              active: {
+                x: 0,
+                y: "-50%",
+                scale: 1,
+                opacity: 1,
+                visibility: "visible",
+              },
+            }}
+            transition={{ duration: 0.4, type: "spring" }}
+            animate={tooltipIndex === i ? "active" : "initial"}
+            className="absolute pointer-events-none top-1/2 left-[calc(100%+1rem)] text-body-sm w-max bg-white z-50 px-1.5 py-1 rounded-md shadow-lg"
+          >
+            {color.name}
+          </motion.div>
+        </div>
+      ))}
+    </div>
+  );
+};
+
+export default ProductCardColors;

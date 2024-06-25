@@ -12,6 +12,10 @@
   }
 }
 
+::selection {
+  @apply text-primary-400 bg-primary-25
+}
+
 body {
   font-family: 'Inter', sans-serif;
   color: var(--black);

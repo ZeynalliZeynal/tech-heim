@@ -93,6 +93,7 @@ export default {
         sm: "-2px 2px 15px -1px rgba(113, 113, 113, 0.12)",
         md: "-2px 2px 20px -1px rgba(113, 113, 113, 0.2)",
         card: "0px 15px 20px rgba(0, 0, 0, 0.2)",
+        tooltip: "0px 12px 28px 0px rgba(140, 149, 159, 0.3)",
       },
       borderRadius: {
         sm: "4px",

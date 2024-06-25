@@ -20,7 +20,7 @@ const CarouselItem = ({ product }: any) => {
         <img
           src={productDetail?.img_url}
           alt={productBrand?.name}
-          className="object-cover"
+          className="object-contain"
         />
       </span>
       <p className="text-body-xs w-full">

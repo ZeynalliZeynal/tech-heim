@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { TbExternalLink } from "react-icons/tb";
-import HomeFilteredProduct from "./HomeFilteredProduct.tsx";
+import ProductCard from "./productCard/ProductCard.tsx";
 
 const HomeFilteredProducts = ({
   title,
@@ -17,14 +17,14 @@ const HomeFilteredProducts = ({
         <h3>{title}</h3>
         <Link to={to} className="gap-2 group">
           <span className="group-hover:underline">View All</span>
-          <span className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5">
+          <span className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition">
             <TbExternalLink />
           </span>
         </Link>
       </div>
       <div className="w-full grid grid-cols-4 gap-6">
         {products?.map((product: any) => (
-          <HomeFilteredProduct product={product} key={product?.id} />
+          <ProductCard product={product} key={product?.id} />
         ))}
       </div>
     </div>
