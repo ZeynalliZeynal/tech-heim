@@ -9,8 +9,6 @@ const Button = ({
 }: {
   children?: ReactNode;
   duration?: number;
-  rounded?: "sm" | "md" | "full";
-  size?: "sm" | "md" | "lg";
   className?: string;
   disabled?: boolean;
   onClick?: () => void;

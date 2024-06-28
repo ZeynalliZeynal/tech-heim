@@ -1,5 +1,5 @@
 import Container from "../../../ui/Container.tsx";
-import HomeFilteredProducts from "../../../ui/HomeFilteredProducts.tsx";
+import HomeFilteredProducts from "../../../ui/home/HomeFilteredProducts.tsx";
 import { useQuery } from "@tanstack/react-query";
 import { getNewProducts } from "../../../services/apiGetters.ts";
 

@@ -15,6 +15,7 @@
     "@supabase/supabase-js": "^2.43.4",
     "@tanstack/react-query": "^5.44.0",
     "@tanstack/react-query-devtools": "^5.44.0",
+    "@types/tinycolor2": "^1.4.6",
     "classnames": "^2.5.1",
     "framer-motion": "^11.2.10",
     "lottie-react": "^2.4.0",
@@ -22,8 +23,10 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-icons": "^5.2.1",
+    "react-marquee-slider": "^1.1.5",
     "react-router-dom": "^6.23.1",
-    "swiper": "^11.1.4"
+    "swiper": "^11.1.4",
+    "tinycolor2": "^1.6.0"
   },
   "devDependencies": {
     "@types/react": "^18.2.15",

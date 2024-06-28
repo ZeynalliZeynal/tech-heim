@@ -1,6 +1,7 @@
 import { HiStar } from "react-icons/hi2";
+import { ProductTypes } from "../../types/productTypes.ts";
 
-const ProductCardBadges = ({ product }) => {
+const ProductCardBadges = ({ product }: { product: ProductTypes }) => {
   return (
     <div className="flex flex-col absolute top-2 left-0 text-body-sm gap-2">
       {product.discount_percent && (

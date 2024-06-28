@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
 import { TbExternalLink } from "react-icons/tb";
-import ProductCard from "./productCard/ProductCard.tsx";
+import ProductCard from "../productCard/ProductCard.tsx";
+import { ProductTypes } from "../../types/productTypes.ts";
+import HomeSectionTitle from "./HomeSectionTitle.tsx";
+import HomeSectionContainer from "./HomeSectionContainer.tsx";
 
 const HomeFilteredProducts = ({
   title,
@@ -9,25 +12,25 @@ const HomeFilteredProducts = ({
 }: {
   title: string;
   to: string;
-  products: any;
+  products: ProductTypes[];
 }) => {
   return (
-    <div className="flex text-black w-full flex-col">
-      <div className="w-full flex justify-between h-16 items-center border-b-2 border-neutral-gray-500">
-        <h3>{title}</h3>
+    <HomeSectionContainer>
+      <HomeSectionTitle title={title}>
         <Link to={to} className="gap-2 group">
           <span className="group-hover:underline">View All</span>
           <span className="size-4 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition">
             <TbExternalLink />
           </span>
         </Link>
-      </div>
+      </HomeSectionTitle>
+
       <div className="w-full grid grid-cols-4 gap-6">
-        {products?.map((product: any) => (
+        {products?.map((product: ProductTypes) => (
           <ProductCard product={product} key={product?.id} />
         ))}
       </div>
-    </div>
+    </HomeSectionContainer>
   );
 };
 

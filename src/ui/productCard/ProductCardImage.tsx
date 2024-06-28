@@ -1,4 +1,15 @@
-const ProductCardImage = ({ detail, brand }) => {
+import {
+  ProductBrandTypes,
+  ProductDetailTypes,
+} from "../../types/productTypes.ts";
+
+const ProductCardImage = ({
+  detail,
+  brand,
+}: {
+  detail: ProductDetailTypes;
+  brand: ProductBrandTypes;
+}) => {
   return (
     <div className="flex flex-col">
       <div className="h-[200px] self-center">

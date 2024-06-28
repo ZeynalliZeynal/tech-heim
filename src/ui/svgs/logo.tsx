@@ -1,4 +1,4 @@
-import { SvgProps } from "../../types/svgType.ts";
+import { SvgProps } from "../../types/svgTypes.ts";
 
 const Logo = ({ width = 56, height = 63 }: SvgProps) => {
   return (

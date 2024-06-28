@@ -7,10 +7,11 @@ import ProductCardColors from "./ProductCardColors.tsx";
 import ProductCardImage from "./ProductCardImage.tsx";
 import ProductCardBadges from "./ProductCardBadges.tsx";
 import ProductCardBottom from "./ProductCardBottom.tsx";
+import { ProductTypes } from "../../types/productTypes.ts";
 
-const ProductCard = ({ product }: { product: any }) => {
-  const { detail, brand, colors, isPending } = useProductDetails(product.id);
-  const [isHovering, setIsHovering] = useState(false);
+const ProductCard = ({ product }: { product: ProductTypes }) => {
+  const { detail, brand, colors } = useProductDetails(product.id);
+  const [isHovering, setIsHovering] = useState<boolean>(false);
 
   return (
     <div className="w-[300px]">

@@ -109,12 +109,21 @@ export default {
       },
       animation: {
         ripple: "ripple 700ms ease-in-out",
+        swipe: "swipe 10s linear infinite",
       },
       keyframes: {
         ripple: {
           to: {
             opacity: 0,
             transform: "scale(50)",
+          },
+        },
+        swipe: {
+          from: {
+            transform: "translateX(0)",
+          },
+          to: {
+            transform: "translateX(-100%)",
           },
         },
       },

@@ -1,7 +1,13 @@
 import { motion } from "framer-motion";
 import { useState } from "react";
+import { getBorderColor } from "../../helpers/tinycolorFuncs.ts";
+import { ProductColorTypes } from "../../types/productTypes.ts";
 
-const ProductCardColors = ({ colors }) => {
+const ProductCardColors = ({
+  colors,
+}: {
+  colors: ProductColorTypes[] | undefined;
+}) => {
   const [tooltipIndex, setTooltipIndex] = useState(-1);
 
   const handleMouseLeave = () => {
@@ -17,13 +23,12 @@ const ProductCardColors = ({ colors }) => {
       {colors?.map((color, i) => (
         <div
           key={color.id}
-          className={
-            "cursor-auto size-3 border rounded-full border-neutral-gray-900 relative"
-          }
+          className={"cursor-auto size-3 border rounded-full relative"}
           onMouseLeave={handleMouseLeave}
           onMouseEnter={() => handleMouseEnter(i)}
           style={{
             background: color.hex_code,
+            borderColor: getBorderColor(color.hex_code),
           }}
         >
           <motion.div

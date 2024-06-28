@@ -113,3 +113,16 @@ export const getNewProducts = async (hours: number) => {
 
   return newProducts;
 };
+
+export const getBrands = async () => {
+  const { data: brands, error } = await supabase
+    .from("product_brands")
+    .select("*");
+
+  if (error) {
+    console.error(error.message);
+    throw new Error("Error occurred. Couldn't get products.");
+  }
+
+  return brands;
+};

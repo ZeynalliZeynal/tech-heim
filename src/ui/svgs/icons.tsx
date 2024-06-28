@@ -1,4 +1,4 @@
-import { SvgProps } from "../../types/svgType.ts";
+import { SvgProps } from "../../types/svgTypes.ts";
 
 export const SearchIcon = ({ size = 24 }: SvgProps) => {
   return (

@@ -1,15 +1,19 @@
-import HomeBanner from "./HomeBanner.tsx";
+import HomeHero from "./HomeHero.tsx";
 import HomeCategories from "./HomeCategories.tsx";
 import HomeCarousel from "./homeCarousel/HomeCarousel.tsx";
 import HomeNew from "./homeNew/HomeNew.tsx";
+import HomeBanner from "./homeBanner/HomeBanner.tsx";
+import HomeBrands from "./homeBrands/HomeBrands.tsx";
 
 const Home = () => {
   return (
     <>
-      <HomeBanner />
+      <HomeHero />
       <HomeCategories />
       <HomeCarousel />
       <HomeNew />
+      <HomeBanner />
+      <HomeBrands />
     </>
   );
 };

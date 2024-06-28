@@ -3,8 +3,15 @@ import { formatCurrency } from "../../helpers/converters.ts";
 import Button from "../Button.tsx";
 import { AddToCartIcon } from "../svgs/icons.tsx";
 import { CiHeart } from "react-icons/ci";
+import { ProductTypes } from "../../types/productTypes.ts";
 
-const ProductCardBottom = ({ isHovering, product }) => {
+const ProductCardBottom = ({
+  isHovering,
+  product,
+}: {
+  isHovering: boolean;
+  product: ProductTypes;
+}) => {
   return (
     <div className="flex flex-col h-12 w-full overflow-hidden">
       <motion.div
