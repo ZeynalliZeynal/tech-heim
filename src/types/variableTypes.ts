@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
 export type ChildrenProps = {
   name: string;
@@ -16,4 +16,9 @@ export type CategoriesIconsProps = Record<string, ReactNode>;
 export type ServicesProps = {
   text: string;
   icon: ReactNode;
+};
+
+export type FooterLinksTypes = {
+  title: string;
+  list: { context: string | ReactNode; link: string }[];
 };
