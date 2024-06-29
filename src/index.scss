@@ -5,24 +5,20 @@
 @tailwind components;
 @tailwind utilities;
 
-@keyframes ripple {
-  to {
-    opacity: 0;
-    transform: scale(50);
-  }
-}
-
 ::selection {
   @apply text-primary-400 bg-primary-25
 }
 
 body {
-  font-family: 'Inter', sans-serif;
-  color: var(--black);
+  @apply font-display text-black
+}
+
+.container {
+  @apply transition
 }
 
 a {
-  transition: var(--transition);
+  @apply transition
 }
 
 h1,
@@ -59,13 +55,7 @@ h6 {
 }
 
 .ripple {
-  opacity: 1;
-  transform: scale(0);
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  animation: ripple ease-in-out;
+  @apply absolute size-2.5 rounded-full animate-ripple
 }
 
 

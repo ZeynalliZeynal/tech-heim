@@ -1,9 +1,12 @@
 import HomeHero from "./HomeHero.tsx";
 import HomeCategories from "./HomeCategories.tsx";
 import HomeCarousel from "./homeCarousel/HomeCarousel.tsx";
-import HomeNew from "./homeNew/HomeNew.tsx";
-import HomeBanner from "./homeBanner/HomeBanner.tsx";
-import HomeBrands from "./homeBrands/HomeBrands.tsx";
+import HomeNew from "./HomeNew.tsx";
+import HomeBanner from "./HomeBanner.tsx";
+import HomeBrands from "./HomeBrands.tsx";
+import HomeWearableBanner from "./HomeWearableBanner.tsx";
+import HomeBlog from "./HomeBlog.tsx";
+import HomeServices from "./HomeServices.tsx";
 
 const Home = () => {
   return (
@@ -14,6 +17,9 @@ const Home = () => {
       <HomeNew />
       <HomeBanner />
       <HomeBrands />
+      <HomeWearableBanner />
+      <HomeBlog />
+      <HomeServices />
     </>
   );
 };

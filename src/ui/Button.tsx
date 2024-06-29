@@ -21,7 +21,7 @@ const Button = ({
     if (button) {
       const rect = button.getBoundingClientRect();
       const ripple = document.createElement("span");
-      ripple.className = "ripple";
+      ripple.className = "ripple animate-ripple";
 
       const { left, top } = rect;
       const leftPos = e.clientX - left;
@@ -35,6 +35,7 @@ const Button = ({
       button.appendChild(ripple);
 
       ripple.addEventListener("animationend", () => {
+        console.log("end");
         button.removeChild(ripple);
       });
     }

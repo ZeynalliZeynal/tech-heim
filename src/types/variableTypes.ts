@@ -11,4 +11,9 @@ export type NavLinksProps = {
   children?: boolean;
 };
 
-export type CategoriesIconsProps = any;
+export type CategoriesIconsProps = Record<string, ReactNode>;
+
+export type ServicesProps = {
+  text: string;
+  icon: ReactNode;
+};

@@ -2,6 +2,9 @@
 export default {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
+    fontFamily: {
+      display: ["Inter", "sans-serif"],
+    },
     container: {
       center: true,
       DEFAULT: "1448px",
@@ -57,6 +60,12 @@ export default {
         success: "#146c43",
         "success-light": "#d1f7e5",
       },
+      banner: {
+        wearable: {
+          primary: "#223949",
+          secondary: "#FF6951",
+        },
+      },
     },
     fontSize: {
       "display-1": "4rem",
@@ -109,7 +118,7 @@ export default {
       },
       animation: {
         ripple: "ripple 700ms ease-in-out",
-        swipe: "swipe 10s linear infinite",
+        swipe: "swipe 40s linear infinite",
       },
       keyframes: {
         ripple: {
@@ -123,7 +132,7 @@ export default {
             transform: "translateX(0)",
           },
           to: {
-            transform: "translateX(-100%)",
+            transform: "translateX(calc(-50% - 2rem))",
           },
         },
       },

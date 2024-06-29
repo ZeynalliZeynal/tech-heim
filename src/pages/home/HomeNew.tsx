@@ -1,7 +1,7 @@
-import Container from "../../../ui/Container.tsx";
-import HomeFilteredProducts from "../../../ui/home/HomeFilteredProducts.tsx";
+import Container from "../../ui/Container.tsx";
+import HomeFilteredProducts from "../../ui/home/HomeFilteredProducts.tsx";
 import { useQuery } from "@tanstack/react-query";
-import { getNewProducts } from "../../../services/apiGetters.ts";
+import { getNewProducts } from "../../services/apiGetters.ts";
 
 const HomeNew = () => {
   const { data: newProducts, isPending } = useQuery({
