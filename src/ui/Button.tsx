@@ -58,7 +58,7 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={classNames(
-        `relative overflow-hidden active:scale-[0.98] disabled:opacity-80 disabled:active:scale-100 gap-2 md:text-button-lg text-button-sm ${className}`,
+        `relative overflow-hidden disabled:opacity-80 gap-2 md:text-button-lg text-button-sm ${className}`,
         {
           "h-9 rounded-md px-2": size === "sm",
           "md:h-12 h-10 rounded-md px-2": size === "md",

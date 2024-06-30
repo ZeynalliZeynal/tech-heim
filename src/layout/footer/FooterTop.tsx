@@ -9,12 +9,12 @@ const FooterTop = () => {
     <div className="grid grid-cols-[7fr_5fr] w-full py-12 text-white relative z-20">
       <div className="flex">
         <ul className="items-stretch w-full gap-[100px] justify-start">
-          {FOOTER_LINKS.map((item) => (
-            <li className="gap-2 flex-col items-start">
+          {FOOTER_LINKS.map((item, i) => (
+            <li className="gap-2 flex-col items-start" key={i}>
               <h6>{item.title}</h6>
               <ul className="flex-col gap-2 text-neutral-gray-400 text-body-md items-start">
-                {item.list.map((l) => (
-                  <li>
+                {item.list.map((l, i) => (
+                  <li key={i}>
                     <Link
                       to={l.link}
                       className="hover:scale-105 hover:text-neutral-gray-200 gap-1"

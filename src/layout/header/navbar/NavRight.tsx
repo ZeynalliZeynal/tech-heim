@@ -15,7 +15,7 @@ const NavRight = () => {
         </Button>
       </div>
       <div>
-        <Button size="sm" type="secondary-outline" className="md:hidden">
+        <Button size="sm" type="primary-none" className="md:hidden">
           <EnterIcon /> Login
         </Button>
         <Button size="sm" type="primary-regular" className="md:flex hidden">

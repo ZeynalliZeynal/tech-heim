@@ -59,7 +59,7 @@ h6 {
 
 
 button:active {
-  @apply active:scale-[0.98] transition duration-100;
+  @apply active:scale-90 transition duration-100 disabled:active:scale-100;
 }
 
 ::-webkit-scrollbar-track {
