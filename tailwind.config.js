@@ -96,13 +96,14 @@ export default {
     },
     extend: {
       backgroundColor: {
-        ripple: "rgba(0, 0, 0, 0.1)",
+        ripple: "rgba(255, 255, 255, 0.1)",
       },
       boxShadow: {
         sm: "-2px 2px 15px -1px rgba(113, 113, 113, 0.12)",
         md: "-2px 2px 20px -1px rgba(113, 113, 113, 0.2)",
         card: "0px 15px 20px rgba(0, 0, 0, 0.2)",
         tooltip: "0px 12px 28px 0px rgba(140, 149, 159, 0.3)",
+        button: "rgba(0, 0, 0, 0.16) 0px 1px 4px",
       },
       borderRadius: {
         sm: "4px",
@@ -117,14 +118,15 @@ export default {
         lg: "56px",
       },
       animation: {
-        ripple: "ripple 700ms ease-in-out",
+        ripple: "ripple ease-in-out",
         swipe: "swipe 40s linear infinite",
       },
       keyframes: {
         ripple: {
           to: {
             opacity: 0,
-            transform: "scale(50)",
+            transform: "scale(500)",
+            backgroundColor: "rgba(255, 255, 255, 1)",
           },
         },
         swipe: {

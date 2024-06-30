@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 const Button = ({
   children,
-  duration = 700,
+  duration = 1000,
   size = "md",
   type,
   className,
@@ -41,7 +41,7 @@ const Button = ({
       ripple.style.left = `${leftPos}px`;
       ripple.style.top = `${topPos}px`;
       ripple.style.animationDuration = duration / 1000 + "s";
-      ripple.classList.add("bg-ripple");
+      // ripple.classList.add("bg-ripple");
 
       button.appendChild(ripple);
 
@@ -58,15 +58,15 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={classNames(
-        `relative overflow-hidden disabled:opacity-80 gap-2 md:text-button-lg text-button-sm ${className}`,
+        `relative overflow-hidden disabled:opacity-80 gap-2 md:text-button-lg text-button-sm hover:shadow-button ${className}`,
         {
           "h-9 rounded-md px-2": size === "sm",
           "md:h-12 h-10 rounded-md px-2": size === "md",
           "md:h-14 h-8 rounded-md px-2": size === "lg",
           "size-9 rounded-full p-1": size === "icon",
-          "bg-primary text-white hover:bg-primary-400":
+          "bg-primary text-white hover:bg-primary/80":
             type === "primary-regular",
-          "bg-secondary text-white hover:bg-secondary-500":
+          "bg-secondary text-white hover:bg-secondary/80":
             type === "secondary-regular",
           "bg-white text-primary border border-solid border-primary hover:bg-primary hover:text-white":
             type === "primary-outline",

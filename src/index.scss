@@ -54,12 +54,12 @@ h6 {
 }
 
 .ripple {
-  @apply absolute size-2.5 rounded-full animate-ripple
+  @apply absolute size-0.5 rounded-full animate-ripple bg-ripple -translate-x-1/2 -translate-y-1/2 transition
 }
 
 
 button:active {
-  @apply active:scale-90 transition duration-100 disabled:active:scale-100;
+  @apply active:scale-95 transition duration-100 disabled:active:scale-100;
 }
 
 ::-webkit-scrollbar-track {
