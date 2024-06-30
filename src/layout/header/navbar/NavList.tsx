@@ -9,7 +9,7 @@ import classNames from "classnames";
 const NavList = () => {
   const { setIsNavMenuOpen } = useDropdown();
   return (
-    <ul className="gap-14">
+    <ul className="hidden md:flex md:gap-4 lg:gap-14">
       {NAV_LINKS.map((link: NavLinksProps, index) => (
         <li
           className="relative"
@@ -24,7 +24,7 @@ const NavList = () => {
           <NavLink
             className={({ isActive }) =>
               classNames(
-                'relative after:h-0.5 hover:text-primary transition after:content-[""] after:absolute after:top-[calc(100%+4px)] after:bg-gradient-to-r after:from-0% after:from-primary-50 after:via-50% after:via-primary after:to-100% after:to-primary-50 after:rounded-full after:transition',
+                'relative after:h-0.5 hover:text-primary w-max transition after:content-[""] after:absolute after:top-[calc(100%+4px)] after:bg-gradient-to-r after:from-0% after:from-primary-50 after:via-50% after:via-primary after:to-100% after:to-primary-50 after:rounded-full after:transition',
                 {
                   "after:w-full": isActive,
                 },

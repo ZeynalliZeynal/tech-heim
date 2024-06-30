@@ -45,11 +45,12 @@ const ProductCardBottom = ({
         }}
         className="min-h-12 flex items-center w-full justify-between"
       >
-        <Button className="bg-white text-primary border border-solid border-primary w-[150px] hover:bg-primary hover:text-white rounded-md h-9">
+        <Button size="sm" type="primary-outline">
           <AddToCartIcon />
           Add to Cart
         </Button>
-        <Button className="rounded-full size-9 p-1 text-primary">
+
+        <Button size="icon" className="text-primary">
           <CiHeart />
         </Button>
       </motion.div>

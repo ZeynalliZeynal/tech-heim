@@ -15,7 +15,8 @@ const HomeCarouselButtons = ({
   return (
     <div className="flex w-full justify-end text-primary-700 gap-2">
       <Button
-        className="bg-white rounded-full size-9"
+        size="icon"
+        className="bg-white"
         disabled={slideIndex === 0}
         onClick={handlePrev}
       >
@@ -24,7 +25,8 @@ const HomeCarouselButtons = ({
         </span>
       </Button>
       <Button
-        className="bg-white rounded-full size-9"
+        size="icon"
+        className="bg-white"
         disabled={slideIndex >= totalSlides - 5}
         onClick={handleNext}
       >

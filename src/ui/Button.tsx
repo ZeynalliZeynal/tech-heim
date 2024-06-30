@@ -1,14 +1,25 @@
 import React, { ReactNode, useRef } from "react";
+import classNames from "classnames";
 
 const Button = ({
   children,
   duration = 700,
+  size = "md",
+  type,
   className,
   disabled,
   onClick,
 }: {
   children?: ReactNode;
   duration?: number;
+  type?:
+    | "primary-regular"
+    | "primary-outline"
+    | "primary-none"
+    | "secondary-regular"
+    | "secondary-outline"
+    | "secondary-none";
+  size?: "sm" | "md" | "lg" | "icon";
   className?: string;
   disabled?: boolean;
   onClick?: () => void;
@@ -35,7 +46,6 @@ const Button = ({
       button.appendChild(ripple);
 
       ripple.addEventListener("animationend", () => {
-        console.log("end");
         button.removeChild(ripple);
       });
     }
@@ -47,7 +57,25 @@ const Button = ({
       onMouseDown={handleMouseDown}
       onClick={onClick}
       disabled={disabled}
-      className={`relative overflow-hidden gap-1 hover:-translate-y-0.5 active:scale-[0.98] text-body-md ${className} disabled:translate-y-0 disabled:opacity-80 disabled:active:scale-100 gap-2`}
+      className={classNames(
+        `relative overflow-hidden active:scale-[0.98] disabled:opacity-80 disabled:active:scale-100 gap-2 md:text-button-lg text-button-sm ${className}`,
+        {
+          "h-9 rounded-md px-2": size === "sm",
+          "md:h-12 h-10 rounded-md px-2": size === "md",
+          "md:h-14 h-8 rounded-md px-2": size === "lg",
+          "size-9 rounded-full p-1": size === "icon",
+          "bg-primary text-white hover:bg-primary-400":
+            type === "primary-regular",
+          "bg-secondary text-white hover:bg-secondary-500":
+            type === "secondary-regular",
+          "bg-white text-primary border border-solid border-primary hover:bg-primary hover:text-white":
+            type === "primary-outline",
+          "bg-white text-secondary border border-solid border-secondary hover:bg-secondary hover:text-white":
+            type === "secondary-outline",
+          "bg-white text-primary": type === "primary-none",
+          "bg-white text-secondary": type === "secondary-none",
+        },
+      )}
     >
       {children}
     </button>

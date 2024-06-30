@@ -11,7 +11,10 @@ const HomeWearableBanner = () => {
               <h3 className="text-h1">Smart Watches</h3>
               <h4>Various designs and brands</h4>
               <div className="mt-8">
-                <Button className="bg-banner-wearable-secondary text-banner-wearable-primary rounded-md px-4 h-9">
+                <Button
+                  size="sm"
+                  className="bg-banner-wearable-secondary text-banner-wearable-primary"
+                >
                   View
                 </Button>
               </div>

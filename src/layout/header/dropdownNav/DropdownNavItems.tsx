@@ -28,7 +28,7 @@ const DropdownNavItems = ({ categoryId }: { categoryId: number }) => {
         </div>
       ) : (
         <div className="flex flex-col gap-8">
-          <ul className="grid gap-8 grid-cols-4 justify-center items-start max-h-[250px] overflow-y-auto pr-12">
+          <ul className="grid gap-8 xl:grid-cols-4 lg:grid-cols-3 justify-center items-start max-h-[250px] overflow-y-auto pr-12">
             {subcategories?.map(
               ({
                 id,
@@ -62,7 +62,7 @@ const DropdownNavItems = ({ categoryId }: { categoryId: number }) => {
             )}{" "}
           </ul>
           <div className="flex justify-center mx-auto text-body-md text-primary hover:underline group">
-            <Link to="/" className="group-hover:tracking-wider">
+            <Link to="/" className="group-hover:scale-105">
               View All
             </Link>
           </div>

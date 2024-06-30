@@ -1,11 +1,11 @@
 import { SvgProps } from "../../types/svgTypes.ts";
 
-const Logo = ({ width = 56, height = 63 }: SvgProps) => {
+const Logo = ({ w = 56, h = 63 }: SvgProps) => {
   return (
     <span
       style={{
-        width: width + "px",
-        height: height + "px",
+        width: w + "px",
+        height: h + "px",
       }}
     >
       <svg viewBox="0 0 56 63" fill="none" xmlns="http://www.w3.org/2000/svg">

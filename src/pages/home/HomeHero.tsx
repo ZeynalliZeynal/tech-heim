@@ -12,7 +12,7 @@ const HomeHero = () => {
               "Join the{" "}
               <span className="text-secondary">digital revolution</span>"
             </h3>
-            <Button className="bg-secondary text-white hover:bg-secondary-500 h-14 rounded-md">
+            <Button size="lg" type="secondary-regular">
               Explore More
             </Button>
           </div>

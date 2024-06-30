@@ -14,19 +14,17 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
   return (
-    <div className="w-[300px]">
-      <Link
-        to="/"
-        className="h-[370px] rounded-md shadow-sm hover:shadow-md w-full p-4 justify-between items-start flex-col group relative"
-        onMouseEnter={() => setIsHovering(true)}
-        onMouseLeave={() => setIsHovering(false)}
-      >
-        <ProductCardImage detail={detail} brand={brand} />
-        <ProductCardColors colors={colors} />
-        <ProductCardBadges product={product} />
-        <ProductCardBottom product={product} isHovering={isHovering} />
-      </Link>
-    </div>
+    <Link
+      to="/"
+      className="h-[370px] rounded-md shadow-sm hover:shadow-md w-[300px] w-full p-4 justify-between items-start flex-col group relative"
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      <ProductCardImage detail={detail} brand={brand} />
+      <ProductCardColors colors={colors} />
+      <ProductCardBadges product={product} />
+      <ProductCardBottom product={product} isHovering={isHovering} />
+    </Link>
   );
 };
 

@@ -1,21 +1,24 @@
-import { CartIcon, SearchIcon } from "../../../ui/svgs/icons.tsx";
+import { CartIcon, EnterIcon, SearchIcon } from "../../../ui/svgs/icons.tsx";
 import Button from "../../../ui/Button.tsx";
 
 const NavRight = () => {
   return (
     <div className="flex items-center gap-2">
       <div>
-        <Button className="rounded-full size-9 hover:text-primary">
+        <Button size="icon" className="hover:text-primary">
           <SearchIcon />
         </Button>
       </div>
       <div>
-        <Button className="rounded-full size-9 hover:text-primary">
+        <Button size="icon" className="hover:text-primary">
           <CartIcon />
         </Button>
       </div>
       <div>
-        <Button className="h-9 rounded-md bg-primary text-white hover:bg-primary-400 px-4">
+        <Button size="sm" type="secondary-outline" className="md:hidden">
+          <EnterIcon /> Login
+        </Button>
+        <Button size="sm" type="primary-regular" className="md:flex hidden">
           Login / Register
         </Button>
       </div>
