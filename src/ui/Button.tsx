@@ -58,22 +58,23 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={classNames(
-        `relative overflow-hidden disabled:opacity-80 gap-2 md:text-button-lg text-button-sm hover:shadow-button ${className}`,
+        `relative overflow-hidden disabled:opacity-50 disabled:scale-100 gap-2 md:text-button-lg text-button-sm hover:shadow-button ${className}`,
         {
           "h-9 rounded-md px-2": size === "sm",
           "md:h-12 h-10 rounded-md px-2": size === "md",
           "md:h-14 h-8 rounded-md px-2": size === "lg",
           "size-9 rounded-full p-1": size === "icon",
-          "bg-primary text-white hover:bg-primary/80":
+          "bg-primary text-white hover:bg-primary/80 disabled:bg-primary":
             type === "primary-regular",
-          "bg-secondary text-white hover:bg-secondary/80":
+          "bg-secondary text-white hover:bg-secondary/80 disabled:bg-secondary":
             type === "secondary-regular",
-          "bg-white text-primary border border-solid border-primary hover:bg-primary hover:text-white":
+          "bg-white text-primary border border-solid border-primary hover:bg-primary hover:text-white disabled:bg-white":
             type === "primary-outline",
-          "bg-white text-secondary border border-solid border-secondary hover:bg-secondary hover:text-white":
+          "bg-white text-secondary border border-solid border-secondary hover:bg-secondary hover:text-white disabled:bg-white":
             type === "secondary-outline",
-          "bg-white text-primary": type === "primary-none",
-          "bg-white text-secondary": type === "secondary-none",
+          "bg-white text-primary disabled:bg-white": type === "primary-none",
+          "bg-white text-secondary disabled:bg-white":
+            type === "secondary-none",
         },
       )}
     >
