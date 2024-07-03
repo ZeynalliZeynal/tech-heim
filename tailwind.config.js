@@ -70,7 +70,12 @@ export default {
     fontSize: {
       "display-1": "4rem",
       "display-2": "3.5rem",
-      h1: "2.75rem",
+      h1: [
+        "2.75rem",
+        {
+          fontWeight: 600,
+        },
+      ],
       h2: "2.5rem",
       h3: [
         "2rem",
@@ -84,15 +89,17 @@ export default {
       "body-xl": "1.25rem",
       "body-lg": "1.125rem",
       "body-md": "1rem",
-      "body-sm": "0.75rem",
-      "body-xs": "0.625rem",
+      "body-sm": "0.875rem",
+      "body-xs": "0.75rem",
       "caption-lg": "0.875rem",
       "caption-md": "0.75rem",
       "caption-sm": "0.625rem",
+      caption: "0.75rem",
       "button-lg": "1rem",
       "button-sm": "0.875rem",
       "overline-lg": "1rem",
       "overline-md": "0.75rem",
+      overline: "0.625rem",
     },
     extend: {
       backgroundColor: {

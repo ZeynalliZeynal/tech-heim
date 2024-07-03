@@ -5,10 +5,10 @@ const HomeHero = () => {
   return (
     <section>
       <Container>
-        <div className="flex justify-between w-full">
-          <div className="flex flex-col justify-center text-primary-700">
-            <h1 className="text-display-1 font-bold">Tech Heim</h1>
-            <h3 className="mt-[50px] mb-[110px]">
+        <div className="grid sm:grid-cols-[5fr_7fr] grid-cols-2 justify-items-end w-full">
+          <div className="flex flex-col justify-around text-primary-700 justify-self-start gap-3">
+            <h1 className="lg:text-display-1">Tech Heim</h1>
+            <h3 className="">
               "Join the{" "}
               <span className="text-secondary">digital revolution</span>"
             </h3>
@@ -17,7 +17,13 @@ const HomeHero = () => {
             </Button>
           </div>
           <div className="flex flex-col justify-center">
-            <div className='w-[750px] h-[450px] bg-no-repeat bg-cover bg-[url("/images/home_banner_bg.jpg")]' />
+            <div className="max-w-[750px] max-h-[450px]">
+              <img
+                src="/images/home_banner_bg.jpg"
+                alt="Banner"
+                className="object-cover"
+              />
+            </div>
           </div>
         </div>
       </Container>

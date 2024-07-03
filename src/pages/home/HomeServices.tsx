@@ -5,11 +5,11 @@ const HomeServices = () => {
   return (
     <section>
       <Container>
-        <ul className="justify-between w-full">
+        <ul className="justify-between w-full lg:flex grid grid-cols-2 gap-8 lg:gap-0">
           {SERVICES.map((service, i) => (
             <li key={i} className="gap-4 items-center">
               {service.icon}{" "}
-              <span className="text-body-xl text-black uppercase">
+              <span className="xl:text-body-xl text-black uppercase">
                 {service.text}
               </span>
             </li>

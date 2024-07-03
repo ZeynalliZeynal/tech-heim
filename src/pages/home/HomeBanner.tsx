@@ -6,7 +6,7 @@ const HomeBanner = () => {
     <section>
       <Container>
         <div className="flex gap-6">
-          <div className="relative h-[420px]">
+          <div className="relative">
             <div className="h-full">
               <img src="/images/Banner.jpg" alt="Playstation 5" />
             </div>

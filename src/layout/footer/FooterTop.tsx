@@ -6,11 +6,11 @@ import { ADMIN_INFO } from "../../data/adminInfo.tsx";
 
 const FooterTop = () => {
   return (
-    <div className="grid grid-cols-[7fr_5fr] w-full py-12 text-white relative z-20">
-      <div className="flex">
-        <ul className="items-stretch w-full gap-[100px] justify-start">
+    <div className="grid lg:grid-cols-[7fr_5fr] grid-cols-1 w-full py-12 text-white relative z-20 gap-12">
+      <div className="flex lg:order-1 order-2">
+        <ul className="items-stretch w-full lg:gap-[100px] gap-y-12 justify-start md:flex-nowrap flex-wrap justify-between">
           {FOOTER_LINKS.map((item, i) => (
-            <li className="gap-2 flex-col items-start" key={i}>
+            <li className="gap-2 flex-col items-start md:w-auto w-1/2" key={i}>
               <h6>{item.title}</h6>
               <ul className="flex-col gap-2 text-neutral-gray-400 text-body-md items-start">
                 {item.list.map((l, i) => (
@@ -28,7 +28,7 @@ const FooterTop = () => {
           ))}
         </ul>
       </div>
-      <div className="flex justify-center">
+      <div className="flex lg:justify-center justify-start order-1">
         <div className="flex gap-4 flex-col">
           <h6>Sign up for news and updates</h6>
           <div className="h-12 rounded-md border-2 border-white w-[300px] px-3 flex items-center">

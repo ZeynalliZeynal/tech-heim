@@ -11,7 +11,7 @@ const CarouselItem = ({ product }: any) => {
   return (
     <Link
       to="/"
-      className="relative flex flex-col gap-3 bg-white rounded-sm py-3 px-2"
+      className="relative flex flex-col gap-3 bg-white rounded-sm py-3 px-2 h-full"
     >
       <span className="inline-flex justify-center absolute top-2 left-0 text-body-sm bg-secondary-100 text-secondary rounded-tr-md rounded-br-md w-[42px] py-1.5">
         {product.discount_percent}%

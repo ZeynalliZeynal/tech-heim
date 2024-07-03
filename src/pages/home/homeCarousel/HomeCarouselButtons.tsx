@@ -2,22 +2,22 @@ import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 import Button from "../../../ui/Button";
 
 const HomeCarouselButtons = ({
-  slideIndex,
   handlePrev,
   handleNext,
-  totalSlides,
+  isBeginning,
+  isEnd,
 }: {
-  slideIndex: number;
+  isBeginning: boolean;
   handlePrev: () => void;
   handleNext: () => void;
-  totalSlides: number;
+  isEnd: boolean;
 }) => {
   return (
     <div className="flex w-full justify-end text-primary-700 gap-2">
       <Button
         size="icon"
         className="bg-white"
-        disabled={slideIndex === 0}
+        disabled={isBeginning}
         onClick={handlePrev}
       >
         <span className="p-1">
@@ -27,7 +27,7 @@ const HomeCarouselButtons = ({
       <Button
         size="icon"
         className="bg-white"
-        disabled={slideIndex >= totalSlides - 5}
+        disabled={isEnd}
         onClick={handleNext}
       >
         <span className="p-1">

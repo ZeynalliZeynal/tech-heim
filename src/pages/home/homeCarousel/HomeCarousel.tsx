@@ -1,21 +1,21 @@
-import { useQuery } from '@tanstack/react-query';
-import { Link } from 'react-router-dom';
-import { FaAngleRight, FaChevronLeft, FaChevronRight } from 'react-icons/fa6';
-import { Swiper, SwiperSlide } from 'swiper/react';
+import { useQuery } from "@tanstack/react-query";
+import { Link } from "react-router-dom";
+import { FaAngleRight } from "react-icons/fa6";
+import { Swiper, SwiperSlide } from "swiper/react";
 
-import { getProductsHasDiscount } from '../../../services/apiGetters.ts';
-import Container from '../../../ui/Container.tsx';
-import CarouselItem from './CarouselItem.tsx';
-import Button from '../../../ui/Button.tsx';
-import { useRef, useState } from 'react';
-import { Swiper as SwiperTypes } from 'swiper/types';
-import HomeCarouselButtons from './HomeCarouselButtons.tsx';
+import { getProductsHasDiscount } from "../../../services/apiGetters.ts";
+import Container from "../../../ui/Container.tsx";
+import CarouselItem from "./CarouselItem.tsx";
+import { useRef, useState } from "react";
+import { Swiper as SwiperTypes } from "swiper/types";
+import HomeCarouselButtons from "./HomeCarouselButtons.tsx";
 
 const HomeCarousel = () => {
-  const [slideIndex, setSlideIndex] = useState<number>(0);
+  const [isBeginning, setIsBeginning] = useState<boolean>(true);
+  const [isEnd, setIsEnd] = useState<boolean>(false);
 
   const { data: products, isPending } = useQuery({
-    queryKey: ['products'],
+    queryKey: ["products"],
     queryFn: getProductsHasDiscount,
   });
 
@@ -30,26 +30,27 @@ const HomeCarousel = () => {
   };
 
   const handleSlideChange = (swiper: SwiperTypes) => {
-    setSlideIndex(swiper.activeIndex);
+    setIsBeginning(swiper.isBeginning);
+    setIsEnd(swiper.isEnd);
   };
 
-  const totalSlides = products ? products.length : 0;
-
-  if (isPending) return 'Loading...';
+  if (isPending) return "Loading...";
 
   return (
     <section>
       <Container>
         <div className="grid grid-cols-1 bg-primary-500 bg-[url('/images/random-shape-in-blue.png')] bg-no-repeat bg-contain px-8 py-11 gap-2 rounded-md select-none">
-          <div className='flex items-center gap-8 w-full'>
-            <div className='flex flex-col justify-between flex-wrap basis-[264px] h-[200px] text-white text-center'>
+          <div className="flex sm:flex-row flex-col items-center gap-8 w-full">
+            <div className="flex sm:flex-col sm:justify-around justify-between w-full flex-wrap sm:basis-[264px] sm:h-full text-white sm:text-center">
               <h4>
                 Products on Sale
-                <p className='mt-2 font-light text-body-xl'>Shop Now!</p>
+                <p className="font-light md:text-body-xl text-body-sm">
+                  Shop Now!
+                </p>
               </h4>
-              <Link to='/' className='py-3 px-2 group gap-1'>
+              <Link to="/" className="py-3 px-2 group gap-1 text-body-md">
                 View all
-                <span className='size-[14px] group-hover:translate-x-1 transition-all'>
+                <span className="size-[14px] group-hover:translate-x-1 transition-all">
                   <FaAngleRight />
                 </span>
               </Link>
@@ -57,9 +58,23 @@ const HomeCarousel = () => {
             <Swiper
               onSlideChange={handleSlideChange}
               ref={swiperRef}
-              slidesPerView={5}
+              slidesPerView={1}
               spaceBetween={24}
-              className='flex-1 cursor-grab active:cursor-grabbing'
+              breakpoints={{
+                768: {
+                  slidesPerView: 2,
+                  spaceBetween: 16,
+                },
+                1024: {
+                  slidesPerView: 3,
+                  spaceBetween: 20,
+                },
+                1280: {
+                  slidesPerView: 5,
+                  spaceBetween: 24,
+                },
+              }}
+              className="flex-1 cursor-grab active:cursor-grabbing w-full items-stretch"
             >
               {products?.map((product) => (
                 <SwiperSlide key={product.id}>
@@ -69,10 +84,10 @@ const HomeCarousel = () => {
             </Swiper>
           </div>
           <HomeCarouselButtons
-            slideIndex={slideIndex}
             handleNext={handleNext}
             handlePrev={handlePrev}
-            totalSlides={totalSlides}
+            isBeginning={isBeginning}
+            isEnd={isEnd}
           />
         </div>
       </Container>

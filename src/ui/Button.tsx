@@ -1,5 +1,6 @@
-import React, { ReactNode, useRef } from "react";
+import { ReactNode } from "react";
 import classNames from "classnames";
+import { useRipple } from "../hooks/useRipple.ts";
 
 const Button = ({
   children,
@@ -24,32 +25,7 @@ const Button = ({
   disabled?: boolean;
   onClick?: () => void;
 }) => {
-  const buttonRef = useRef<HTMLButtonElement | null>(null);
-
-  const handleMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const button = buttonRef.current;
-
-    if (button) {
-      const rect = button.getBoundingClientRect();
-      const ripple = document.createElement("span");
-      ripple.className = "ripple animate-ripple";
-
-      const { left, top } = rect;
-      const leftPos = e.clientX - left;
-      const topPos = e.clientY - top;
-
-      ripple.style.left = `${leftPos}px`;
-      ripple.style.top = `${topPos}px`;
-      ripple.style.animationDuration = duration / 1000 + "s";
-      // ripple.classList.add("bg-ripple");
-
-      button.appendChild(ripple);
-
-      ripple.addEventListener("animationend", () => {
-        button.removeChild(ripple);
-      });
-    }
-  };
+  const { handleMouseDown, buttonRef } = useRipple(duration);
 
   return (
     <button
@@ -58,15 +34,15 @@ const Button = ({
       onClick={onClick}
       disabled={disabled}
       className={classNames(
-        `relative overflow-hidden disabled:opacity-50 disabled:scale-100 gap-2 md:text-button-lg text-button-sm hover:shadow-button ${className}`,
+        `relative overflow-hidden disabled:opacity-50 disabled:scale-100 gap-2 text-button-lg hover:shadow-button ${className}`,
         {
           "h-9 rounded-md px-2": size === "sm",
           "md:h-12 h-10 rounded-md px-2": size === "md",
           "md:h-14 h-8 rounded-md px-2": size === "lg",
           "size-9 rounded-full p-1": size === "icon",
-          "bg-primary text-white hover:bg-primary/80 disabled:bg-primary":
+          "bg-primary text-white md:hover:bg-primary/80 disabled:bg-primary":
             type === "primary-regular",
-          "bg-secondary text-white hover:bg-secondary/80 disabled:bg-secondary":
+          "bg-secondary text-white md:hover:bg-secondary/80 disabled:bg-secondary":
             type === "secondary-regular",
           "bg-white text-primary border border-solid border-primary hover:bg-primary hover:text-white disabled:bg-white":
             type === "primary-outline",

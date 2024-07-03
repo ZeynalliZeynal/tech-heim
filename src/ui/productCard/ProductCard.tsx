@@ -16,7 +16,7 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
   return (
     <Link
       to="/"
-      className="h-[370px] rounded-md shadow-sm hover:shadow-md w-[300px] w-full p-4 justify-between items-start flex-col group relative"
+      className="h-[370px] rounded-md shadow-sm hover:shadow-md p-4 justify-between items-start flex-col w-full group relative"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >

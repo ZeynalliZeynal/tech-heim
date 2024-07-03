@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 
 export const FooterBottom = () => {
   return (
-    <div className="flex justify-between w-full">
-      <div className="inline-flex items-center gap-2 select-none">
-        <CopyrightIcon /> {new Date().getFullYear()} Tech Heim
+    <div className="flex items-start md:justify-between w-full flex-col md:flex-row gap-2">
+      <div className="inline-flex items-center gap-2 select-none md:order-1 order-2">
+        <CopyrightIcon size={16} /> {new Date().getFullYear()} Tech Heim
       </div>
-      <ul className="gap-12">
+      <ul className="lg:gap-12 gap-4 md:order-2 sm:flex hidden">
         <li>
           <Link to="/" className="hover:text-neutral-gray-200">
             Cookie settings
