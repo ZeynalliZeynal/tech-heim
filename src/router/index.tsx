@@ -1,44 +1,49 @@
-import { createBrowserRouter } from "react-router-dom";
-import MainLayout from "../layout/mainLayout/MainLayout.tsx";
-import Home from "../pages/home/Home.tsx";
-import Products from "../pages/products/Products.tsx";
-import Blog from "../pages/blog/Blog.tsx";
-import Faq from "../pages/faq/Faq.tsx";
-import ContactUs from "../pages/contact/Contact.tsx";
+import { createBrowserRouter } from 'react-router-dom';
+import MainLayout from '../layout/mainLayout/MainLayout.tsx';
+import Home from '../pages/home/Home.tsx';
+import Products from '../pages/products/Products.tsx';
+import Blog from '../pages/blog/Blog.tsx';
+import Faq from '../pages/faq/Faq.tsx';
+import ContactUs from '../pages/contact/Contact.tsx';
+import TodoApp from '../pages/testPage/TodoApp.tsx';
 
 export const router = createBrowserRouter([
   {
     element: <MainLayout />,
     children: [
       {
-        path: "/",
+        path: '/',
         element: <Home />,
       },
       {
-        path: "/products",
+        path: '/products',
         element: <Products />,
         children: [
           {
-            path: ":device",
+            path: ':device',
             element: <Products />,
           },
         ],
       },
       {
-        path: "/products",
+        path: '/products',
         element: <Products />,
       },
       {
-        path: "/blog",
+        path: '/blog',
         element: <Blog />,
       },
       {
-        path: "/faq",
+        path: '/faq',
         element: <Faq />,
       },
       {
-        path: "/contact",
+        path: '/contact',
         element: <ContactUs />,
+      },
+      {
+        path: '/todo',
+        element: <TodoApp />,
       },
     ],
   },
