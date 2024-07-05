@@ -4,21 +4,22 @@ import React, {
   useContext,
   useEffect,
   useState,
-} from "react";
-import { DropdownContextValueTypes } from "../types/dropdownContextTypes.ts";
+} from 'react';
 
-const DropdownContext = createContext<DropdownContextValueTypes | null>(null);
+import { DropdownContextType } from '../types/contextTypes.ts';
+
+const DropdownContext = createContext<DropdownContextType | null>(null);
 
 const DropdownProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState<boolean>(false);
   const [isCartMenuOpen, setIsCartMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {
-    if (isNavMenuOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
+    if (isNavMenuOpen) document.body.style.overflow = 'hidden';
+    else document.body.style.overflow = '';
 
     return () => {
-      document.body.style.overflow = "";
+      document.body.style.overflow = '';
     };
   }, [isNavMenuOpen]);
 
@@ -39,7 +40,7 @@ const DropdownProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
 const useDropdown = () => {
   const context = useContext(DropdownContext);
   if (!context)
-    throw new Error("Dropdown Context is used outside the provider");
+    throw new Error('Dropdown Context is used outside the provider');
   return context;
 };
 
