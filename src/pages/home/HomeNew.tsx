@@ -4,7 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 import { getNewProducts } from "../../services/apiGetters.ts";
 
 const HomeNew = () => {
-  const { data: newProducts, isPending } = useQuery({
+  const { data: newProducts } = useQuery({
     queryKey: ["products/new", 24 * 30],
     queryFn: () => getNewProducts(24 * 30),
   });

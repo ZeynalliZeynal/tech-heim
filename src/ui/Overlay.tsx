@@ -1,32 +1,9 @@
-import { motion } from "framer-motion";
+import { createPortal } from "react-dom";
 
-const Overlay = ({
-  isActive,
-  zIndex,
-}: {
-  isActive: boolean;
-  zIndex: number;
-}) => {
-  return (
-    <motion.div
-      animate={isActive ? "active" : "initial"}
-      variants={{
-        active: {
-          zIndex,
-          opacity: 1,
-        },
-      }}
-      initial={{
-        zIndex: -1,
-        opacity: 0,
-      }}
-      style={{
-        position: "fixed",
-        inset: 0,
-        zIndex: 500,
-        backgroundColor: "rgb(0, 0, 0, 0.6)",
-      }}
-    />
+const Overlay = () => {
+  return createPortal(
+    <div className="fixed inset-0 w-full h-screen bg-black/60 transition duration-500 z-[500] animate-fadeIn opacity-0 scale-110" />,
+    document.body,
   );
 };
 

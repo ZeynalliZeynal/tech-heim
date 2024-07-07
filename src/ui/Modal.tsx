@@ -67,7 +67,7 @@ const Window = ({ children, name }: { children: ReactNode; name: string }) => {
   if (openWindowName !== name) return null;
 
   return createPortal(
-    <div className="fixed inset-0 w-full h-screen bg-black/60 transition duration-500 z-[1000] animate-fadeIn opacity-0 scale-110">
+    <div className="fixed flex justify-center items-center inset-0 w-full h-screen bg-black/60 transition duration-500 z-[1000] animate-fadeIn opacity-0 scale-110">
       <div
         ref={ref}
         className="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-md px-12 py-8 bg-white text-neutral-gray-dark"

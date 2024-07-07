@@ -9,7 +9,7 @@ const HomeFilteredProducts = ({
 }: {
   title: string;
   to: string;
-  products: ProductTypes[];
+  products?: ProductTypes[];
 }) => {
   return (
     <HomeSectionContainer title={title} to={to}>

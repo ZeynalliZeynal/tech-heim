@@ -127,7 +127,7 @@ export default {
       animation: {
         ripple: "ripple ease-in-out",
         swipe: "swipe 40s linear infinite",
-        fadeIn: "fadeIn 300ms ease-in-out both",
+        fadeIn: "fadeIn 300ms ease-in-out forwards",
       },
       keyframes: {
         ripple: {
