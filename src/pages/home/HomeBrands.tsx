@@ -60,11 +60,15 @@ const HomeBrands = () => {
           >
             <ul
               ref={scrollerInnerRef}
-              className="justify-start gap-16 py-4 shrink-0 w-max animate-swipe"
+              className="justify-start gap-8 py-4 shrink-0 w-max animate-swipe"
             >
               {distinctBrands?.map((brand) => (
-                <li key={brand.id}>
-                  <img src={brand.logo} alt={brand.name} />
+                <li key={brand.id} className="lg:h-auto md:h-12 h-6">
+                  <img
+                    src={brand.logo}
+                    alt={brand.name}
+                    className="object-contain"
+                  />
                 </li>
               ))}
             </ul>

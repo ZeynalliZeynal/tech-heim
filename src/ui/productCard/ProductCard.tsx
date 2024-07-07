@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useProductDetails } from "../../hooks/useProductDetails.ts";
 
@@ -8,15 +8,22 @@ import ProductCardImage from "./ProductCardImage.tsx";
 import ProductCardBadges from "./ProductCardBadges.tsx";
 import ProductCardBottom from "./ProductCardBottom.tsx";
 import { ProductTypes } from "../../types/productTypes.ts";
+import useWindowSize from "../../hooks/useWindowSize.ts";
 
 const ProductCard = ({ product }: { product: ProductTypes }) => {
   const { detail, brand, colors } = useProductDetails(product.id);
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
+  const { width } = useWindowSize();
+
+  useEffect(() => {
+    if (width < 768) setIsHovering(false);
+  }, [width]);
+
   return (
     <Link
       to="/"
-      className="h-[370px] rounded-md shadow-sm hover:shadow-md p-4 justify-between items-start flex-col w-full group relative"
+      className="md:min-h-[370px] md:h-full min-h-[280px] rounded-md shadow-sm hover:shadow-md p-4 justify-between sm:items-start items-center flex-col w-full group relative"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
