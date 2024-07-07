@@ -8,7 +8,6 @@ import { getCategories } from "../../../services/apiGetters.ts";
 import { CATEGORIES_ICONS } from "../../../utils/variables.tsx";
 import DropdownNavItems from "./DropdownNavItems.tsx";
 import classNames from "classnames";
-import Overlay from "../../../ui/Overlay.tsx";
 
 const DropdownNav = () => {
   const { isNavMenuOpen } = useDropdown();
@@ -21,7 +20,6 @@ const DropdownNav = () => {
 
   return (
     <div className="fixed top-[100px] left-1/2 -translate-x-1/2 font-light container perspective-[2000px] perspective-origin-top">
-      {isNavMenuOpen && <Overlay />}
       <motion.div
         className="origin-top rounded-bl-md rounded-br-md overflow-hidden"
         animate={isNavMenuOpen ? "active" : "initial"}

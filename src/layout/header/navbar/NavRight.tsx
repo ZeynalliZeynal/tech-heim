@@ -1,6 +1,7 @@
-import { CartIcon, EnterIcon, SearchIcon } from "../../../ui/svgs/icons.tsx";
+import { EnterIcon, SearchIcon } from "../../../ui/svgs/icons.tsx";
 import Button from "../../../ui/Button.tsx";
 import Modal from "../../../ui/Modal.tsx";
+import Cart from "../../../../features/cart/Cart.tsx";
 
 const NavRight = () => {
   return (
@@ -18,9 +19,7 @@ const NavRight = () => {
           </Modal.Panel>
         </Modal.Window>
       </Modal>
-      <Button size="icon">
-        <CartIcon />
-      </Button>
+      <Cart />
       <div>
         <Button size="sm" type="primary-none" className="md:hidden">
           <EnterIcon /> Login

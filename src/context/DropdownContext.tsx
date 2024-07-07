@@ -11,7 +11,7 @@ import { DropdownContextType } from "../types/contextTypes";
 const DropdownContext = createContext<DropdownContextType | null>(null);
 
 const DropdownProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
-  const [isNavMenuOpen, setIsNavMenuOpen] = useState<boolean>(true);
+  const [isNavMenuOpen, setIsNavMenuOpen] = useState<boolean>(false);
   const [isCartMenuOpen, setIsCartMenuOpen] = useState<boolean>(false);
 
   useEffect(() => {

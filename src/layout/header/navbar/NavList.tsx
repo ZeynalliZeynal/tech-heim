@@ -5,9 +5,10 @@ import { useDropdown } from "../../../context/DropdownContext.tsx";
 import { NavLinksProps } from "../../../types/variableTypes.ts";
 import DropdownNav from "../dropdownNav/DropdownNav.tsx";
 import classNames from "classnames";
+import Overlay from "../../../ui/Overlay.tsx";
 
 const NavList = () => {
-  const { setIsNavMenuOpen } = useDropdown();
+  const { isNavMenuOpen, setIsNavMenuOpen } = useDropdown();
   return (
     <ul className="hidden md:flex md:gap-4 lg:gap-14">
       {NAV_LINKS.map((link: NavLinksProps, index) => (
@@ -37,6 +38,7 @@ const NavList = () => {
           {link.children && <DropdownNav />}
         </li>
       ))}
+      {isNavMenuOpen && <Overlay />}
     </ul>
   );
 };
