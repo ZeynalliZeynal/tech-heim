@@ -10,7 +10,7 @@ const Cart = () => {
           <CartIcon />
         </Button>
       </MenuDropdown.Toggle>
-      <MenuDropdown.Menu name="cart">test</MenuDropdown.Menu>
+      <MenuDropdown.Menu name="cart">Bucket</MenuDropdown.Menu>
     </MenuDropdown>
   );
 };

@@ -19,7 +19,7 @@ const DropdownNav = () => {
   });
 
   return (
-    <div className="fixed top-[100px] left-1/2 -translate-x-1/2 font-light container perspective-[2000px] perspective-origin-top">
+    <div className="fixed top-[84px] left-1/2 -translate-x-1/2 font-light container perspective-[2000px] perspective-origin-top">
       <motion.div
         className="origin-top rounded-bl-md rounded-br-md overflow-hidden"
         animate={isNavMenuOpen ? "active" : "initial"}

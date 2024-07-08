@@ -1,11 +1,8 @@
-import { Dispatch, Ref, SetStateAction } from 'react';
+import { Dispatch, Ref, SetStateAction } from "react";
 
 export type DropdownContextType = {
   isNavMenuOpen: boolean;
   setIsNavMenuOpen: (isOpen: boolean) => void;
-
-  isCartMenuOpen: boolean;
-  setIsCartMenuOpen: (isOpen: boolean) => void;
 };
 
 export type ModalContextType = {

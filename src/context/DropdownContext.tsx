@@ -1,34 +1,19 @@
-import React, {
-  createContext,
-  ReactNode,
-  useContext,
-  useEffect,
-  useState,
-} from "react";
+import React, { createContext, ReactNode, useContext, useState } from "react";
 
 import { DropdownContextType } from "../types/contextTypes";
+import { useHideScroll } from "../hooks/useHideScroll.ts";
 
 const DropdownContext = createContext<DropdownContextType | null>(null);
 
 const DropdownProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState<boolean>(false);
-  const [isCartMenuOpen, setIsCartMenuOpen] = useState<boolean>(false);
 
-  useEffect(() => {
-    if (isNavMenuOpen) document.body.style.overflow = "hidden";
-    else document.body.style.overflow = "";
-
-    return () => {
-      document.body.style.overflow = "";
-    };
-  }, [isNavMenuOpen]);
+  useHideScroll(isNavMenuOpen);
 
   return (
     <DropdownContext.Provider
       value={{
         isNavMenuOpen,
-        setIsCartMenuOpen,
-        isCartMenuOpen,
         setIsNavMenuOpen,
       }}
     >

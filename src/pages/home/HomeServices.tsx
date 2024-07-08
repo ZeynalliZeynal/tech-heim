@@ -5,9 +5,12 @@ const HomeServices = () => {
   return (
     <section>
       <Container>
-        <ul className="justify-between w-full lg:flex grid grid-cols-2 gap-8 lg:gap-0">
+        <ul className="justify-between w-full lg:flex grid sm:grid-cols-2 grid-cols-1 gap-8 lg:gap-0">
           {SERVICES.map((service, i) => (
-            <li key={i} className="gap-4 items-center">
+            <li
+              key={i}
+              className="gap-4 items-center lg:justify-start sm:justify-center"
+            >
               {service.icon}{" "}
               <span className="xl:text-body-xl text-black uppercase">
                 {service.text}

@@ -1,6 +1,6 @@
 import { SvgProps } from "../../types/svgTypes.ts";
 
-const Logo = ({ w = 56, h = 63 }: SvgProps) => {
+const Logo = ({ w = 48, h = 48 }: SvgProps) => {
   return (
     <span
       style={{
