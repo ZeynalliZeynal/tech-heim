@@ -1,4 +1,4 @@
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export const useOutsideClick = (
   handler: () => void,
@@ -7,11 +7,8 @@ export const useOutsideClick = (
   const ref = useRef(null);
 
   useEffect(() => {
-    const handleClick = (e) => {
-      if (ref.current && !ref.current.contains(e.target)) {
-        console.log('Outside clicked');
-        handler();
-      }
+    const handleClick = (e: Mouse) => {
+      if (ref.current && !ref.current.contains(e.target)) handler();
     };
 
     document.addEventListener('click', handleClick, listeningOption);

@@ -1,4 +1,4 @@
-import { Dispatch, SetStateAction } from "react";
+import { Dispatch, Ref, SetStateAction } from 'react';
 
 export type DropdownContextType = {
   isNavMenuOpen: boolean;
@@ -23,4 +23,5 @@ export type MenuDropdownContextType = {
   setPosition: Dispatch<SetStateAction<null | { x: number; y: number }>>;
   openMenu: (name: string) => void;
   closeMenu: () => void;
+  toggleRef: Ref<HTMLButtonElement>;
 };

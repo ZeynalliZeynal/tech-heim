@@ -5,17 +5,18 @@ import React, {
   ReactNode,
   useContext,
   useState,
-} from "react";
-import { MenuDropdownContextType } from "../types/contextTypes.ts";
-import { createPortal } from "react-dom";
+} from 'react';
+import { MenuDropdownContextType } from '../types/contextTypes.ts';
+import { createPortal } from 'react-dom';
+import Container from './Container.tsx';
 
 const MenuDropdownContext = createContext<MenuDropdownContextType | null>(null);
 
 const MenuDropdown = ({ children }: { children: ReactNode }) => {
-  const [currentMenu, setCurrentMenu] = useState("");
+  const [currentMenu, setCurrentMenu] = useState('');
   const [position, setPosition] = useState(null);
 
-  const closeMenu = () => setCurrentMenu("");
+  const closeMenu = () => setCurrentMenu('');
   const openMenu = setCurrentMenu;
 
   return (
@@ -36,7 +37,7 @@ const MenuDropdown = ({ children }: { children: ReactNode }) => {
 const useMenuDropdownContext = () => {
   const context = useContext(MenuDropdownContext);
   if (!context)
-    throw new Error("Menu Dropdown context is used outside the provider.");
+    throw new Error('Menu Dropdown context is used outside the provider.');
   return context;
 };
 
@@ -51,33 +52,30 @@ const Toggle = ({
     useMenuDropdownContext();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const rect = e.target?.closest("button").getBoundingClientRect();
+    const rect = e.target?.closest('button').getBoundingClientRect();
     console.log(rect.height);
     setPosition({
       x: window.innerWidth - rect.x - rect.width,
       y: rect.y + rect.height + 8,
     });
-    currentMenu === "" || currentMenu !== name ? openMenu(name) : closeMenu();
+    currentMenu === '' || currentMenu !== name ? openMenu(name) : closeMenu();
   };
 
   return cloneElement(children, { onClick: handleClick });
 };
 
 const Menu = ({ name, children }: { name: string; children: ReactNode }) => {
-  const { currentMenu, position } = useMenuDropdownContext();
+  const { currentMenu } = useMenuDropdownContext();
+
   if (currentMenu !== name) return null;
 
   return createPortal(
-    <div
-      className="fixed z-[900] bg-white rounded-md shadow-md -translate-x-1/2 -translate-y-1/2"
-      style={{
-        right: position?.x + "px",
-        top: position?.y + "px",
-      }}
-    >
-      {currentMenu} {children}
+    <div className='fixed left-0 right-0 z-[900] top-[100px]'>
+      <div className='container flex justify-end'>
+        <div className='border rounded-md shadow-md bg-white'>{children}</div>
+      </div>
     </div>,
-    document.body,
+    document.body
   );
 };
 
