@@ -128,6 +128,7 @@ export default {
         ripple: "ripple ease-in-out",
         swipe: "swipe 40s linear infinite",
         fadeIn: "fadeIn 300ms ease-in-out forwards",
+        fadeOut: "fadeOut 300ms ease-in-out forwards",
       },
       keyframes: {
         ripple: {
@@ -151,6 +152,14 @@ export default {
           },
           to: {
             opacity: 1,
+          },
+        },
+        fadeOut: {
+          from: {
+            opacity: 1,
+          },
+          to: {
+            opacity: 0,
           },
         },
       },

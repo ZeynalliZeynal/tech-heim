@@ -3,10 +3,11 @@ export type DropdownContextType = {
   setIsNavMenuOpen: (isOpen: boolean) => void;
 };
 
-export type ModalContextType = {
-  openWindowName: string;
-  openWindow: (opens: string) => void;
-  closeWindow: () => void;
+export type WindowComponentContextType = {
+  currentWindow?: string;
+  open: (opens: string) => void;
+  close: () => void;
+  isAnimating: boolean;
 } | null;
 
 export type MenuDropdownContextType = {
