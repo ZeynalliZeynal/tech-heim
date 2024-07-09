@@ -6,6 +6,7 @@ import { NavLinksProps } from "../../../types/variableTypes.ts";
 import DropdownNav from "../dropdownNav/DropdownNav.tsx";
 import classNames from "classnames";
 import Overlay from "../../../ui/Overlay.tsx";
+import { HiMiniChevronDown } from "react-icons/hi2";
 
 const NavList = () => {
   const { isNavMenuOpen, setIsNavMenuOpen } = useDropdown();
@@ -33,11 +34,18 @@ const NavList = () => {
             }
             to={link.to}
           >
-            {link.name}
+            {link.name}{" "}
+            {link.children && (
+              <span
+                className={`size-5 transition ${isNavMenuOpen ? "rotate-180" : ""}`}
+              >
+                <HiMiniChevronDown />
+              </span>
+            )}
           </NavLink>{" "}
           {link.children && <DropdownNav />}
         </li>
-      ))}
+      ))}{" "}
       {isNavMenuOpen && <Overlay />}
     </ul>
   );

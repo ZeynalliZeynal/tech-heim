@@ -19,7 +19,7 @@ const DropdownNav = () => {
   });
 
   return (
-    <div className="fixed top-[84px] left-1/2 -translate-x-1/2 font-light container perspective-[2000px] perspective-origin-top">
+    <div className="fixed top-16 left-1/2 -translate-x-1/2 font-light container perspective-[2000px] perspective-origin-top">
       <motion.div
         className="origin-top rounded-bl-md rounded-br-md overflow-hidden"
         animate={isNavMenuOpen ? "active" : "initial"}
@@ -39,7 +39,7 @@ const DropdownNav = () => {
           display: "none",
         }}
       >
-        <div className="p-6 absolute w-full -top-10 z-[900]" />
+        <div className="p-3 absolute w-full -top-6 z-[900]" />
         <div className="grid bg-white grid-cols-[300px_1fr]">
           <ul className="relative flex-col items-start gap-4 z-[900] border-r border-neutral-gray-600 px-6 py-4">
             {categories?.map(({ id, name }) => (

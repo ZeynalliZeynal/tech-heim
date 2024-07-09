@@ -16,7 +16,6 @@ const MenuDropdownContext = createContext<MenuDropdownContextType | null>(null);
 
 const MenuDropdown = ({ children }: { children: ReactNode }) => {
   const [currentMenu, setCurrentMenu] = useState("");
-  const [position, setPosition] = useState(null);
 
   const closeMenu = () => setCurrentMenu("");
   const openMenu = setCurrentMenu;
@@ -27,8 +26,6 @@ const MenuDropdown = ({ children }: { children: ReactNode }) => {
     <MenuDropdownContext.Provider
       value={{
         currentMenu,
-        position,
-        setPosition,
         openMenu,
         closeMenu,
       }}
@@ -52,17 +49,10 @@ const Toggle = ({
   name: string;
   children: ReactElement;
 }) => {
-  const { openMenu, currentMenu, closeMenu, setPosition } =
-    useMenuDropdownContext();
+  const { openMenu, currentMenu, closeMenu } = useMenuDropdownContext();
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    console.log("clicked");
-    const rect = e.target?.closest("button").getBoundingClientRect();
-    setPosition({
-      x: window.innerWidth - rect.x - rect.width,
-      y: rect.y + rect.height + 8,
-    });
     currentMenu === "" || currentMenu !== name ? openMenu(name) : closeMenu();
   };
 
@@ -79,7 +69,7 @@ const Menu = ({ name, children }: { name: string; children: ReactNode }) => {
   return createPortal(
     <>
       <Overlay />
-      <div className="fixed left-0 right-0 z-[500] top-[84px]">
+      <div className="fixed left-0 right-0 z-[500] top-16">
         <div className="container flex justify-end">
           <div
             ref={ref}

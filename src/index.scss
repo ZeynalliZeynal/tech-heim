@@ -79,7 +79,6 @@ button:active {
 }
 
 @media screen and (max-width: 767px) {
-
   .text-body-lg {
     @apply text-[1rem]
   }
@@ -111,5 +110,4 @@ button:active {
   .overline-lg, .overline-md {
     @apply text-overline
   }
-
 }
