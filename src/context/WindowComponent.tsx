@@ -11,6 +11,8 @@ import { useWindowComponentContext } from "../hooks/useWindowComponentContext.ts
 import { useOutsideClick } from "../hooks/useOutsideClick.ts";
 import { createPortal } from "react-dom";
 import classNames from "classnames";
+import Button from "../ui/Button.tsx";
+import { IoIosClose } from "react-icons/io";
 
 enum WindowActionKind {
   open = "window/open",
@@ -127,6 +129,19 @@ const Window = ({
       </div>
     </div>,
     document.body,
+  );
+};
+
+const Head = ({ children }: { children: ReactElement }) => {
+  const { close } = useWindowComponentContext();
+
+  return (
+    <div className="flex justify-between">
+      {children}{" "}
+      <Button size="icon" onClick={close}>
+        <IoIosClose />
+      </Button>
+    </div>
   );
 };
 

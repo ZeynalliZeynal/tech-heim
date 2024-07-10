@@ -30,8 +30,6 @@ const Header = () => {
           header.classList.remove("translate-y-0");
         }
         setLastScrollY(currentScrollY);
-        console.log(currentScrollY, lastScrollY);
-        1;
       }
     };
     window.addEventListener("scroll", handleScroll);

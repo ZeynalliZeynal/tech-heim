@@ -8,6 +8,7 @@ export type WindowComponentContextType = {
   open: (opens: string) => void;
   close: () => void;
   isAnimating: boolean;
+  type?: string;
 } | null;
 
 export type MenuDropdownContextType = {
