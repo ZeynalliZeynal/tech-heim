@@ -47,7 +47,7 @@ const Header = () => {
   return (
     <header
       ref={headerRef}
-      className='fixed top-0 left-0 w-full text-body-lg z-[900] bg-white h-16 transition border-b border-white'
+      className='relative top-0 left-0 w-full text-body-lg z-[900] bg-white h-16 transition border-b border-white'
     >
       <Container>
         <Navbar />
