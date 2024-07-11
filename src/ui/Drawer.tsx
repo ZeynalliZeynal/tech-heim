@@ -15,7 +15,7 @@ const Body = ({ children, name }: { name: string; children: ReactNode }) => {
   const { pathname } = useLocation();
   useEffect(() => {
     close();
-  }, [pathname]);
+  }, [close, pathname]);
 
   return (
     <WindowComponent.Window name={name} zIndex={1000}>

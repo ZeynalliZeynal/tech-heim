@@ -3,6 +3,7 @@ import {
   createContext,
   ReactElement,
   ReactNode,
+  useCallback,
   useReducer,
 } from 'react';
 import { WindowComponentContextType } from '../types/contextTypes.ts';
@@ -71,12 +72,12 @@ const WindowComponent = ({
   const open = (name: string) =>
     dispatch({ type: WindowActionKind.open, payload: name });
 
-  const close = () => {
+  const close = useCallback(() => {
     dispatch({ type: WindowActionKind.animate });
     setTimeout(() => {
       dispatch({ type: WindowActionKind.close });
     }, 300);
-  };
+  }, []);
 
   const hideBodyScroll = hideScroll || currentWindow;
 
