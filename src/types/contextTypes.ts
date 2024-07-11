@@ -16,3 +16,9 @@ export type MenuDropdownContextType = {
   openMenu: (name: string) => void;
   closeMenu: () => void;
 };
+
+export type AccordionContextType = {
+  currentAccordion: string;
+  open: (name: string) => void;
+  close: () => void;
+};

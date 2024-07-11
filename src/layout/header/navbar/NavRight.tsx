@@ -1,19 +1,21 @@
-import { EnterIcon, SearchIcon } from "../../../ui/svgs/icons.tsx";
-import Button from "../../../ui/Button.tsx";
-import Modal from "../../../ui/Modal.tsx";
-import Cart from "../../../../features/cart/Cart.tsx";
+import { EnterIcon, SearchIcon } from '../../../ui/svgs/icons.tsx';
+import Button from '../../../ui/Button.tsx';
+import Modal from '../../../ui/Modal.tsx';
+import Cart from '../../../../features/cart/Cart.tsx';
 
 const NavRight = () => {
   return (
-    <div className="flex items-center gap-2">
+    <div className='flex items-center gap-2'>
       <Modal>
-        <Modal.Open opens="search-window">
-          <Button size="icon">
+        <Modal.Open name='search-window'>
+          <Button size='icon'>
             <SearchIcon />
           </Button>
         </Modal.Open>
-        <Modal.Window name="search-window">
-          <Modal.Head>Search</Modal.Head>
+        <Modal.Window name='search-window'>
+          <Modal.Head>
+            <h5>Search</h5>
+          </Modal.Head>
           <Modal.Panel>
             <div>hello</div>
           </Modal.Panel>
@@ -21,10 +23,10 @@ const NavRight = () => {
       </Modal>
       <Cart />
       <div>
-        <Button size="sm" type="primary-none" className="md:hidden">
+        <Button size='sm' type='primary-none' className='md:hidden'>
           <EnterIcon /> Login
         </Button>
-        <Button size="sm" type="primary-regular" className="md:flex hidden">
+        <Button size='sm' type='primary-regular' className='md:flex hidden'>
           Login / Register
         </Button>
       </div>

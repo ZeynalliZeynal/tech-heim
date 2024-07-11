@@ -1,6 +1,6 @@
-import Navbar from "./navbar/Navbar.tsx";
-import Container from "../../ui/Container.tsx";
-import { useEffect, useRef, useState } from "react";
+import Navbar from './navbar/Navbar.tsx';
+import Container from '../../ui/Container.tsx';
+import { useEffect, useRef, useState } from 'react';
 
 const Header = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -13,35 +13,41 @@ const Header = () => {
       if (header) {
         if (currentScrollY <= 84) {
           // at the top
-          header.classList.remove("border-primary");
-          header.classList.add("border-white");
-          header.classList.remove("-translate-y-full");
+          header.classList.remove('border-primary');
+          header.classList.remove('fixed');
+          header.classList.add('relative');
+          header.classList.add('border-white');
+          header.classList.remove('-translate-y-full');
         } else if (currentScrollY < lastScrollY) {
           // scrolling up
-          header.classList.remove("border-white");
-          header.classList.add("border-primary");
-          header.classList.remove("-translate-y-full");
-          header.classList.add("translate-y-0");
+          header.classList.add('fixed');
+          header.classList.remove('relative');
+          header.classList.remove('border-white');
+          header.classList.add('border-primary');
+          header.classList.remove('-translate-y-full');
+          header.classList.add('translate-y-0');
         } else if (currentScrollY > lastScrollY) {
           // scrolling down
-          header.classList.remove("border-white");
-          header.classList.add("border-primary");
-          header.classList.add("-translate-y-full");
-          header.classList.remove("translate-y-0");
+          header.classList.add('fixed');
+          header.classList.remove('relative');
+          header.classList.remove('border-white');
+          header.classList.add('border-primary');
+          header.classList.add('-translate-y-full');
+          header.classList.remove('translate-y-0');
         }
         setLastScrollY(currentScrollY);
       }
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
 
   return (
     <header
       ref={headerRef}
-      className="fixed top-0 left-0 w-full text-body-lg z-[900] bg-white h-16 transition border-b border-white"
+      className='fixed top-0 left-0 w-full text-body-lg z-[900] bg-white h-16 transition border-b border-white'
     >
       <Container>
         <Navbar />
