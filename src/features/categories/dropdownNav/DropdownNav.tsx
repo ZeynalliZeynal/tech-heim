@@ -2,11 +2,10 @@ import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import classNames from 'classnames';
-
-import { useDropdown } from '../../../context/DropdownContext.tsx';
-import { CATEGORIES_ICONS } from '../../../utils/variables.tsx';
-import DropdownNavItems from './DropdownNavItems.tsx';
-import { useCategories } from '../../../hooks/useCategories.ts';
+import { useDropdown } from '@/context/DropdownContext';
+import { CATEGORIES_ICONS } from '@/utils/variables';
+import DropdownNavItems from './DropdownNavItems';
+import { useCategories } from '../useCategories';
 
 const DropdownNav = () => {
   const { isNavMenuOpen } = useDropdown();

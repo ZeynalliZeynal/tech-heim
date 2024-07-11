@@ -1,10 +1,11 @@
-import { supabase } from "./supabase.ts";
-import { getWithinHours } from "../helpers/converters.ts";
+import { supabase } from './supabase.ts';
+import { getWithinHours } from '../helpers/converters.ts';
+import { RealtimePostgresChangesFilter } from '@supabase/supabase-js';
 
 export const getCategories = async () => {
   const { data: categories, error } = await supabase
-    .from("product_categories")
-    .select("*");
+    .from('product_categories')
+    .select('*');
 
   if (error) {
     console.error(error.message);
@@ -16,9 +17,9 @@ export const getCategories = async () => {
 
 export const getSubcategoriesById = async (id: number) => {
   const { data: subcategories, error } = await supabase
-    .from("product_subcategories")
-    .select("*")
-    .eq("category_id", id);
+    .from('product_subcategories')
+    .select('*')
+    .eq('category_id', id);
 
   if (error) {
     console.error(error.message);
@@ -30,7 +31,7 @@ export const getSubcategoriesById = async (id: number) => {
 
 export const getDistinctSubcategories = async () => {
   const { data: subcategories, error } = await supabase.rpc(
-    "get_distinct_subcategory_items",
+    'get_distinct_subcategory_items'
   );
 
   if (error) {
@@ -43,9 +44,9 @@ export const getDistinctSubcategories = async () => {
 
 export const getProductsHasDiscount = async () => {
   const query = supabase
-    .from("products")
-    .select("*")
-    .not("discount_percent", "is", null);
+    .from('products')
+    .select('*')
+    .not('discount_percent', 'is', null);
 
   const { data: products, error } = await query;
 
@@ -59,19 +60,21 @@ export const getProductsHasDiscount = async () => {
 
 export const getProductDetails = async (productId: number) => {
   const { data: details, error: detailsError } = await supabase
-    .from("product_details")
-    .select("*")
-    .eq("product_id", productId);
+    .from('product_details')
+    .select('*')
+    .eq('product_id', productId)
+    .single();
 
   const { data: colors, error: colorsError } = await supabase
-    .from("product_colors")
-    .select("*")
-    .eq("product_id", productId);
+    .from('product_colors')
+    .select('*')
+    .eq('product_id', productId);
 
   const { data: brands, error: brandsError } = await supabase
-    .from("product_brands")
-    .select("*")
-    .eq("id", details?.at(0).brand_id);
+    .from('product_brands')
+    .select('*')
+    .eq('id', details?.brand_id)
+    .single();
 
   if (detailsError) {
     console.error(detailsError.message);
@@ -89,9 +92,9 @@ export const getProductDetails = async (productId: number) => {
 
 export const getProductImages = async (colorId: number) => {
   const { data: images, error } = await supabase
-    .from("product_images")
-    .select("*")
-    .eq("product_color_id", colorId);
+    .from('product_images')
+    .select('*')
+    .eq('product_color_id', colorId);
 
   if (error) {
     throw new Error("Error occurred. Couldn't get product images.");
@@ -100,24 +103,31 @@ export const getProductImages = async (colorId: number) => {
   return images;
 };
 
-export const getNewProducts = async (hours: number) => {
-  const { data: newProducts, error } = await supabase
-    .from("products")
-    .select("*")
-    .gte("created_at", getWithinHours(hours));
+export const getFilteredProducts = async ({
+  filter,
+  method,
+}: {
+  filter: { field: string; value: string | number };
+  method: string;
+}) => {
+  let query = supabase.from('products').select('*');
 
+  if (filter !== null) query = query[method](filter.field, filter.value);
+  const { data: filteredProducts, error } = await query;
   if (error) {
     console.error(error.message);
-    throw new Error("Error occurred. Couldn't get products.");
+    throw new Error(
+      `Error occurred. Couldn't get filtered products based on ${method} filter.`
+    );
   }
 
-  return newProducts;
+  return filteredProducts;
 };
 
 export const getBrands = async () => {
   const { data: brands, error } = await supabase
-    .from("product_brands")
-    .select("*");
+    .from('product_brands')
+    .select('*');
 
   if (error) {
     console.error(error.message);

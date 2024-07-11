@@ -1,13 +1,14 @@
 import { RxHamburgerMenu } from 'react-icons/rx';
-import Button from '../../../ui/Button';
-import Drawer from '../../../ui/Drawer';
-import Logo from '../../../ui/svgs/logo';
-import { CATEGORIES_ICONS, NAV_LINKS } from '../../../utils/variables';
-import { NavLinksProps } from '../../../types/variableTypes';
 import { NavLink } from 'react-router-dom';
 import classNames from 'classnames';
-import Accordion from '../../../ui/Accordion';
-import { useCategories } from '../../../hooks/useCategories';
+
+import Drawer from '@/ui/Drawer';
+import Button from '@/ui/Button';
+import Logo from '@/ui/svgs/logo';
+import Accordion from '@/ui/Accordion';
+import { CATEGORIES_ICONS, NAV_LINKS } from '@/utils/variables';
+import { NavLinksProps } from '@/types/variableTypes';
+import { useCategories } from './useCategories';
 
 const BurgerButton = () => {
   const { categories } = useCategories();
@@ -49,7 +50,7 @@ const BurgerButton = () => {
                     <div className='flex flex-col text-body-md ps-3'>
                       {link.children &&
                         link.name === 'Products' &&
-                        categories?.map((c, i) => (
+                        categories?.map((c: { name: string }, i: number) => (
                           <NavLink
                             to={`/products/${c.name
                               .replaceAll(' ', '')

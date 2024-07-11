@@ -1,9 +1,10 @@
-import Logo from '../../../ui/svgs/logo';
+import { Link } from 'react-router-dom';
+
+import BurgerButton from '../../../features/categories/BurgerButton';
+import Logo from '@/ui/svgs/logo';
+import { ADMIN_INFO } from '@/data/adminInfo';
 import NavList from './NavList';
 import NavRight from './NavRight';
-import { Link } from 'react-router-dom';
-import { ADMIN_INFO } from '../../../data/adminInfo';
-import BurgerButton from './BurgerButton';
 
 const Navbar = () => {
   return (

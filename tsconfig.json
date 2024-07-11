@@ -1,6 +1,10 @@
 {
   "compilerOptions": {
     "target": "ES2021",
+    "baseUrl": "./src",
+    "paths": {
+      "@/*": ["./*"]
+    },
     "useDefineForClassFields": true,
     "lib": ["ES2021", "DOM", "DOM.Iterable"],
     "module": "ESNext",
@@ -20,6 +24,12 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src"],
+  "include": [
+    "src",
+    "features/header/dropdownNav",
+    "src/layout/header/navbar/NavRight.tsx",
+    "src/features/categories/BurgerButton.tsx",
+    "src/layout/header/navbar/NavList.tsx"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

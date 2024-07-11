@@ -1,7 +1,7 @@
-import { EnterIcon, SearchIcon } from '../../../ui/svgs/icons.tsx';
-import Button from '../../../ui/Button.tsx';
-import Modal from '../../../ui/Modal.tsx';
-import Cart from '../../../../features/cart/Cart.tsx';
+import Cart from '@/features/cart/Cart';
+import Button from '@/ui/Button';
+import Modal from '@/ui/Modal';
+import { EnterIcon, SearchIcon } from '@/ui/svgs/icons';
 
 const NavRight = () => {
   return (

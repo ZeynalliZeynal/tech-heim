@@ -7,8 +7,8 @@ export const useProductDetails = (productId: number) => {
     queryFn: () => getProductDetails(productId),
   });
 
-  const detail = productDetails?.details?.at(0);
-  const brand = productDetails?.brands?.at(0);
+  const detail = productDetails?.details;
+  const brand = productDetails?.brands;
   const colors = productDetails?.colors;
 
   return {
