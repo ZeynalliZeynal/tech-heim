@@ -34,7 +34,7 @@ const BurgerButton = () => {
                     <NavLink
                       className={({ isActive }) =>
                         classNames(
-                          'relative hover:text-primary w-full justify-between transition',
+                          'relative hover:text-primary w-full justify-between transition py-2.5',
                           {
                             'text-primary': isActive,
                           }
@@ -55,7 +55,7 @@ const BurgerButton = () => {
                               .replaceAll(' ', '')
                               .toLowerCase()}`}
                             key={i}
-                            className='justify-start gap-2 hover:text-primary-100 hover:gap-2.5 transition-all'
+                            className='justify-start py-2 gap-2 hover:text-primary-100 hover:gap-2.5 transition-all'
                           >
                             {CATEGORIES_ICONS[c.name]}
                             {c.name}
@@ -68,7 +68,7 @@ const BurgerButton = () => {
                 <NavLink
                   className={({ isActive }) =>
                     classNames(
-                      'relative hover:text-primary w-full justify-between transition',
+                      'relative hover:text-primary w-full justify-between transition py-2.5',
                       {
                         'text-primary': isActive,
                       }
