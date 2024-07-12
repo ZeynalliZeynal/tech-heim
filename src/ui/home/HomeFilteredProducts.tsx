@@ -11,6 +11,7 @@ const HomeFilteredProducts = ({
   to: string;
   products?: ProductTypes[];
 }) => {
+  if (!products?.length) return null;
   return (
     <HomeSectionContainer title={title} to={to}>
       <div className="w-full grid sm:grid-cols-2 grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 gap-6">

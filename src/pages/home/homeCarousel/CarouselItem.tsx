@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import { ProductTypes } from "@/types/productTypes.ts";
 import { formatCurrency } from "@/helpers/converters.ts";
 
-const CarouselItem = ({ product }: ProductTypes) => {
+const CarouselItem = ({ product }: { product: ProductTypes }) => {
   return (
     <Link
       to="/"
