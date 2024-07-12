@@ -1,6 +1,4 @@
 import { supabase } from './supabase.ts';
-import { getWithinHours } from '../helpers/converters.ts';
-import { RealtimePostgresChangesFilter } from '@supabase/supabase-js';
 
 export const getCategories = async () => {
   const { data: categories, error } = await supabase
@@ -42,20 +40,18 @@ export const getDistinctSubcategories = async () => {
   return subcategories;
 };
 
-export const getProductsHasDiscount = async () => {
-  const query = supabase
-    .from('products')
-    .select('*')
-    .not('discount_percent', 'is', null);
-
-  const { data: products, error } = await query;
+export const getDetails = async () => {
+  let query = supabase
+    .from('product_details')
+    .select('*, products(*), product_brands(*)');
+  const { data, error } = await query;
 
   if (error) {
     console.error(error.message);
-    throw new Error("Error occurred. Couldn't get products.");
+    throw new Error("Error occurred. Couldn't get subcategories.");
   }
 
-  return products;
+  return data;
 };
 
 export const getProductDetails = async (productId: number) => {

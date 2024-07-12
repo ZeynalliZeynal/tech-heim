@@ -1,8 +1,18 @@
-import Navbar from './navbar/Navbar.tsx';
-import Container from '../../ui/Container.tsx';
 import { useEffect, useRef, useState } from 'react';
 
+import Container from '@/ui/Container';
+import Navbar from './navbar/Navbar';
+import { useQuery } from '@tanstack/react-query';
+import { getDetails } from '@/services/apiGetters';
+
 const Header = () => {
+  const { data } = useQuery({
+    queryKey: ['details'],
+    queryFn: getDetails,
+  });
+
+  console.log(data);
+
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const headerRef = useRef<HTMLHRElement>(null);
