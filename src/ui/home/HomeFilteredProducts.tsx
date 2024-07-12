@@ -1,6 +1,6 @@
 import ProductCard from "../productCard/ProductCard.tsx";
-import { ProductTypes } from "../../types/productTypes.ts";
 import HomeSectionContainer from "./HomeSectionContainer.tsx";
+import { ProductTypes } from "@/types/productTypes.ts";
 
 const HomeFilteredProducts = ({
   title,

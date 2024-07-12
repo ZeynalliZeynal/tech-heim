@@ -1,17 +1,16 @@
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import { useProductDetails } from "../../hooks/useProductDetails.ts";
-
 import ProductCardColors from "./ProductCardColors.tsx";
 import ProductCardImage from "./ProductCardImage.tsx";
 import ProductCardBadges from "./ProductCardBadges.tsx";
 import ProductCardBottom from "./ProductCardBottom.tsx";
-import { ProductTypes } from "../../types/productTypes.ts";
-import useWindowSize from "../../hooks/useWindowSize.ts";
+import { useProductColors } from "@/hooks/useProductDetails.ts";
+import useWindowSize from "@/hooks/useWindowSize.ts";
+import { ProductTypes } from "@/types/productTypes.ts";
 
 const ProductCard = ({ product }: { product: ProductTypes }) => {
-  const { detail, brand, colors } = useProductDetails(product.id);
+  const { colors } = useProductColors(product.id);
   const [isHovering, setIsHovering] = useState<boolean>(false);
 
   const { width } = useWindowSize();
@@ -27,7 +26,10 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
-      <ProductCardImage detail={detail} brand={brand} />
+      <ProductCardImage
+        detail={product.product_details}
+        brand={product.product_details.product_brands}
+      />
       <ProductCardColors colors={colors} />
       <ProductCardBadges product={product} />
       <ProductCardBottom product={product} isHovering={isHovering} />

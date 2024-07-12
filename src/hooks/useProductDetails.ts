@@ -1,20 +1,19 @@
-import { useQuery } from '@tanstack/react-query';
-import { getProductDetails } from '../services/apiGetters.ts';
+import { useQuery } from "@tanstack/react-query";
+import { getProductColors } from "../services/apiGetters.ts";
 
-export const useProductDetails = (productId: number) => {
-  const { data: productDetails, isPending } = useQuery({
-    queryKey: ['products/details', productId],
-    queryFn: () => getProductDetails(productId),
+export const useProductColors = (productId: number) => {
+  const {
+    data: colors,
+    isPending,
+    error,
+  } = useQuery({
+    queryKey: ["products/colors", productId],
+    queryFn: () => getProductColors(productId),
   });
 
-  const detail = productDetails?.details;
-  const brand = productDetails?.brands;
-  const colors = productDetails?.colors;
-
   return {
-    detail,
-    brand,
     colors,
     isPending,
+    error,
   };
 };

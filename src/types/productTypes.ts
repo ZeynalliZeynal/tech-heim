@@ -3,6 +3,7 @@ export type ProductTypes = {
   discount_percent: number;
   rating: number;
   price: number;
+  product_details: ProductDetailTypes;
 };
 
 export type ProductColorTypes = {
@@ -14,6 +15,7 @@ export type ProductColorTypes = {
 export type ProductDetailTypes = {
   img_url: string;
   model: string;
+  product_brands: ProductBrandTypes;
 };
 
 export type ProductBrandTypes = {
