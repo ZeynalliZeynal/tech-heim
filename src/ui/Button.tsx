@@ -4,17 +4,19 @@ import { useRipple } from "../hooks/useRipple.ts";
 
 const Button = ({
   children,
+  type = "button",
   duration = 1000,
   size = "md",
-  type,
+  style,
   className,
   disabled,
   rippleBg = "rgba(255, 255, 255, 0.1)",
   onClick,
 }: {
   children?: ReactNode;
+  type?: "button" | "reset" | "submit";
   duration?: number;
-  type?:
+  style?:
     | "primary-regular"
     | "primary-outline"
     | "primary-none"
@@ -31,6 +33,7 @@ const Button = ({
 
   return (
     <button
+      type={type}
       ref={buttonRef}
       onMouseDown={handleMouseDown}
       onClick={onClick}
@@ -44,16 +47,16 @@ const Button = ({
           "size-9 rounded-xl p-1 hover:shadow-none focus-within:border-2 focus-within:border-solid focus-within:border-primary transition hover:bg-neutral-gray-300":
             size === "icon",
           "bg-primary text-white md:hover:bg-primary/80 disabled:bg-primary":
-            type === "primary-regular",
+            style === "primary-regular",
           "bg-secondary text-white md:hover:bg-secondary/80 disabled:bg-secondary":
-            type === "secondary-regular",
-          "bg-white text-primary border border-solid border-primary hover:bg-primary hover:text-white disabled:bg-white":
-            type === "primary-outline",
-          "bg-white text-secondary border border-solid border-secondary hover:bg-secondary hover:text-white disabled:bg-white":
-            type === "secondary-outline",
-          "bg-white text-primary disabled:bg-white": type === "primary-none",
+            style === "secondary-regular",
+          "bg-white text-primary border-2 border-solid border-primary hover:bg-primary hover:text-white disabled:bg-white":
+            style === "primary-outline",
+          "bg-white text-secondary border-2 border-solid border-secondary hover:bg-secondary hover:text-white disabled:bg-white":
+            style === "secondary-outline",
+          "bg-white text-primary disabled:bg-white": style === "primary-none",
           "bg-white text-secondary disabled:bg-white":
-            type === "secondary-none",
+            style === "secondary-none",
         },
       )}
     >

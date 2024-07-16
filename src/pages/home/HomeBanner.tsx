@@ -12,7 +12,7 @@ const HomeBanner = () => {
               <img src="/images/Banner.jpg" alt="Playstation 5" />
             </div>
             <div className="absolute left-[60px] bottom-9">
-              <Button type="primary-regular" className="w-[150px]">
+              <Button style="primary-regular" className="w-[150px]">
                 Buy now
               </Button>
             </div>

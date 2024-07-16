@@ -78,6 +78,23 @@ button:active {
   background: linear-gradient(to bottom, #0c68f4, #428af6);
 }
 
+.default-input {
+  position: relative;
+  z-index: 3;
+
+  & + span {
+    @apply transition-all absolute z-[2] top-1/2 left-0 px-1 -translate-y-1/2 font-light
+  }
+
+  &:focus-within + span {
+    @apply text-primary
+  }
+
+  &:focus-within + span, &:not(:placeholder-shown) + span {
+    @apply text-body-xs -left-4 -top-1/2
+  }
+}
+
 @media screen and (max-width: 767px) {
   .text-body-lg {
     @apply text-[1rem]

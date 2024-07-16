@@ -24,7 +24,7 @@ const ProductCardBottom = ({
           {formatCurrency(product.price, product.discount_percent)}
         </div>
         <div className="flex items-center w-full justify-between">
-          <Button size="sm" type="primary-outline">
+          <Button size="sm" style="primary-outline">
             <span className="size-6">
               <CartIcon />
             </span>
@@ -68,7 +68,7 @@ const ProductCardBottom = ({
           }}
           className="min-h-12 flex items-center w-full justify-between"
         >
-          <Button size="sm" type="primary-outline">
+          <Button size="sm" style="primary-outline">
             <span className="size-6">
               <CartIcon />
             </span>

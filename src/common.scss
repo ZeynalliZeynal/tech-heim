@@ -38,6 +38,7 @@ button {
   background-color: transparent;
   color: inherit;
   cursor: pointer;
+  user-select: none;
 
   transition: all 0.25s ease;
 }
