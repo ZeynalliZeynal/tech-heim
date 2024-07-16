@@ -5,7 +5,7 @@ import ProductCardColors from "./ProductCardColors.tsx";
 import ProductCardImage from "./ProductCardImage.tsx";
 import ProductCardBadges from "./ProductCardBadges.tsx";
 import ProductCardBottom from "./ProductCardBottom.tsx";
-import { useProductColors } from "@/hooks/useProductDetails.ts";
+import { useProductColors } from "@/features/products/useProductDetails.ts";
 import useWindowSize from "@/hooks/useWindowSize.ts";
 import { ProductTypes } from "@/types/productTypes.ts";
 

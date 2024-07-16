@@ -11,7 +11,7 @@ const HomeServices = () => {
               key={i}
               className="gap-4 items-center lg:justify-start sm:justify-center"
             >
-              {service.icon}{" "}
+              <span className="size-10">{service.icon}</span>
               <span className="xl:text-body-xl text-black uppercase">
                 {service.text}
               </span>

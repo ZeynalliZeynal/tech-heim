@@ -1,18 +1,21 @@
-import Cart from '@/features/cart/Cart';
-import Button from '@/ui/Button';
-import Modal from '@/ui/Modal';
-import { EnterIcon, SearchIcon } from '@/ui/svgs/icons';
+import Cart from "@/features/cart/Cart";
+import Button from "@/ui/Button";
+import Modal from "@/ui/Modal";
+import { SearchIcon } from "@/ui/svgs/icons";
+import AuthButton from "@/features/auth/authModal/AuthButton.tsx";
 
 const NavRight = () => {
   return (
-    <div className='flex items-center gap-2'>
+    <div className="flex items-center gap-2">
       <Modal>
-        <Modal.Open name='search-window'>
-          <Button size='icon'>
-            <SearchIcon />
+        <Modal.Open name="search-window">
+          <Button size="icon">
+            <span className="size-6">
+              <SearchIcon />
+            </span>
           </Button>
         </Modal.Open>
-        <Modal.Window name='search-window'>
+        <Modal.Window name="search-window">
           <Modal.Head>
             <h5>Search</h5>
           </Modal.Head>
@@ -22,14 +25,7 @@ const NavRight = () => {
         </Modal.Window>
       </Modal>
       <Cart />
-      <div>
-        <Button size='sm' type='primary-none' className='md:hidden'>
-          <EnterIcon /> Login
-        </Button>
-        <Button size='sm' type='primary-regular' className='md:flex hidden'>
-          Login / Register
-        </Button>
-      </div>
+      <AuthButton />
     </div>
   );
 };

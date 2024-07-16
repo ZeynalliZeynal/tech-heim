@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 
-export const useRipple = (duration: number) => {
+export const useRipple = (duration: number, rippleBg: string) => {
   const buttonRef = useRef<HTMLButtonElement | null>(null);
 
   const handleMouseDown = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -10,6 +10,7 @@ export const useRipple = (duration: number) => {
       const rect = button.getBoundingClientRect();
       const ripple = document.createElement("span");
       ripple.className = "ripple animate-ripple";
+      ripple.style.background = rippleBg;
 
       const { left, top } = rect;
       const leftPos = e.clientX - left;

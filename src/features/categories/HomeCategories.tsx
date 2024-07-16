@@ -1,14 +1,10 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 
-import { getDistinctSubcategories } from "../../services/apiGetters.ts";
 import Container from "../../ui/Container.tsx";
+import { useSubcategories } from "@/features/categories/useSubcategories.ts";
 
 const HomeCategories = () => {
-  const { data: subcategories, isPending } = useQuery({
-    queryKey: ["products/categories/subcategories"],
-    queryFn: getDistinctSubcategories,
-  });
+  const { subcategories, isPending } = useSubcategories();
 
   return (
     <section>

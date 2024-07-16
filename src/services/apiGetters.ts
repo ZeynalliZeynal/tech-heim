@@ -62,7 +62,7 @@ export const getProductColors = async (productId: number) => {
 
   if (error) {
     console.error(error.message);
-    throw new Error("Error occurred. Couldn't get product colors.");
+    throw new Error("Error occurred. Couldn't get products colors.");
   }
 
   return data;
@@ -75,7 +75,7 @@ export const getProductImages = async (colorId: number) => {
     .eq("product_color_id", colorId);
 
   if (error) {
-    throw new Error("Error occurred. Couldn't get product images.");
+    throw new Error("Error occurred. Couldn't get products images.");
   }
 
   return images;

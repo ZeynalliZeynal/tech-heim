@@ -8,7 +8,7 @@ const FooterTop = () => {
   return (
     <div className="grid lg:grid-cols-[7fr_5fr] grid-cols-1 w-full py-12 text-white relative z-20 gap-12">
       <div className="flex lg:order-1 order-2">
-        <ul className="items-stretch w-full lg:gap-[100px] gap-y-12 justify-start md:flex-nowrap flex-wrap justify-between">
+        <ul className="items-stretch w-full lg:gap-[100px] gap-y-12 justify-start md:flex-nowrap flex-wrap md:justify-between">
           {FOOTER_LINKS.map((item, i) => (
             <li className="gap-2 flex-col items-start md:w-auto w-1/2" key={i}>
               <h6>{item.title}</h6>
@@ -33,7 +33,9 @@ const FooterTop = () => {
           <h6>Sign up for news and updates</h6>
           <div className="h-12 rounded-md border-2 border-white w-[300px] px-3 flex items-center">
             <div className="flex gap-2">
-              <UserIcon />
+              <span className="size-6">
+                <UserIcon />
+              </span>
               <span className="h-6">
                 <input
                   type="email"

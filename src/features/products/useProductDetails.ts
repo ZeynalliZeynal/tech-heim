@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProductColors } from "../services/apiGetters.ts";
+import { getProductColors } from "../../services/apiGetters.ts";
 
 export const useProductColors = (productId: number) => {
   const {

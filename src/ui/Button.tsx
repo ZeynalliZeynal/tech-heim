@@ -9,6 +9,7 @@ const Button = ({
   type,
   className,
   disabled,
+  rippleBg = "rgba(255, 255, 255, 0.1)",
   onClick,
 }: {
   children?: ReactNode;
@@ -23,9 +24,10 @@ const Button = ({
   size?: "sm" | "md" | "lg" | "icon";
   className?: string;
   disabled?: boolean;
+  rippleBg?: string;
   onClick?: () => void;
 }) => {
-  const { handleMouseDown, buttonRef } = useRipple(duration);
+  const { handleMouseDown, buttonRef } = useRipple(duration, rippleBg);
 
   return (
     <button

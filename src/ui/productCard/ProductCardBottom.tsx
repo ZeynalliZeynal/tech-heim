@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { formatCurrency } from "../../helpers/converters.ts";
 import Button from "../Button.tsx";
-import { AddToCartIcon } from "../svgs/icons.tsx";
+import { CartIcon } from "../svgs/icons.tsx";
 import { CiHeart } from "react-icons/ci";
 import { ProductTypes } from "../../types/productTypes.ts";
 
@@ -25,7 +25,9 @@ const ProductCardBottom = ({
         </div>
         <div className="flex items-center w-full justify-between">
           <Button size="sm" type="primary-outline">
-            <AddToCartIcon />
+            <span className="size-6">
+              <CartIcon />
+            </span>
             Add to Cart
           </Button>
 
@@ -67,7 +69,9 @@ const ProductCardBottom = ({
           className="min-h-12 flex items-center w-full justify-between"
         >
           <Button size="sm" type="primary-outline">
-            <AddToCartIcon />
+            <span className="size-6">
+              <CartIcon />
+            </span>
             Add to Cart
           </Button>
 
