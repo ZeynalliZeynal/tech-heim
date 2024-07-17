@@ -7,25 +7,27 @@ import AuthButton from "@/features/auth/authModal/AuthButton.tsx";
 const NavRight = () => {
   return (
     <div className="flex items-center gap-2">
-      <Modal>
-        <Modal.Open name="search-window">
-          <Button size="icon">
-            <span className="size-6">
-              <SearchIcon />
-            </span>
-          </Button>
-        </Modal.Open>
-        <Modal.Window name="search-window">
-          <Modal.Head>
-            <h5>Search</h5>
-          </Modal.Head>
-          <Modal.Panel>
-            <div>hello</div>
-          </Modal.Panel>
-        </Modal.Window>
-      </Modal>
-      <Cart />
-      <AuthButton />
+      <>
+        <Modal>
+          <Modal.Open name="search-window">
+            <Button size="icon">
+              <span className="size-6">
+                <SearchIcon />
+              </span>
+            </Button>
+          </Modal.Open>
+          <Modal.Window name="search-window">
+            <Modal.Head>
+              <h5>Search</h5>
+            </Modal.Head>
+            <Modal.Panel>
+              <div>hello</div>
+            </Modal.Panel>
+          </Modal.Window>
+        </Modal>
+        <Cart />
+        <AuthButton />
+      </>
     </div>
   );
 };

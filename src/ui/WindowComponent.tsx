@@ -1,4 +1,4 @@
-import {
+import React, {
   cloneElement,
   createContext,
   ReactElement,
@@ -7,7 +7,6 @@ import {
   useReducer,
 } from "react";
 import { WindowComponentContextType } from "../types/contextTypes.ts";
-import { useHideScroll } from "../hooks/useHideScroll.ts";
 import { useWindowComponentContext } from "../hooks/useWindowComponentContext.ts";
 import { useOutsideClick } from "../hooks/useOutsideClick.ts";
 import { createPortal } from "react-dom";
@@ -58,7 +57,6 @@ export const WindowComponentContext =
 const WindowComponent = ({
   children,
   type = "modal",
-  hideScroll,
 }: {
   children: ReactNode;
   type?: "dropdown" | "modal" | "drawer";
@@ -69,19 +67,18 @@ const WindowComponent = ({
     initialState,
   );
 
-  const open = (name: string) =>
+  const open = (name: string) => {
+    document.body.style.overflow = "hidden";
     dispatch({ type: WindowActionKind.open, payload: name });
+  };
 
   const close = useCallback(() => {
+    document.body.style.overflow = "";
     dispatch({ type: WindowActionKind.animate });
     setTimeout(() => {
       dispatch({ type: WindowActionKind.close });
     }, 300);
   }, []);
-
-  const hideBodyScroll = hideScroll || currentWindow;
-
-  useHideScroll(Boolean(hideBodyScroll));
 
   return (
     <WindowComponentContext.Provider
@@ -146,7 +143,6 @@ const Toggle = ({
   children: ReactElement;
 }) => {
   const { open, currentWindow, close } = useWindowComponentContext();
-
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
     currentWindow === "" || currentWindow !== name ? open(name) : close();

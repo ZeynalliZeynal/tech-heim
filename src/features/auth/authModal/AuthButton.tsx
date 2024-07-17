@@ -1,20 +1,23 @@
 import Button from "@/ui/Button.tsx";
-import { EnterIcon, UserIcon } from "@/ui/svgs/icons.tsx";
+import { EnterIcon } from "@/ui/svgs/icons.tsx";
 import Modal from "@/ui/Modal.tsx";
 import ModalAuthPanel from "@/features/auth/authModal/ModalAuthPanel.tsx";
 import ModalFormTabContext from "@/context/ModalFormTabContext.tsx";
 import { useUser } from "@/features/auth/useUser.ts";
+import Spinner from "@/ui/Spinner.tsx";
+import UserDropdown from "@/features/auth/authModal/userDropdown/UserDropdown.tsx";
+import { useLogout } from "@/features/auth/useLogout.ts";
 
 const AuthButton = () => {
-  const { user, isAuthenticated } = useUser();
+  const { isPending, isAuthenticated } = useUser();
+  const { isLoggingOut } = useLogout();
+
   return (
     <div>
-      {isAuthenticated ? (
-        <Button size="icon">
-          <span className="size-6" title={user?.user_metadata.fullName}>
-            <UserIcon />
-          </span>
-        </Button>
+      {isPending || isLoggingOut ? (
+        <Spinner color="black" />
+      ) : isAuthenticated ? (
+        <UserDropdown />
       ) : (
         <Modal>
           <ModalFormTabContext>
@@ -35,6 +38,7 @@ const AuthButton = () => {
                 Login / Register
               </Button>
             </Modal.Open>
+
             <Modal.Window name="auth">
               <Modal.Panel>
                 <ModalAuthPanel />

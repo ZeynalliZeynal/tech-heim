@@ -4,15 +4,20 @@ import {
   FooterLinksTypes,
   NavLinksProps,
   ServicesProps,
+  UserDropdownType,
 } from "../types/variableTypes.ts";
 import {
   AccessoryIcon,
+  BagIcon,
   CallingIcon,
   CameraIcon,
   ConsoleIcon,
+  DollarCircleIcon,
   EmailEditIcon,
   HeadphoneIcon,
+  HeartIcon,
   LocationIcon,
+  LogoutIcon,
   MobileIcon,
   MonitorIcon,
   NetworkIcon,
@@ -191,5 +196,27 @@ export const FOOTER_LINKS: FooterLinksTypes[] = [
         link: "mailto:" + ADMIN_INFO.email,
       },
     ],
+  },
+];
+
+export const USER_DROPDOWN_ITEMS: Array<UserDropdownType> = [
+  {
+    icon: <BagIcon />,
+    label: "Orders",
+    to: "/",
+  },
+  {
+    icon: <HeartIcon />,
+    label: "Wish List",
+    to: "/",
+  },
+  {
+    icon: <DollarCircleIcon />,
+    label: "Payments",
+    to: "/",
+  },
+  {
+    icon: <LogoutIcon />,
+    label: "Log out",
   },
 ];

@@ -9,8 +9,9 @@ import Accordion from "@/ui/Accordion";
 import { CATEGORIES_ICONS, NAV_LINKS } from "@/utils/variables";
 import { NavLinksProps } from "@/types/variableTypes";
 import { useCategories } from "./useCategories";
+import { memo } from "react";
 
-const BurgerButton = () => {
+const BurgerButton = memo(() => {
   const { categories } = useCategories();
 
   return (
@@ -86,6 +87,6 @@ const BurgerButton = () => {
       </Drawer.Body>
     </Drawer>
   );
-};
+});
 
 export default BurgerButton;

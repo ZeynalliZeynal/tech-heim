@@ -60,8 +60,8 @@ export default {
         light: "#fae7eb",
       },
       success: {
-        success: "#146c43",
-        "success-light": "#d1f7e5",
+        DEFAULT: "#146c43",
+        light: "#d1f7e5",
       },
       banner: {
         wearable: {

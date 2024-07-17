@@ -20,7 +20,6 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
 
   const { signup, isSigningUp } = useSignup();
   const { login, isLoggingIn } = useLogin();
-  console.log(closeModal);
 
   const onSubmit: SubmitHandler<FieldValues> = ({
     fullName,
@@ -43,7 +42,7 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
       );
     } else if (activeTab === "login") {
       login(
-        { email, password },
+        { email, password, rememberMe: checked },
         {
           onSettled: () => {
             reset();
@@ -87,6 +86,7 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
         <input
           className="default-input"
           type="email"
+          defaultValue="zzeynalli446@gmail.com"
           autoComplete="email"
           placeholder=""
           {...register("email", {
@@ -110,6 +110,7 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
         <input
           type={showPassword ? "text" : "password"}
           className="default-input"
+          defaultValue="zeynal"
           autoComplete="current-password"
           placeholder=""
           {...register("password", {

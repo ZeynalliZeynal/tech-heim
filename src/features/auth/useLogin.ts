@@ -1,5 +1,6 @@
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { login as loginApi } from "@/services/apiAuth.ts";
+import { toast } from "sonner";
 
 export const useLogin = () => {
   const queryClient = useQueryClient();
@@ -8,10 +9,12 @@ export const useLogin = () => {
     mutationFn: loginApi,
     onSuccess: (data) => {
       queryClient.setQueryData(["user"], data.user);
-      alert("Logged in successfully");
+      toast.success(
+        `Log in successful. Welcome back, ${data.user?.user_metadata.fullName}`,
+      );
     },
     onError: () => {
-      alert("Credentials are wrong");
+      toast.error("Log in failed. Double-check your credentials.");
     },
   });
 

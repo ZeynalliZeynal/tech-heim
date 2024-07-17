@@ -1,10 +1,7 @@
 const Spinner = ({ color = "white" }) => {
   return (
     <span
-      className="size-6 animate-spin"
-      style={{
-        color,
-      }}
+      className={`flex items-center justify-center size-6 animate-spin text-${color}`}
     >
       <svg
         width="40"

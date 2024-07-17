@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { ReactNode } from "react";
 
 export type ChildrenProps = {
   name: string;
@@ -21,4 +21,10 @@ export type ServicesProps = {
 export type FooterLinksTypes = {
   title: string;
   list: { context: string | ReactNode; link: string }[];
+};
+
+export type UserDropdownType = {
+  icon: ReactNode;
+  label: string;
+  to?: string;
 };

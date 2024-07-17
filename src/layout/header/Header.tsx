@@ -1,9 +1,9 @@
-import { useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from "react";
 
 import Container from "@/ui/Container";
 import Navbar from "./navbar/Navbar";
 
-const Header = () => {
+const Header = memo(() => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const headerRef = useRef<HTMLHRElement>(null);
@@ -55,6 +55,6 @@ const Header = () => {
       </Container>
     </header>
   );
-};
+});
 
 export default Header;

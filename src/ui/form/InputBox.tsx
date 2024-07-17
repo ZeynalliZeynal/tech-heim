@@ -38,7 +38,7 @@ const InputBox = ({
           {
             "border-error text-error": error,
             "border-neutral-gray-500 text-neutral-gray-500": !error,
-            "bg-neutral-gray-400 animate-pulse": disabled,
+            "bg-neutral-gray-200 animate-pulse": disabled,
           },
         )}
       >
@@ -51,7 +51,7 @@ const InputBox = ({
           <span
             className={classNames("capitalize", {
               "bg-white": !disabled,
-              "bg-neutral-gray-400 animate-pulse": disabled,
+              "bg-neutral-gray-200 animate-pulse": disabled,
             })}
           >
             {label}
