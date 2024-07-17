@@ -5,20 +5,20 @@ import {
   ReactNode,
   useCallback,
   useReducer,
-} from 'react';
-import { WindowComponentContextType } from '../types/contextTypes.ts';
-import { useHideScroll } from '../hooks/useHideScroll.ts';
-import { useWindowComponentContext } from '../hooks/useWindowComponentContext.ts';
-import { useOutsideClick } from '../hooks/useOutsideClick.ts';
-import { createPortal } from 'react-dom';
-import classNames from 'classnames';
-import Button from './Button.tsx';
-import { IoIosClose } from 'react-icons/io';
+} from "react";
+import { WindowComponentContextType } from "../types/contextTypes.ts";
+import { useHideScroll } from "../hooks/useHideScroll.ts";
+import { useWindowComponentContext } from "../hooks/useWindowComponentContext.ts";
+import { useOutsideClick } from "../hooks/useOutsideClick.ts";
+import { createPortal } from "react-dom";
+import classNames from "classnames";
+import Button from "./Button.tsx";
+import { IoIosClose } from "react-icons/io";
 
 enum WindowActionKind {
-  open = 'window/open',
-  close = 'window/close',
-  animate = 'window/animate',
+  open = "window/open",
+  close = "window/close",
+  animate = "window/animate",
 }
 
 type WindowActionType = {
@@ -32,19 +32,19 @@ type WindowStateType = {
 };
 
 const initialState: WindowStateType = {
-  currentWindow: '',
+  currentWindow: "",
   isAnimating: false,
 };
 
 const reducer = (
   state: WindowStateType,
-  action: WindowActionType
+  action: WindowActionType,
 ): WindowStateType => {
   switch (action.type) {
     case WindowActionKind.open:
       return { ...state, currentWindow: action.payload, isAnimating: false };
     case WindowActionKind.close:
-      return { ...state, currentWindow: '', isAnimating: false };
+      return { ...state, currentWindow: "", isAnimating: false };
     case WindowActionKind.animate:
       return { ...state, isAnimating: true };
     default:
@@ -57,16 +57,16 @@ export const WindowComponentContext =
 
 const WindowComponent = ({
   children,
-  type = 'modal',
+  type = "modal",
   hideScroll,
 }: {
   children: ReactNode;
-  type?: 'dropdown' | 'modal' | 'drawer';
+  type?: "dropdown" | "modal" | "drawer";
   hideScroll?: boolean;
 }) => {
   const [{ currentWindow, isAnimating }, dispatch] = useReducer(
     reducer,
-    initialState
+    initialState,
   );
 
   const open = (name: string) =>
@@ -115,26 +115,26 @@ const Window = ({
 
   return createPortal(
     <div
-      className={classNames('fixed inset-0 w-full h-screen bg-black/60', {
-        'animate-fadeIn': !isAnimating,
-        'animate-fadeOut': isAnimating,
-        'top-16': type === 'dropdown',
+      className={classNames("fixed inset-0 w-full h-screen bg-black/60", {
+        "animate-fadeIn": !isAnimating,
+        "animate-fadeOut": isAnimating,
+        "top-16": type === "dropdown",
       })}
       style={{
         zIndex,
       }}
     >
       <div
-        className={classNames('flex', {
-          'container justify-end': type === 'dropdown',
-          'justify-center items-center h-full': type === 'modal',
-          'justify-start h-full': type === 'drawer',
+        className={classNames("flex", {
+          "container justify-end": type === "dropdown",
+          "justify-center items-center h-full": type === "modal",
+          "justify-start h-full": type === "drawer",
         })}
       >
         {cloneElement(children, { ref })}
       </div>
     </div>,
-    document.body
+    document.body,
   );
 };
 
@@ -149,7 +149,7 @@ const Toggle = ({
 
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation();
-    currentWindow === '' || currentWindow !== name ? open(name) : close();
+    currentWindow === "" || currentWindow !== name ? open(name) : close();
   };
 
   return cloneElement(children, { onClick: handleClick });
@@ -159,9 +159,9 @@ const Head = ({ children }: { children: ReactElement }) => {
   const { close } = useWindowComponentContext();
 
   return (
-    <div className='flex justify-between items-center sticky'>
-      {children}{' '}
-      <Button size='icon' onClick={close}>
+    <div className="flex justify-between items-center sticky">
+      {children}{" "}
+      <Button size="icon" onClick={close}>
         <IoIosClose />
       </Button>
     </div>

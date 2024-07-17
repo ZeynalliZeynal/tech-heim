@@ -66,6 +66,7 @@ const BurgerButton = () => {
                 </Accordion.Body>
               ) : (
                 <NavLink
+                  key={index}
                   className={({ isActive }) =>
                     classNames(
                       "relative hover:text-primary w-full justify-between transition py-2.5",

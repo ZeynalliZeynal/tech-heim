@@ -7,7 +7,6 @@ import {
   FieldValues,
   Merge,
 } from "react-hook-form";
-import { useInputContext } from "@/context/InputContext.tsx";
 import { Link } from "react-router-dom";
 
 const InputBox = ({
@@ -15,16 +14,22 @@ const InputBox = ({
   type,
   icon,
   error,
+  togglePassword,
+  showPassword,
+  disabled,
+
   children,
 }: {
   label: string;
   type?: "login" | "signup";
   icon: ReactNode;
   error?: string | FieldError | Merge<FieldError, FieldErrorsImpl<FieldValues>>;
+  togglePassword?: () => void;
+  showPassword?: boolean;
+  disabled?: boolean;
+
   children: ReactElement;
 }) => {
-  const { togglePassword, isShown } = useInputContext();
-
   return (
     <div className="flex flex-col gap-3">
       <div
@@ -33,6 +38,7 @@ const InputBox = ({
           {
             "border-error text-error": error,
             "border-neutral-gray-500 text-neutral-gray-500": !error,
+            "bg-neutral-gray-400 animate-pulse": disabled,
           },
         )}
       >
@@ -41,7 +47,15 @@ const InputBox = ({
           id="default-input"
           className="relative group-focus-within:text-primary"
         >
-          {children} <span className="capitalize bg-white">{label}</span>
+          {children}{" "}
+          <span
+            className={classNames("capitalize", {
+              "bg-white": !disabled,
+              "bg-neutral-gray-400 animate-pulse": disabled,
+            })}
+          >
+            {label}
+          </span>
         </span>{" "}
         {label === "password" && (
           <button
@@ -49,7 +63,7 @@ const InputBox = ({
             className="transition-none group-focus-within:text-primary transition-all"
             onClick={togglePassword}
           >
-            {isShown ? <EyeIcon /> : <EyeSlashIcon />}
+            {showPassword ? <EyeIcon /> : <EyeSlashIcon />}
           </button>
         )}
       </div>

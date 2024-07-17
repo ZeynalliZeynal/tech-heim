@@ -1,20 +1,9 @@
 import classNames from "classnames";
-import { useState } from "react";
-import AuthFormContainer from "@/features/auth/authModal/AuthFormContainer.tsx";
+import ModalFormContainer from "@/features/auth/authModal/ModalFormContainer.tsx";
+import { useModalFormTabContext } from "@/context/useModalFormTabContext.ts";
 
-export type FormTabType = {
-  activeTab?: "login" | "signup";
-  toggleTab: () => void;
-};
-
-const AuthPanel = () => {
-  const [activeTab, setActiveTab] = useState<"login" | "signup">("login");
-
-  const toggleTab = () => {
-    if (activeTab === "login") setActiveTab("signup");
-    else setActiveTab("login");
-  };
-
+const ModalAuthPanel = ({ closeModal }: { closeModal: () => void }) => {
+  const { toggleTab, activeTab } = useModalFormTabContext();
   return (
     <div className="text-body-lg px-8">
       <div
@@ -29,9 +18,9 @@ const AuthPanel = () => {
         <button onClick={toggleTab}>Log in</button>
         <button onClick={toggleTab}>Create Account</button>
       </div>
-      <AuthFormContainer activeTab={activeTab} toggleTab={toggleTab} />
+      <ModalFormContainer closeModal={closeModal} />
     </div>
   );
 };
 
-export default AuthPanel;
+export default ModalAuthPanel;

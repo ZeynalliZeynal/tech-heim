@@ -136,6 +136,11 @@ export default {
         slideLeft: "slideLeft 300ms ease-in-out forwards",
       },
       keyframes: {
+        pulse: {
+          "50%": {
+            opacity: 0.3,
+          },
+        },
         ripple: {
           to: {
             opacity: 0,

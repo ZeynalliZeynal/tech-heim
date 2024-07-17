@@ -1,7 +1,7 @@
 const Spinner = ({ color = "white" }) => {
   return (
     <span
-      className="size-6 text-white animate-spin"
+      className="size-6 animate-spin"
       style={{
         color,
       }}
