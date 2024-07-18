@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getProductColors } from "../../services/apiGetters.ts";
+import { getColors } from "@/services/apiProducts.ts";
 
 export const useProductColors = (productId: number) => {
   const {
@@ -8,7 +8,7 @@ export const useProductColors = (productId: number) => {
     error,
   } = useQuery({
     queryKey: ["products/colors", productId],
-    queryFn: () => getProductColors(productId),
+    queryFn: () => getColors(productId),
   });
 
   return {

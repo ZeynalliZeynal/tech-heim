@@ -1,9 +1,9 @@
-import { useQuery } from '@tanstack/react-query';
-import { getCategories } from '@/services/apiGetters';
+import { useQuery } from "@tanstack/react-query";
+import { getCategories } from "@/services/apiProducts.ts";
 
 export const useCategories = () => {
   const { data: categories } = useQuery({
-    queryKey: ['products/categories'],
+    queryKey: ["products/categories"],
     queryFn: getCategories,
   });
 

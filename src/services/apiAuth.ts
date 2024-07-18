@@ -18,7 +18,7 @@ export const signup = async ({ fullName, email, password }: AuthDataType) => {
   return data;
 };
 
-export const login = async ({ email, password, rememberMe }: AuthDataType) => {
+export const login = async ({ email, password }: AuthDataType) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -26,12 +26,12 @@ export const login = async ({ email, password, rememberMe }: AuthDataType) => {
 
   if (error) throw new Error(error.message);
 
-  if (!rememberMe) {
-    localStorage.removeItem(supabase.storageKey);
-    sessionStorage.setItem(supabase.storageKey, JSON.stringify(data));
-  }
+  // if (!rememberMe) {
+  //   localStorage.removeItem(supabase.storageKey);
+  //   sessionStorage.setItem(supabase.storageKey, JSON.stringify(data.session));
+  // }
 
-  return data;
+  return data.session;
 };
 
 export const logout = async () => {
@@ -42,17 +42,29 @@ export const logout = async () => {
 };
 
 export const getCurrentUser = async () => {
-  if (localStorage.getItem(supabase.storageKey)) {
-    const { data } = await supabase.auth.getSession();
-    if (!data.session) return null;
-    const { data: user, error } = await supabase.auth.getUser();
-    if (error) throw new Error(error.message);
-    return user.user;
-  } else if (sessionStorage.getItem(supabase.storageKey)) {
-    const storageData = JSON.parse(sessionStorage.getItem(supabase.storageKey));
-    if (!storageData.session) return null;
-    const { user } = storageData;
-    return user;
-  }
-  return null;
+  const { data: session } = await supabase.auth.getSession();
+  if (!session.session) return null;
+
+  const { data: user, error } = await supabase.auth.getUser();
+
+  if (error) throw new Error(error.message);
+
+  return user?.user;
 };
+
+// * for session storage
+// export const getCurrentUser = async () => {
+//   if (localStorage.getItem(supabase.storageKey)) {
+//     const { data } = await supabase.auth.getSession();
+//     if (!data.session) return null;
+//     const { data: user, error } = await supabase.auth.getUser();
+//     if (error) throw new Error(error.message);
+//     return user.user;
+//   } else if (sessionStorage.getItem(supabase.storageKey)) {
+//     const storageData = JSON.parse(sessionStorage.getItem(supabase.storageKey));
+//     if (!storageData) return null;
+//     const { user } = storageData;
+//     return user;
+//   }
+//   return null;
+// };

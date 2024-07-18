@@ -1,6 +1,6 @@
 import Container from "../../ui/Container.tsx";
 import { useQuery } from "@tanstack/react-query";
-import { getBrands } from "../../services/apiGetters.ts";
+import { getBrands } from "../../services/apiProducts.ts";
 import HomeSectionContainer from "../../ui/home/HomeSectionContainer.tsx";
 
 import "swiper/css/free-mode";

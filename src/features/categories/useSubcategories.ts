@@ -1,5 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { getDistinctSubcategories } from "@/services/apiGetters";
+import { getDistinctSubcategories } from "@/services/apiProducts.ts";
 
 export const useSubcategories = () => {
   const { data: subcategories, isPending } = useQuery({

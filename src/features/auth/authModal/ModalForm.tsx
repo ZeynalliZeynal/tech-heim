@@ -42,7 +42,7 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
       );
     } else if (activeTab === "login") {
       login(
-        { email, password, rememberMe: checked },
+        { email, password },
         {
           onSettled: () => {
             reset();

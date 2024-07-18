@@ -4,7 +4,7 @@ import Lottie from "lottie-react";
 
 import loadingSpinner from "@/assets/animation/loading-spinner.json";
 import emptyList from "@/assets/animation/empty-list.json";
-import { getSubcategoriesById } from "@/services/apiGetters";
+import { getSubcategoriesById } from "@/services/apiProducts.ts";
 import { memo } from "react";
 
 const DropdownNavItems = memo(({ categoryId }: { categoryId: number }) => {

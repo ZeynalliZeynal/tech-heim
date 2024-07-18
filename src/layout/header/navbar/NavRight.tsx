@@ -3,8 +3,10 @@ import Button from "@/ui/Button";
 import Modal from "@/ui/Modal";
 import { SearchIcon } from "@/ui/svgs/icons";
 import AuthButton from "@/features/auth/authModal/AuthButton.tsx";
+import { useUser } from "@/features/auth/useUser.ts";
 
 const NavRight = () => {
+  const { isAuthenticated } = useUser();
   return (
     <div className="flex items-center gap-2">
       <>
@@ -24,9 +26,8 @@ const NavRight = () => {
               <div>hello</div>
             </Modal.Panel>
           </Modal.Window>
-        </Modal>
-        <Cart />
-        <AuthButton />
+        </Modal>{" "}
+        {isAuthenticated && <Cart />} <AuthButton />
       </>
     </div>
   );

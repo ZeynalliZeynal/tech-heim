@@ -11,6 +11,7 @@ const Button = ({
   className,
   disabled,
   rippleBg = "rgba(255, 255, 255, 0.1)",
+  full = false,
   onClick,
 }: {
   children?: ReactNode;
@@ -27,6 +28,7 @@ const Button = ({
   className?: string;
   disabled?: boolean;
   rippleBg?: string;
+  full?: boolean;
   onClick?: () => void;
 }) => {
   const { handleMouseDown, buttonRef } = useRipple(duration, rippleBg);
@@ -57,6 +59,7 @@ const Button = ({
           "bg-white text-primary disabled:bg-white": style === "primary-none",
           "bg-white text-secondary disabled:bg-white":
             style === "secondary-none",
+          "w-full": full,
         },
       )}
     >

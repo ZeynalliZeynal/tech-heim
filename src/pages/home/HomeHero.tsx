@@ -18,6 +18,7 @@ const HomeHero = () => {
             <Button
               size="lg"
               style="secondary-regular"
+              full
               onClick={() => navigate("/todo")}
             >
               Explore More

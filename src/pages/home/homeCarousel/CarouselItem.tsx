@@ -15,14 +15,13 @@ const CarouselItem = ({ product }: { product: ProductTypes }) => {
       <div className="flex items-center flex-col gap-3">
         <span className="h-[150px]">
           <img
-            src={product.product_details?.img_url}
-            alt={product.product_details.product_brands?.name}
+            src={product?.image}
+            alt={product?.product_brands.name}
             className="object-contain"
           />
         </span>
         <p className="text-body-xs w-full">
-          <b>{product.product_details.product_brands?.name}</b>,{" "}
-          {product.product_details?.model}
+          <b>{product?.product_brands.name}</b>, {product?.model}
         </p>
       </div>
       <div className="w-full flex justify-between text-body-sm">

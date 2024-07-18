@@ -11,7 +11,7 @@ const UserDropdownMenu = ({ closeMenu }: { closeMenu: () => void }) => {
   const navigate = useNavigate();
 
   return (
-    <ul className="flex-col items-start">
+    <ul className="flex-col items-start w-[280px]">
       <li className="w-full">
         <button
           onClick={() => navigate("/")}

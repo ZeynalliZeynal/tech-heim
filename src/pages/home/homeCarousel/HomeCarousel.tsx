@@ -1,4 +1,3 @@
-import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import { FaAngleRight } from "react-icons/fa6";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,28 +7,31 @@ import CarouselItem from "./CarouselItem.tsx";
 import { useRef, useState } from "react";
 import { Swiper as SwiperTypes } from "swiper/types";
 import HomeCarouselButtons from "./HomeCarouselButtons.tsx";
-import { getFilteredProducts } from "@/services/apiGetters.ts";
+import { useFilteredProducts } from "@/features/products/useFilteredProducts.ts";
 
 const HomeCarousel = () => {
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
 
-  const { data: products, isPending } = useQuery({
-    queryKey: ["products/with-discount"],
-    queryFn: () =>
-      getFilteredProducts({
-        filter: { field: "discount_percent", value: 0 },
-        method: "gt",
-      }),
-  });
+  const { products, isPending } = useFilteredProducts(
+    {
+      filter: { field: "discount_percent", value: 0 },
+      method: "gt",
+    },
+    "with-discount",
+  );
 
   const swiperRef = useRef(null);
 
   const handlePrev = () => {
-    if (swiperRef.current) swiperRef.current.swiper.slidePrev();
+    if (swiperRef.current) {
+      // @ts-expect-error doesnt have a type
+      swiperRef.current.swiper.slidePrev();
+    }
   };
 
   const handleNext = () => {
+    // @ts-expect-error doesnt have a type
     if (swiperRef.current) swiperRef.current.swiper.slideNext();
   };
 

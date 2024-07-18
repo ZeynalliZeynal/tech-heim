@@ -1,7 +1,7 @@
-import Checkbox from "@/ui/form/Checkbox.tsx";
-import { Link } from "react-router-dom";
 import { Dispatch, SetStateAction } from "react";
 import { useModalFormTabContext } from "@/context/useModalFormTabContext.ts";
+import { Link } from "react-router-dom";
+import Checkbox from "@/ui/form/Checkbox.tsx";
 
 const ModalFormCheckbox = ({
   checked,
@@ -12,6 +12,21 @@ const ModalFormCheckbox = ({
 }) => {
   const { activeTab } = useModalFormTabContext();
 
+  return (
+    activeTab === "signup" && (
+      <Checkbox
+        checked={checked}
+        onChange={() => setChecked((prevState) => !prevState)}
+        color="dark"
+      >
+        I agree to all{" "}
+        <Link to="/" className="underline text-primary">
+          Terms & Conditions
+        </Link>
+      </Checkbox>
+    )
+  );
+  /*
   return activeTab === "login" ? (
     <Checkbox
       checked={checked}
@@ -32,6 +47,8 @@ const ModalFormCheckbox = ({
       </Link>
     </Checkbox>
   );
+  
+   */
 };
 
 export default ModalFormCheckbox;
