@@ -10,10 +10,10 @@ export const useAddToCart = () => {
       queryClient.invalidateQueries({
         queryKey: ["user/cart"],
       });
-      toast.success(`Item successfully added`);
+      toast.success(`Item successfully added to your cart`);
     },
     onError: () => {
-      toast.error("Item couldn't be added");
+      toast.error("Item couldn't be added to your cart");
     },
   });
 

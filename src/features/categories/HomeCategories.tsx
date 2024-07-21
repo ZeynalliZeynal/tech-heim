@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 
 import Container from "../../ui/Container.tsx";
 import { useSubcategories } from "@/features/categories/useSubcategories.ts";
+import Skeleton from "@/ui/Skeleton.tsx";
 
 const HomeCategories = () => {
   const { subcategories, isPending } = useSubcategories();
@@ -9,22 +10,26 @@ const HomeCategories = () => {
   return (
     <section>
       <Container>
-        <ul className="w-full justify-between overflow-auto items-stretch gap-4">
-          {subcategories
-            ?.slice(0, 6)
-            .map(
-              ({
-                id,
-                name,
-                image,
-              }: {
-                id: number;
-                name: string;
-                image: string;
-              }) =>
-                isPending ? (
-                  "Loading subcategories..."
-                ) : (
+        <ul className="w-full justify-between overflow-x-auto items-stretch gap-4">
+          {isPending ? (
+            <div className="w-full xl:h-[200px] h-[100px] flex flex-col gap-2">
+              <div className="w-full h-full">
+                <Skeleton />
+              </div>
+            </div>
+          ) : (
+            subcategories
+              ?.slice(0, 6)
+              .map(
+                ({
+                  id,
+                  name,
+                  image,
+                }: {
+                  id: number;
+                  name: string;
+                  image: string;
+                }) => (
                   <li key={id}>
                     <Link
                       to="/"
@@ -41,7 +46,8 @@ const HomeCategories = () => {
                     </Link>
                   </li>
                 ),
-            )}
+              )
+          )}
         </ul>
       </Container>
     </section>

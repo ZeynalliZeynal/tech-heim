@@ -10,10 +10,10 @@ export const useAddToWishlist = () => {
       queryClient.invalidateQueries({
         queryKey: ["user/wishlist"],
       });
-      toast.success(`Item successfully added`);
+      toast.success(`Item successfully added to your wishlist`);
     },
     onError: () => {
-      toast.error("Item couldn't be added");
+      toast.error("Item couldn't be added to your wishlist");
     },
   });
 

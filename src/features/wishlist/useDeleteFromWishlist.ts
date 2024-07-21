@@ -10,10 +10,10 @@ export const useDeleteFromWishlist = () => {
       queryClient.invalidateQueries({
         queryKey: ["user/wishlist"],
       });
-      toast.success("Item successfully deleted");
+      toast.success("Item successfully deleted from your wishlist");
     },
     onError: () => {
-      toast.error("Item deletion failed");
+      toast.error("Item failed to be deleted from your wishlist");
     },
   });
 

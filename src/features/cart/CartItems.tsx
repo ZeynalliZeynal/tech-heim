@@ -72,13 +72,13 @@ const CartItems = () => {
               <div className="flex gap-2 items-center">
                 <Button
                   size="icon"
-                  className="hover:bg-error/10"
+                  className="hover:bg-error/15 text-error focus-within:border-error"
                   onClick={() => deleteItem(item.id)}
                 >
                   {isDeleting ? (
                     <Spinner color="error" />
                   ) : (
-                    <span className="size-4 text-error">
+                    <span className="size-4">
                       <TrashIcon />
                     </span>
                   )}

@@ -53,7 +53,8 @@ const Header = memo(() => {
       className={classNames(
         "top-0 left-0 w-full text-body-lg z-[900] h-16 transition border-b bg-white",
         {
-          "border-primary fixed backdrop-blur bg-white/80": lastScrollY > 64,
+          "border-primary fixed backdrop-blur backdrop-filter bg-white/80":
+            lastScrollY > 64,
           "relative border-white": lastScrollY < 64,
         },
       )}

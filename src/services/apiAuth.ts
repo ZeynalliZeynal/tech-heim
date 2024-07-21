@@ -37,7 +37,7 @@ export const login = async ({ email, password }: IAuthData) => {
   //   sessionStorage.setItem(supabase.storageKey, JSON.stringify(data.session));
   // }
 
-  return data.session;
+  return data;
 };
 
 export const logout = async () => {
