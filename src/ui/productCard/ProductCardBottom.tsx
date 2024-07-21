@@ -27,7 +27,10 @@ const ProductCardBottom = ({
           {formatCurrency(product.price, product.discount_percent)}
         </div>
         <div className="flex items-center w-full justify-between">
-          <ProductAddToCart productId={product.id} />
+          <ProductAddToCart
+            productId={product.id}
+            selectedColor={selectedColor}
+          />
 
           <Button size="icon" className="text-primary">
             <CiHeart />
