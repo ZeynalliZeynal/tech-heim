@@ -7,7 +7,6 @@ import Button from "@/ui/Button";
 import Logo from "@/ui/svgs/logo";
 import Accordion from "@/ui/Accordion";
 import { CATEGORIES_ICONS, NAV_LINKS } from "@/utils/variables";
-import { NavLinksProps } from "@/types/variableTypes";
 import { useCategories } from "./useCategories";
 import { memo } from "react";
 
@@ -29,7 +28,7 @@ const BurgerButton = memo(() => {
         </Drawer.Head>
         <Accordion>
           <div className="flex flex-col">
-            {NAV_LINKS.map((link: NavLinksProps, index) =>
+            {NAV_LINKS.map((link, index) =>
               link.children ? (
                 <Accordion.Body key={index}>
                   <Accordion.Head name={`${link.name}-${index}`}>

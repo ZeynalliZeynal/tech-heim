@@ -8,7 +8,7 @@ const ProductCardColors = ({
   selectedColor,
   setSelectedColor,
 }: {
-  colors: DColors[];
+  colors: DColors[] | undefined;
   selectedColor: number;
   setSelectedColor: Dispatch<SetStateAction<number>>;
 }) => {
