@@ -134,15 +134,15 @@ export default {
         fadeOut: "fadeOut 300ms ease-in-out forwards",
         slideRight: "slideRight 300ms ease-in-out forwards",
         slideLeft: "slideLeft 300ms ease-in-out forwards",
-        skeleton: "skeleton 1s ease infinite",
+        skeleton: "skeleton 1s ease infinite forwards",
       },
       keyframes: {
         skeleton: {
           from: {
-            backgroundPosition: "left -70px top 0",
+            backgroundPosition: "100% 0",
           },
           to: {
-            backgroundPosition: "right -70px top 0",
+            backgroundPosition: "-100% 0",
           },
         },
         pulse: {

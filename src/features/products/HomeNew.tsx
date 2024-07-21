@@ -2,9 +2,10 @@ import Container from "@/ui/Container.tsx";
 import HomeFilteredProducts from "@/ui/home/HomeFilteredProducts.tsx";
 import { useFilteredProducts } from "@/features/products/useFilteredProducts.ts";
 import { getWithinHours } from "@/helpers/converters.ts";
+import Skeleton from "@/ui/Skeleton.tsx";
 
 const HomeNew = () => {
-  const { products } = useFilteredProducts(
+  const { products, isPending } = useFilteredProducts(
     {
       filter: { field: "created_at", value: getWithinHours(24 * 18000) },
       method: "gte",
@@ -17,11 +18,22 @@ const HomeNew = () => {
   return (
     <section>
       <Container>
-        <HomeFilteredProducts
-          title="New Products"
-          to="/"
-          products={lastFourProducts}
-        />
+        {isPending ? (
+          <div className="w-full space-y-4">
+            <div className="w-full h-[50px]">
+              <Skeleton />
+            </div>
+            <div className="w-full h-[350px]">
+              <Skeleton />
+            </div>
+          </div>
+        ) : (
+          <HomeFilteredProducts
+            title="New Products"
+            to="/"
+            products={lastFourProducts}
+          />
+        )}
       </Container>
     </section>
   );

@@ -1,9 +1,11 @@
 const Skeleton = () => {
   return (
     <div
-      className="rounded-md relative overflow-hidden z-10 bg-neutral-gray-300 w-full h-full bg-gradient-to-r from-white/0 via-white to-white/0 bg-no-repeat animate-skeleton"
+      className="rounded-md relative overflow-hidden z-10 w-full h-full animate-skeleton"
       style={{
-        backgroundSize: "70px 100%",
+        background:
+          "linear-gradient(120deg, #e5e5e5 30%, #f2f2f2 38%, #f2f2f2 40%, #e5e5e5 48%)",
+        backgroundSize: "200% 100%",
       }}
     />
   );
