@@ -1,14 +1,14 @@
-import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { addItemToCart } from "@/services/apiCart.ts";
 import { toast } from "sonner";
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { addToWishlist } from "@/services/apiWhishlist.ts";
 
-export const useAddItem = () => {
+export const useAddToWishlist = () => {
   const queryClient = useQueryClient();
   const { mutate: addItem, isPending: isAdding } = useMutation({
-    mutationFn: addItemToCart,
+    mutationFn: addToWishlist,
     onSuccess: () => {
       queryClient.invalidateQueries({
-        queryKey: ["user/cart"],
+        queryKey: ["user/wishlist"],
       });
       toast.success(`Item successfully added`);
     },

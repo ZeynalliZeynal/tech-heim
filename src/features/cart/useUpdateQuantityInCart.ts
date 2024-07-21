@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { updateQuantity } from "@/services/apiCart.ts";
 import { toast } from "sonner";
 
-export const useUpdateQuantity = () => {
+export const useUpdateQuantityInCart = () => {
   const queryClient = useQueryClient();
   const { mutate: update, isPending: isUpdating } = useMutation({
     mutationFn: updateQuantity,

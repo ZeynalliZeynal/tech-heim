@@ -5,13 +5,13 @@ import Button from "@/ui/Button.tsx";
 import Spinner from "@/ui/Spinner.tsx";
 import { FiMinus, FiPlus } from "react-icons/fi";
 import { useCart } from "@/features/cart/useCart.ts";
-import { useDeleteItem } from "@/features/cart/useDeleteItem.ts";
-import { useUpdateQuantity } from "@/features/cart/useUpdateQuantity.ts";
+import { useDeleteFromCart } from "@/features/cart/useDeleteFromCart.ts";
+import { useUpdateQuantityInCart } from "@/features/cart/useUpdateQuantityInCart.ts";
 
 const CartItems = () => {
   const { cart } = useCart();
-  const { deleteItem, isDeleting } = useDeleteItem();
-  const { update, isUpdating } = useUpdateQuantity();
+  const { deleteItem, isDeleting } = useDeleteFromCart();
+  const { update, isUpdating } = useUpdateQuantityInCart();
 
   const handleUpdateQuantity = (id: number, value: number) => {
     update({ id, value });
