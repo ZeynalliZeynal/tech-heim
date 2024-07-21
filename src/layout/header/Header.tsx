@@ -51,7 +51,7 @@ const Header = memo(() => {
     <header
       ref={headerRef}
       className={classNames(
-        "top-0 left-0 w-full text-body-lg z-[900] h-16 transition border-b",
+        "top-0 left-0 w-full text-body-lg z-[900] h-16 transition border-b bg-white",
         {
           "border-primary fixed backdrop-blur bg-white/80": lastScrollY > 64,
           "relative border-white": lastScrollY < 64,
