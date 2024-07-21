@@ -37,6 +37,6 @@ interface DCartItem {
   created_at?: Date;
   user_id: string | undefined;
   product_id: number;
-  quantity: number;
-  color: string | undefined;
+  quantity?: number;
+  color?: string | undefined;
 }

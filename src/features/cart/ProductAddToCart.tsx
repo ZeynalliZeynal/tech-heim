@@ -1,10 +1,10 @@
 import Button from "@/ui/Button.tsx";
 import { BagCheckIcon, CartIcon } from "@/ui/svgs/icons.tsx";
-import { useAddItem } from "@/features/cart/useAddItem.ts";
+import { useAddToCart } from "@/features/cart/useAddToCart.ts";
 import { useUser } from "@/features/auth/useUser.ts";
 import Spinner from "@/ui/Spinner.tsx";
 import { useCart } from "@/features/cart/useCart.ts";
-import { useDeleteItem } from "@/features/cart/useDeleteItem.ts";
+import { useDeleteFromCart } from "@/features/cart/useDeleteFromCart.ts";
 
 const ProductAddToCart = ({
   productId,
@@ -14,7 +14,7 @@ const ProductAddToCart = ({
   selectedColor?: string;
 }) => {
   const { cart } = useCart();
-  const { deleteItem, isDeleting } = useDeleteItem();
+  const { deleteItem, isDeleting } = useDeleteFromCart();
 
   const alreadyInCart = Boolean(
     cart?.find(
@@ -22,7 +22,7 @@ const ProductAddToCart = ({
     ),
   );
 
-  const { isAdding, addItem } = useAddItem();
+  const { isAdding, addItem } = useAddToCart();
   const { user } = useUser();
   const handleAddItem = () => {
     addItem({

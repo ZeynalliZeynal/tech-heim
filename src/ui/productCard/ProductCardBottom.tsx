@@ -1,8 +1,7 @@
 import { motion } from "framer-motion";
-import Button from "../Button.tsx";
-import { CiHeart } from "react-icons/ci";
 import ProductAddToCart from "@/features/cart/ProductAddToCart.tsx";
 import { formatCurrency } from "@/helpers/converters.ts";
+import AddToWishlist from "@/features/wishlist/AddToWishlist.tsx";
 
 interface IProductCardBottom {
   isHovering: boolean;
@@ -27,11 +26,11 @@ const ProductCardBottom = ({
           {formatCurrency(product.price, product.discount_percent)}
         </div>
         <div className="flex items-center w-full justify-between">
-          <ProductAddToCart productId={product.id} />
-
-          <Button size="icon" className="text-primary">
-            <CiHeart />
-          </Button>
+          <ProductAddToCart
+            productId={product.id}
+            selectedColor={selectedColor}
+          />
+          <AddToWishlist productId={product?.id} color={selectedColor} />
         </div>
       </div>
       <div className="lg:flex hidden flex-col h-12 w-full overflow-hidden">
@@ -71,9 +70,7 @@ const ProductCardBottom = ({
             selectedColor={selectedColor}
           />
 
-          <Button size="icon" className="text-primary">
-            <CiHeart />
-          </Button>
+          <AddToWishlist productId={product?.id} color={selectedColor} />
         </motion.div>
       </div>
     </>

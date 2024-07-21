@@ -2,7 +2,7 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { deleteFromCart } from "@/services/apiCart.ts";
 import { toast } from "sonner";
 
-export const useDeleteItem = () => {
+export const useDeleteFromCart = () => {
   const queryClient = useQueryClient();
   const { mutate: deleteItem, isPending: isDeleting } = useMutation({
     mutationFn: deleteFromCart,

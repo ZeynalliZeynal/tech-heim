@@ -4,7 +4,6 @@ import { getUserCart } from "@/services/apiCart.ts";
 
 export const useCart = () => {
   const { user } = useUser();
-  // console.log(user);
 
   const { data: cart, isPending } = useQuery({
     queryKey: ["user/cart", user?.id],
