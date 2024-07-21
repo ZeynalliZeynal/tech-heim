@@ -86,6 +86,7 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
         <input
           className="default-input"
           type="email"
+          defaultValue="zzeynalli446@gmail.com"
           autoComplete="email"
           placeholder=""
           {...register("email", {
@@ -109,6 +110,7 @@ const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
         <input
           type={showPassword ? "text" : "password"}
           className="default-input"
+          defaultValue="zeynal"
           autoComplete="current-password"
           placeholder=""
           {...register("password", {
