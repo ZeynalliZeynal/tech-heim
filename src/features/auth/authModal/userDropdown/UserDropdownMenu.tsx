@@ -4,8 +4,10 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "@/features/auth/useUser.ts";
 import { useLogout } from "@/features/auth/useLogout.ts";
 import Spinner from "@/ui/Spinner.tsx";
+import { useWindowComponentContext } from "@/hooks/useWindowComponentContext.ts";
 
-const UserDropdownMenu = ({ closeMenu }: { closeMenu: () => void }) => {
+const UserDropdownMenu = () => {
+  const { close } = useWindowComponentContext();
   const { user } = useUser();
   const { logout, isLoggingOut } = useLogout();
   const navigate = useNavigate();
@@ -32,7 +34,7 @@ const UserDropdownMenu = ({ closeMenu }: { closeMenu: () => void }) => {
         <li className="w-full" key={i}>
           <button
             onClick={() => {
-              closeMenu();
+              close();
               if (o.to) navigate("/blog");
               else logout();
             }}

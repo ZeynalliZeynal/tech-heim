@@ -1,4 +1,8 @@
-import { supabase } from "@/services/supabase.ts";
+import {
+  isQueryMethod,
+  queryMethodMap,
+  supabase,
+} from "@/services/supabase.ts";
 
 export const getFilteredProducts = async ({
   filter,
@@ -6,14 +10,16 @@ export const getFilteredProducts = async ({
 }: {
   filter: { field: string; value: string | number };
   method: string;
-}) => {
+}): Promise<DProducts[]> => {
   let query = supabase
     .from("products")
     .select(
       "id, rating, price, discount_percent, model, image, product_brands(name))",
     );
 
-  if (filter !== null) query = query[method](filter.field, filter.value);
+  if (filter !== null && isQueryMethod(method))
+    query = queryMethodMap[method](query, filter.field, filter.value);
+  else throw new Error(`Invalid query method: ${method}`);
   const { data: filteredProducts, error } = await query;
   if (error) {
     console.error(error.message);
@@ -22,7 +28,7 @@ export const getFilteredProducts = async ({
     );
   }
 
-  return filteredProducts;
+  return filteredProducts as unknown as DProducts[];
 };
 
 export const getColors = async (productId: number) => {

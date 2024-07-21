@@ -1,5 +1,8 @@
-export const formatCurrency = (value: number, discount?: number) => {
-  if (discount)
+export const formatCurrency = (
+  value: number | null,
+  discount?: number | null,
+) => {
+  if (discount && value)
     return new Intl.NumberFormat("en", {
       style: "currency",
       currency: "USD",
@@ -8,7 +11,7 @@ export const formatCurrency = (value: number, discount?: number) => {
     return new Intl.NumberFormat("en", {
       style: "currency",
       currency: "USD",
-    }).format(value);
+    }).format(value as number | bigint);
 };
 
 export const getWithinHours = (hours: number) => {

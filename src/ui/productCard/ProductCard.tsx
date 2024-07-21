@@ -7,9 +7,8 @@ import ProductCardBadges from "./ProductCardBadges.tsx";
 import ProductCardBottom from "./ProductCardBottom.tsx";
 import { useProductColors } from "@/features/products/useProductColors.ts";
 import useWindowSize from "@/hooks/useWindowSize.ts";
-import { ProductTypes } from "@/types/productTypes.ts";
 
-const ProductCard = ({ product }: { product: ProductTypes }) => {
+const ProductCard = ({ product }: { product: DProducts }) => {
   const { colors } = useProductColors(product.id);
 
   const [isHovering, setIsHovering] = useState<boolean>(false);
@@ -29,9 +28,9 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
       onMouseLeave={() => setIsHovering(false)}
     >
       <ProductCardImage
-        image={product?.image}
-        model={product?.model}
-        brand={product?.product_brands}
+        image={product.image}
+        model={product.model}
+        brand={product.product_brands}
       />
       <ProductCardColors
         colors={colors}

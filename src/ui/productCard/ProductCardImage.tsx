@@ -1,14 +1,14 @@
-import { ProductBrandTypes } from "@/types/productTypes.ts";
+interface IProductCartImage {
+  image: string | undefined;
+  model: string | undefined | null;
+  brand: DBrands;
+}
 
 const ProductCardImage = ({
   image = "",
   model = "",
   brand,
-}: {
-  image: string;
-  model: string;
-  brand: ProductBrandTypes;
-}) => {
+}: IProductCartImage) => {
   return (
     <div className="flex flex-col">
       <div className="md:h-[200px] h-[120px] self-center">

@@ -6,7 +6,6 @@ import React, {
   useCallback,
   useReducer,
 } from "react";
-import { WindowComponentContextType } from "../types/contextTypes.ts";
 import { useWindowComponentContext } from "../hooks/useWindowComponentContext.ts";
 import { useOutsideClick } from "../hooks/useOutsideClick.ts";
 import { createPortal } from "react-dom";
@@ -20,25 +19,30 @@ enum WindowActionKind {
   animate = "window/animate",
 }
 
-type WindowActionType = {
+interface IWindowContext {
+  currentWindow?: string;
+  open: (opens: string) => void;
+  close: () => void;
+  isAnimating: boolean;
+  type?: string;
+}
+
+interface IWindowAction {
   type: WindowActionKind;
   payload?: string;
-};
+}
 
-type WindowStateType = {
+interface IWindowState {
   currentWindow?: string;
   isAnimating: boolean;
-};
+}
 
-const initialState: WindowStateType = {
+const initialState: IWindowState = {
   currentWindow: "",
   isAnimating: false,
 };
 
-const reducer = (
-  state: WindowStateType,
-  action: WindowActionType,
-): WindowStateType => {
+const reducer = (state: IWindowState, action: IWindowAction): IWindowState => {
   switch (action.type) {
     case WindowActionKind.open:
       return { ...state, currentWindow: action.payload, isAnimating: false };
@@ -51,8 +55,9 @@ const reducer = (
   }
 };
 
-export const WindowComponentContext =
-  createContext<WindowComponentContextType>(null);
+export const WindowComponentContext = createContext<IWindowContext | null>(
+  null,
+);
 
 const WindowComponent = ({
   children,

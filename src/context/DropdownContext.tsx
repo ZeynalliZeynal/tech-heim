@@ -1,9 +1,12 @@
 import React, { createContext, ReactNode, useContext, useState } from "react";
+import { useHideScroll } from "@/hooks/useHideScroll.ts";
 
-import { DropdownContextType } from "../types/contextTypes";
-import { useHideScroll } from "../hooks/useHideScroll.ts";
+interface IDropdownContext {
+  isNavMenuOpen: boolean;
+  setIsNavMenuOpen: (isOpen: boolean) => void;
+}
 
-const DropdownContext = createContext<DropdownContextType | null>(null);
+const DropdownContext = createContext<IDropdownContext | null>(null);
 
 const DropdownProvider: React.FC<{ children?: ReactNode }> = ({ children }) => {
   const [isNavMenuOpen, setIsNavMenuOpen] = useState<boolean>(false);

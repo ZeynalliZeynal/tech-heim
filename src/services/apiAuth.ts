@@ -1,7 +1,13 @@
 import { supabase } from "@/services/supabase.ts";
-import { AuthDataType } from "@/types/authTypes.ts";
 
-export const signup = async ({ fullName, email, password }: AuthDataType) => {
+interface IAuthData {
+  fullName?: string;
+  email: string;
+  password: string;
+  rememberMe?: boolean;
+}
+
+export const signup = async ({ fullName, email, password }: IAuthData) => {
   const { data, error } = await supabase.auth.signUp({
     email,
     password,
@@ -18,7 +24,7 @@ export const signup = async ({ fullName, email, password }: AuthDataType) => {
   return data;
 };
 
-export const login = async ({ email, password }: AuthDataType) => {
+export const login = async ({ email, password }: IAuthData) => {
   const { data, error } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -36,8 +42,6 @@ export const login = async ({ email, password }: AuthDataType) => {
 
 export const logout = async () => {
   const { error } = await supabase.auth.signOut();
-  if (sessionStorage.getItem(supabase.storageKey))
-    sessionStorage.removeItem(supabase.storageKey);
   if (error) throw new Error(error.message);
 };
 

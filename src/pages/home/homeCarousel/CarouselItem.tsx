@@ -1,9 +1,7 @@
 import { Link } from "react-router-dom";
-
-import { ProductTypes } from "@/types/productTypes.ts";
 import { formatCurrency } from "@/helpers/converters.ts";
 
-const CarouselItem = ({ product }: { product: ProductTypes }) => {
+const CarouselItem = ({ product }: { product: DProducts }) => {
   return (
     <Link
       to="/"
@@ -15,8 +13,8 @@ const CarouselItem = ({ product }: { product: ProductTypes }) => {
       <div className="flex items-center flex-col gap-3">
         <span className="h-[150px]">
           <img
-            src={product?.image}
-            alt={product?.product_brands.name}
+            src={product.image}
+            alt={product.product_brands.name}
             className="object-contain"
           />
         </span>

@@ -1,11 +1,5 @@
 import { ADMIN_INFO } from "../data/adminInfo";
-import {
-  CategoriesIconsProps,
-  FooterLinksTypes,
-  NavLinksProps,
-  ServicesProps,
-  UserDropdownType,
-} from "../types/variableTypes.ts";
+import { ReactNode } from "react";
 import {
   AccessoryIcon,
   BagIcon,
@@ -27,10 +21,16 @@ import {
   ServiceTimeIcon,
   TVIcon,
   WatchIcon,
-} from "../ui/svgs/icons.tsx";
-import Logo from "../ui/svgs/logo.tsx";
+} from "@/ui/svgs/icons.tsx";
+import Logo from "@/ui/svgs/logo.tsx";
 
-export const NAV_LINKS: NavLinksProps[] = [
+interface INavLinks {
+  to: string;
+  name: string;
+  children?: boolean;
+}
+
+export const NAV_LINKS: INavLinks[] = [
   {
     to: "/",
     name: "Home",
@@ -54,7 +54,7 @@ export const NAV_LINKS: NavLinksProps[] = [
   },
 ];
 
-export const CATEGORIES_ICONS: CategoriesIconsProps = {
+export const CATEGORIES_ICONS: Record<string, ReactNode> = {
   "Mobile Phones": (
     <span className="size-4 md:size-6">
       <MobileIcon />,
@@ -102,7 +102,7 @@ export const CATEGORIES_ICONS: CategoriesIconsProps = {
   ),
 };
 
-export const SERVICES: Array<ServicesProps> = [
+export const SERVICES: Array<{ text: string; icon: ReactNode }> = [
   {
     text: "Latest and Greatest Tech",
     icon: <ServiceComputerIcon />,
@@ -144,7 +144,10 @@ export const CONTACT_INFO = {
   ),
 };
 
-export const FOOTER_LINKS: FooterLinksTypes[] = [
+export const FOOTER_LINKS: Array<{
+  title: string;
+  list: { context: string | ReactNode; link: string }[];
+}> = [
   {
     title: "Company",
     list: [
@@ -199,7 +202,11 @@ export const FOOTER_LINKS: FooterLinksTypes[] = [
   },
 ];
 
-export const USER_DROPDOWN_ITEMS: Array<UserDropdownType> = [
+export const USER_DROPDOWN_ITEMS: Array<{
+  icon: ReactNode;
+  label: string;
+  to?: string;
+}> = [
   {
     icon: <BagIcon />,
     label: "Orders",

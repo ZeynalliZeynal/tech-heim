@@ -28,7 +28,6 @@ const ProductAddToCart = ({
     addItem({
       product_id: productId,
       user_id: user?.id,
-      added_at: new Date().toISOString(),
       quantity: 1,
       color: selectedColor,
     });

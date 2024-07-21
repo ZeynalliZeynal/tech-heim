@@ -1,8 +1,10 @@
 import classNames from "classnames";
 import ModalFormContainer from "@/features/auth/authModal/ModalFormContainer.tsx";
 import { useModalFormTabContext } from "@/context/useModalFormTabContext.ts";
+import { useWindowComponentContext } from "@/hooks/useWindowComponentContext.ts";
 
-const ModalAuthPanel = ({ closeModal }: { closeModal: () => void }) => {
+const ModalAuthPanel = () => {
+  const { close } = useWindowComponentContext();
   const { toggleTab, activeTab } = useModalFormTabContext();
   return (
     <div className="text-body-lg px-8">
@@ -18,7 +20,7 @@ const ModalAuthPanel = ({ closeModal }: { closeModal: () => void }) => {
         <button onClick={toggleTab}>Log in</button>
         <button onClick={toggleTab}>Create Account</button>
       </div>
-      <ModalFormContainer closeModal={closeModal} />
+      <ModalFormContainer closeModal={close} />
     </div>
   );
 };

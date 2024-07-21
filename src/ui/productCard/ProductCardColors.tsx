@@ -1,7 +1,6 @@
 import { motion } from "framer-motion";
 import { Dispatch, SetStateAction, useState } from "react";
 import classNames from "classnames";
-import { ProductColorTypes } from "@/types/productTypes.ts";
 import { getBorderColor } from "@/helpers/tinycolorFuncs.ts";
 
 const ProductCardColors = ({
@@ -9,7 +8,7 @@ const ProductCardColors = ({
   selectedColor,
   setSelectedColor,
 }: {
-  colors: ProductColorTypes[] | undefined;
+  colors: DColors[];
   selectedColor: number;
   setSelectedColor: Dispatch<SetStateAction<number>>;
 }) => {

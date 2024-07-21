@@ -42,7 +42,7 @@ export const deleteFromCart = async (id: number) => {
   return data;
 };
 
-export const addItemToCart = async (newItem) => {
+export const addItemToCart = async (newItem: DCartItem) => {
   const { data, error } = await supabase
     .from("user_cart")
     .insert([{ ...newItem }])

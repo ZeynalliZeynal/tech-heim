@@ -1,24 +1,25 @@
 import { motion } from "framer-motion";
-import { formatCurrency } from "../../helpers/converters.ts";
 import Button from "../Button.tsx";
 import { CiHeart } from "react-icons/ci";
-import { ProductTypes } from "../../types/productTypes.ts";
 import ProductAddToCart from "@/features/cart/ProductAddToCart.tsx";
+import { formatCurrency } from "@/helpers/converters.ts";
+
+interface IProductCardBottom {
+  isHovering: boolean;
+  selectedColor?: string;
+  product: DProducts;
+}
 
 const ProductCardBottom = ({
   isHovering,
   product,
   selectedColor,
-}: {
-  isHovering: boolean;
-  selectedColor?: string;
-  product: ProductTypes;
-}) => {
+}: IProductCardBottom) => {
   return (
     <>
       <div className="flex flex-col w-full overflow-hidden lg:hidden gap-4">
         <div className="w-full flex justify-between items-center md:text-body-lg text-body-sm">
-          {product.discount_percent && (
+          {Boolean(product.discount_percent) && (
             <del className="text-neutral-gray-700">
               {formatCurrency(product.price)}
             </del>
@@ -46,7 +47,7 @@ const ProductCardBottom = ({
           }}
           className="w-full flex justify-between items-center md:text-body-lg text-body-sm min-h-12"
         >
-          {product.discount_percent > 0 && (
+          {Boolean(product.discount_percent) && (
             <del className="text-neutral-gray-700">
               {formatCurrency(product.price)}
             </del>

@@ -1,7 +1,7 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { RouterProvider } from "react-router-dom";
 
-import { router } from "./router";
+import { routes } from "./routes.tsx";
 import { DropdownProvider } from "./context/DropdownContext.tsx";
 import { ReactQueryDevtools } from "@tanstack/react-query-devtools";
 import { Toaster } from "sonner";
@@ -13,7 +13,7 @@ const App = () => {
   return (
     <QueryClientProvider client={queryClient}>
       <DropdownProvider>
-        <RouterProvider router={router} />
+        <RouterProvider router={routes} />
         <ReactQueryDevtools buttonPosition="bottom-left" />
         <Toaster
           position="top-center"
