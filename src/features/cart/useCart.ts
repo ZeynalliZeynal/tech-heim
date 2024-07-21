@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { useUser } from "@/features/auth/useUser.ts";
-import { getUserCart } from "@/services/apiUsers.ts";
+import { getUserCart } from "@/services/apiCart.ts";
 
 export const useCart = () => {
   const { user } = useUser();
@@ -11,5 +11,7 @@ export const useCart = () => {
     queryFn: () => getUserCart(user?.id),
   });
 
-  return { cart, isPending };
+  const cartSize = cart?.reduce((acc, cur) => acc + cur.quantity, 0);
+
+  return { cart, isPending, cartSize };
 };

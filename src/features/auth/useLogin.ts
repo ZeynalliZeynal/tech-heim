@@ -9,7 +9,6 @@ export const useLogin = () => {
     mutationFn: loginApi,
     onSuccess: (data) => {
       queryClient.setQueryData(["user"], data.user);
-      console.log(data);
       toast.success(
         `Log in successful. Welcome back, ${data.user?.user_metadata.fullName}`,
       );

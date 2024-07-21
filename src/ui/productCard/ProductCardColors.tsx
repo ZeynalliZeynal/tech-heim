@@ -1,12 +1,17 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
-import { getBorderColor } from "../../helpers/tinycolorFuncs.ts";
-import { ProductColorTypes } from "../../types/productTypes.ts";
+import { Dispatch, SetStateAction, useState } from "react";
+import classNames from "classnames";
+import { ProductColorTypes } from "@/types/productTypes.ts";
+import { getBorderColor } from "@/helpers/tinycolorFuncs.ts";
 
 const ProductCardColors = ({
   colors,
+  selectedColor,
+  setSelectedColor,
 }: {
   colors: ProductColorTypes[] | undefined;
+  selectedColor: number;
+  setSelectedColor: Dispatch<SetStateAction<number>>;
 }) => {
   const [tooltipIndex, setTooltipIndex] = useState(-1);
 
@@ -23,9 +28,15 @@ const ProductCardColors = ({
       {colors?.map((color, i) => (
         <div
           key={color.id}
-          className="cursor-auto size-4 border rounded-full relative"
+          className={classNames(
+            "cursor-auto size-4 border rounded-full relative",
+            {
+              "outline outline-primary": selectedColor === i,
+            },
+          )}
           onMouseLeave={handleMouseLeave}
           onMouseEnter={() => handleMouseEnter(i)}
+          onClick={() => setSelectedColor(i)}
           style={{
             background: color.hex_code,
             borderColor: getBorderColor(color.hex_code),

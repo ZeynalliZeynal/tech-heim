@@ -2,15 +2,16 @@ import { memo, useEffect, useRef, useState } from "react";
 
 import Container from "@/ui/Container";
 import Navbar from "./navbar/Navbar";
+import classNames from "classnames";
 
 const Header = memo(() => {
   const [lastScrollY, setLastScrollY] = useState(0);
 
   const headerRef = useRef<HTMLHRElement>(null);
   useEffect(() => {
-    const header = headerRef.current;
     const handleScroll = () => {
-      const currentScrollY = scrollY;
+      setLastScrollY(scrollY);
+      /*
       if (header) {
         if (currentScrollY <= 84) {
           // at the top
@@ -38,8 +39,9 @@ const Header = memo(() => {
         }
         setLastScrollY(currentScrollY);
       }
+       */
     };
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -48,7 +50,13 @@ const Header = memo(() => {
   return (
     <header
       ref={headerRef}
-      className="relative top-0 left-0 w-full text-body-lg z-[900] bg-white h-16 transition border-b border-white"
+      className={classNames(
+        "top-0 left-0 w-full text-body-lg z-[900] h-16 transition border-b",
+        {
+          "border-primary fixed backdrop-blur bg-white/80": lastScrollY > 64,
+          "relative border-white": lastScrollY < 64,
+        },
+      )}
     >
       <Container>
         <Navbar />

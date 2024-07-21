@@ -144,6 +144,8 @@ const Toggle = ({
 }) => {
   const { open, currentWindow, close } = useWindowComponentContext();
   const handleClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(currentWindow);
+    e.preventDefault();
     e.stopPropagation();
     currentWindow === "" || currentWindow !== name ? open(name) : close();
   };

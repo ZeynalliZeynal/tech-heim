@@ -1,15 +1,17 @@
 import { motion } from "framer-motion";
 import { formatCurrency } from "../../helpers/converters.ts";
 import Button from "../Button.tsx";
-import { CartIcon } from "../svgs/icons.tsx";
 import { CiHeart } from "react-icons/ci";
 import { ProductTypes } from "../../types/productTypes.ts";
+import ProductAddToCart from "@/features/cart/ProductAddToCart.tsx";
 
 const ProductCardBottom = ({
   isHovering,
   product,
+  selectedColor,
 }: {
   isHovering: boolean;
+  selectedColor?: string;
   product: ProductTypes;
 }) => {
   return (
@@ -24,12 +26,7 @@ const ProductCardBottom = ({
           {formatCurrency(product.price, product.discount_percent)}
         </div>
         <div className="flex items-center w-full justify-between">
-          <Button size="sm" style="primary-outline">
-            <span className="size-6">
-              <CartIcon />
-            </span>
-            Add to Cart
-          </Button>
+          <ProductAddToCart productId={product.id} />
 
           <Button size="icon" className="text-primary">
             <CiHeart />
@@ -49,7 +46,7 @@ const ProductCardBottom = ({
           }}
           className="w-full flex justify-between items-center md:text-body-lg text-body-sm min-h-12"
         >
-          {product.discount_percent && (
+          {product.discount_percent > 0 && (
             <del className="text-neutral-gray-700">
               {formatCurrency(product.price)}
             </del>
@@ -68,12 +65,10 @@ const ProductCardBottom = ({
           }}
           className="min-h-12 flex items-center w-full justify-between"
         >
-          <Button size="sm" style="primary-outline">
-            <span className="size-6">
-              <CartIcon />
-            </span>
-            Add to Cart
-          </Button>
+          <ProductAddToCart
+            productId={product.id}
+            selectedColor={selectedColor}
+          />
 
           <Button size="icon" className="text-primary">
             <CiHeart />

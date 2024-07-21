@@ -11,7 +11,9 @@ import { ProductTypes } from "@/types/productTypes.ts";
 
 const ProductCard = ({ product }: { product: ProductTypes }) => {
   const { colors } = useProductColors(product.id);
+
   const [isHovering, setIsHovering] = useState<boolean>(false);
+  const [selectedColor, setSelectedColor] = useState<number>(0);
 
   const { width } = useWindowSize();
 
@@ -31,9 +33,17 @@ const ProductCard = ({ product }: { product: ProductTypes }) => {
         model={product?.model}
         brand={product?.product_brands}
       />
-      <ProductCardColors colors={colors} />
+      <ProductCardColors
+        colors={colors}
+        selectedColor={selectedColor}
+        setSelectedColor={setSelectedColor}
+      />
       <ProductCardBadges product={product} />
-      <ProductCardBottom product={product} isHovering={isHovering} />
+      <ProductCardBottom
+        product={product}
+        isHovering={isHovering}
+        selectedColor={colors?.at(selectedColor)?.name}
+      />
     </Link>
   );
 };
