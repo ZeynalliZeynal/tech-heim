@@ -6,6 +6,8 @@ import Blog from "@/pages/blog/Blog.tsx";
 import Faq from "@/pages/faq/Faq.tsx";
 import ContactUs from "@/pages/contact/Contact.tsx";
 
+// todo: optimize chunks
+
 export const routes = createBrowserRouter([
   {
     element: <MainLayout />,

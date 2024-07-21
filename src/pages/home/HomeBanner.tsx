@@ -1,7 +1,6 @@
 import Container from "../../ui/Container.tsx";
 import Button from "../../ui/Button.tsx";
 
-// TODO: make the banner better
 const HomeBanner = () => {
   return (
     <section>
