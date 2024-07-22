@@ -10,7 +10,7 @@ const Menu = ({ name, children }: { name: string; children: ReactElement }) => {
   const { close } = useWindowComponentContext();
   return (
     <WindowComponent.Window zIndex={500} name={name}>
-      <div className="rounded-b-md shadow-md bg-white p-4">
+      <div className="rounded-b-md shadow-md bg-white p-4 sm:w-auto w-full">
         {cloneElement(children, { closeMenu: close })}
       </div>
     </WindowComponent.Window>

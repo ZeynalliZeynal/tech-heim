@@ -18,11 +18,11 @@ const CartItems = () => {
   };
 
   return (
-    <ul className="flex-col gap-3 max-h-[600px] overflow-auto justify-start">
+    <ul className="flex-col gap-3 max-h-[560px] justify-start">
       {cart?.map((item) => (
         <li
           key={item.id}
-          className="p-2.5 w-full shadow-sm hover:shadow-md transition-shadow rounded-md grid grid-cols-[170px_1fr] gap-1.5"
+          className="p-2.5 w-full shadow-sm hover:shadow-md transition-shadow rounded-md grid sm:grid-cols-[170px_1fr] grid-cols-[100px_1fr] gap-1.5"
         >
           <div className="p-2.5 w-full h-[150px]">
             <img

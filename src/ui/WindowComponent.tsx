@@ -128,7 +128,7 @@ const Window = ({
     >
       <div
         className={classNames("flex", {
-          "container justify-end": type === "dropdown",
+          "sm:container sm:h-auto w-dvw h-dvh justify-end": type === "dropdown",
           "justify-center items-center h-full": type === "modal",
           "justify-start h-full": type === "drawer",
         })}
@@ -161,7 +161,7 @@ const Head = ({ children }: { children: ReactElement }) => {
   const { close } = useWindowComponentContext();
 
   return (
-    <div className="flex justify-between items-center sticky">
+    <div className="flex justify-between items-center sticky -top-4 py-4 bg-white z-50">
       {children}{" "}
       <Button size="icon" onClick={close}>
         <IoIosClose />

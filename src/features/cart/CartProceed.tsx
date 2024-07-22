@@ -9,7 +9,7 @@ const CartProceed = () => {
   const { isUpdating } = useUpdateQuantityInCart();
 
   return (
-    <div className="grid grid-cols-[100px_1fr] pt-4">
+    <div className="grid grid-cols-[100px_1fr] py-2 items-center sticky bottom-0 bg-white">
       <p className="text-neutral-gray-dark">
         <span className="font-light text-body-md">Grand total</span>
         <span className="font-medium">
