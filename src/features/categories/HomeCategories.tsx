@@ -13,9 +13,7 @@ const HomeCategories = () => {
         <ul className="w-full justify-between overflow-x-auto items-stretch gap-4">
           {isPending ? (
             <div className="w-full xl:h-[200px] h-[100px] flex flex-col gap-2">
-              <div className="w-full h-full">
-                <Skeleton />
-              </div>
+              <Skeleton />
             </div>
           ) : (
             subcategories

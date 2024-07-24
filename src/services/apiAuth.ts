@@ -46,8 +46,9 @@ export const logout = async () => {
 };
 
 export const getCurrentUser = async () => {
-  const { data: session } = await supabase.auth.getSession();
-  if (!session.session) return null;
+  const { data: session, error: sessionError } =
+    await supabase.auth.getSession();
+  if (!session.session || sessionError) return null;
 
   const { data: user, error } = await supabase.auth.getUser();
 

@@ -45,9 +45,7 @@ const HomeCarousel = () => {
     <section>
       <Container>
         {isPending ? (
-          <div className="w-full h-[250px]">
-            <Skeleton />
-          </div>
+          <Skeleton h="[250px]" />
         ) : (
           <div className="grid grid-cols-1 bg-primary-500 bg-[url('/images/random-shape-in-blue.png')] bg-no-repeat bg-contain px-8 py-11 gap-2 rounded-md select-none">
             <div className="flex sm:flex-row flex-col items-center gap-8 w-full">

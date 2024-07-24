@@ -1,5 +1,5 @@
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
-import Button from "../../../ui/Button";
+import Button from "../../../ui/Button.tsx";
 
 const HomeCarouselButtons = ({
   handlePrev,

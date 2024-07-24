@@ -20,12 +20,8 @@ const HomeNew = () => {
       <Container>
         {isPending ? (
           <div className="w-full space-y-4">
-            <div className="w-full h-[50px]">
-              <Skeleton />
-            </div>
-            <div className="w-full h-[350px]">
-              <Skeleton />
-            </div>
+            <Skeleton h="[50px]" />
+            <Skeleton h="[350px]" />
           </div>
         ) : (
           <HomeFilteredProducts

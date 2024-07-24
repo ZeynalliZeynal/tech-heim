@@ -1,28 +1,15 @@
 import Container from "../../ui/Container.tsx";
-import { useQuery } from "@tanstack/react-query";
-import { getBrands } from "../../services/apiProducts.ts";
 import HomeSectionContainer from "../../ui/home/HomeSectionContainer.tsx";
 
 import "swiper/css/free-mode";
 import { useEffect, useRef } from "react";
+import { useBrands } from "@/features/brands/useBrands.ts";
+import Skeleton from "@/ui/Skeleton.tsx";
 
 const HomeBrands = () => {
-  const { data: brands } = useQuery({
-    queryKey: ["brands"],
-    queryFn: getBrands,
-  });
-
+  const { brands, isPending } = useBrands();
   const scrollerRef = useRef<HTMLDivElement>(null);
   const scrollerInnerRef = useRef<HTMLUListElement>(null);
-
-  useEffect(() => {
-    if (
-      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
-      brands
-    ) {
-      addAnimation();
-    }
-  }, [brands]);
 
   const addAnimation = () => {
     if (scrollerRef.current && scrollerInnerRef.current) {
@@ -37,15 +24,14 @@ const HomeBrands = () => {
     }
   };
 
-  const set = new Set();
-  const distinctBrands = brands?.filter((brand) => {
-    if (set.has(brand.name)) {
-      return false;
-    } else {
-      set.add(brand.name);
-      return true;
+  useEffect(() => {
+    if (
+      !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+      brands
+    ) {
+      addAnimation();
     }
-  });
+  }, [brands]);
 
   return (
     <section>
@@ -58,20 +44,24 @@ const HomeBrands = () => {
               mask: "linear-gradient(90deg, transparent, white 10%, white 90%, transparent)",
             }}
           >
-            <ul
-              ref={scrollerInnerRef}
-              className="justify-start gap-8 py-4 shrink-0 w-max animate-swipe"
-            >
-              {distinctBrands?.map((brand) => (
-                <li key={brand.id} className="lg:h-auto md:h-12 h-6">
-                  <img
-                    src={brand.logo}
-                    alt={brand.name}
-                    className="object-contain"
-                  />
-                </li>
-              ))}
-            </ul>
+            {isPending ? (
+              <Skeleton h="[100px]" />
+            ) : (
+              <ul
+                ref={scrollerInnerRef}
+                className="justify-start gap-8 py-4 shrink-0 w-max animate-swipe"
+              >
+                {brands?.map((brand) => (
+                  <li key={brand.id} className="lg:h-auto md:h-12 h-6">
+                    <img
+                      src={brand.logo}
+                      alt={brand.name}
+                      className="object-contain"
+                    />
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         </HomeSectionContainer>
       </Container>
