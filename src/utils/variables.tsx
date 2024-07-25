@@ -1,28 +1,41 @@
 import { ADMIN_INFO } from "../data/adminInfo";
 import { ReactNode } from "react";
+import Logo from "@/ui/svgs/logo.tsx";
 import {
   AccessoryIcon,
-  BagIcon,
-  CallingIcon,
   CameraIcon,
   ConsoleIcon,
-  DollarCircleIcon,
-  EmailEditIcon,
   HeadphoneIcon,
-  HeartIcon,
-  LocationIcon,
-  LogoutIcon,
   MobileIcon,
   MonitorIcon,
   NetworkIcon,
+  TVIcon,
+  WatchIcon,
+} from "@/ui/svgs/categoriesIcons.tsx";
+import {
+  CallingIcon,
+  EmailEditIcon,
+  LocationIcon,
+} from "@/ui/svgs/contactInfoIcons.tsx";
+import {
   ServiceCargoIcon,
   ServiceComputerIcon,
   ServiceShieldIcon,
   ServiceTimeIcon,
-  TVIcon,
-  WatchIcon,
+} from "@/ui/svgs/servicesIcons.tsx";
+import {
+  BagIcon,
+  DollarCircleIcon,
+  HeartIcon,
+  LogoutIcon,
+} from "@/ui/svgs/userDropdownIcons.tsx";
+import {
+  BasketIcon,
+  GiftIcon,
+  NotificationIcon,
+  SecuritySafeIcon,
+  UserEditIcon,
 } from "@/ui/svgs/icons.tsx";
-import Logo from "@/ui/svgs/logo.tsx";
 
 interface INavLinks {
   to: string;
@@ -51,6 +64,44 @@ export const NAV_LINKS: INavLinks[] = [
   {
     to: "/contact",
     name: "Contact Us",
+  },
+];
+
+export const DASHBOARD_LINKS = [
+  {
+    to: "/dashboard/personalData",
+    name: "Personal data",
+    icon: <UserEditIcon />,
+  },
+  {
+    to: "/dashboard/paymentInstallments",
+    name: "Payment Installments",
+    icon: <DollarCircleIcon />,
+  },
+  {
+    to: "/dashboard/orders",
+    name: "Orders",
+    icon: <BasketIcon />,
+  },
+  {
+    to: "/dashboard/wishlist",
+    name: "Wishlist",
+    icon: <HeartIcon />,
+  },
+  {
+    to: "/dashboard/discounts",
+    name: "Discounts",
+    icon: <GiftIcon />,
+  },
+  {
+    to: "/dashboard/security",
+    name: "Security & Access",
+    icon: <SecuritySafeIcon />,
+  },
+  {
+    to: "/dashboard/notifications",
+    name: "Notifications",
+    icon: <NotificationIcon />,
   },
 ];
 

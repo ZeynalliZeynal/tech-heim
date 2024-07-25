@@ -1,7 +1,7 @@
-import Cart from "@/features/cart/Cart";
-import Button from "@/ui/Button";
-import Modal from "@/ui/Modal";
-import { SearchIcon } from "@/ui/svgs/icons";
+import Cart from "@/features/cart/Cart.tsx";
+import Button from "@/ui/Button.tsx";
+import Modal from "@/ui/Modal.tsx";
+import { SearchIcon } from "@/ui/svgs/icons.tsx";
 import AuthButton from "@/features/auth/authModal/AuthButton.tsx";
 import { useUser } from "@/features/auth/useUser.ts";
 

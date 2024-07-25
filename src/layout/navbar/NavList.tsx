@@ -2,10 +2,10 @@ import { NavLink } from "react-router-dom";
 import classNames from "classnames";
 import { HiMiniChevronDown } from "react-icons/hi2";
 
-import { useDropdown } from "@/context/DropdownContext";
-import { NAV_LINKS } from "@/utils/variables";
-import DropdownNav from "../../../features/categories/dropdownNav/DropdownNav";
-import Overlay from "@/ui/Overlay";
+import { useDropdown } from "@/context/DropdownContext.tsx";
+import { NAV_LINKS } from "@/utils/variables.tsx";
+import DropdownNav from "../../features/categories/dropdownNav/DropdownNav.tsx";
+import Overlay from "@/ui/Overlay.tsx";
 
 const NavList = () => {
   const { isNavMenuOpen, setIsNavMenuOpen } = useDropdown();

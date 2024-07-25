@@ -16,7 +16,7 @@ const UserDropdownMenu = () => {
     <ul className="flex-col items-start w-[280px]">
       <li className="w-full">
         <button
-          onClick={() => navigate("/")}
+          onClick={() => navigate("/dashboard/personalData")}
           className="grid gap-4 w-full text-start grid-cols-[24px_1fr] p-2 rounded-md group hover:bg-primary-25/50"
         >
           <span className="size-6 group-hover:text-primary transition">

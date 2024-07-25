@@ -1,7 +1,7 @@
 import { memo, useEffect, useRef, useState } from "react";
 
-import Container from "@/ui/Container";
-import Navbar from "./navbar/Navbar";
+import Container from "@/ui/Container.tsx";
+import Navbar from "@/layout/navbar/Navbar.tsx";
 import classNames from "classnames";
 
 const Header = memo(() => {
