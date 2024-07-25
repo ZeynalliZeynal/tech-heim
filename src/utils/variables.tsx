@@ -11,31 +11,23 @@ import {
   NetworkIcon,
   TVIcon,
   WatchIcon,
-} from "@/ui/svgs/categoriesIcons.tsx";
-import {
-  CallingIcon,
-  EmailEditIcon,
-  LocationIcon,
-} from "@/ui/svgs/contactInfoIcons.tsx";
+} from "@/ui/svgs/icons/deviceIcons.tsx";
 import {
   ServiceCargoIcon,
   ServiceComputerIcon,
   ServiceShieldIcon,
   ServiceTimeIcon,
-} from "@/ui/svgs/servicesIcons.tsx";
-import {
-  BagIcon,
-  DollarCircleIcon,
-  HeartIcon,
-  LogoutIcon,
-} from "@/ui/svgs/userDropdownIcons.tsx";
-import {
-  BasketIcon,
-  GiftIcon,
-  NotificationIcon,
-  SecuritySafeIcon,
-  UserEditIcon,
-} from "@/ui/svgs/icons.tsx";
+} from "@/ui/svgs/icons/servicesIcons.tsx";
+import { BasketIcon } from "@/ui/svgs/icons/shopIcons.tsx";
+import { UserEditIcon } from "@/ui/svgs/icons/userIcons.tsx";
+import { GiftIcon, HeartIcon } from "@/ui/svgs/icons/supportIcons.tsx";
+import { NotificationIcon } from "@/ui/svgs/icons/notificationIcons.tsx";
+import { DollarCircleIcon } from "@/ui/svgs/icons/cryptoIcons.tsx";
+import { LogoutIcon } from "@/ui/svgs/icons/arrowIcons.tsx";
+import { SecuritySafeIcon } from "@/ui/svgs/icons/securityIcons.tsx";
+import { LocationIcon } from "@/ui/svgs/icons/locationIcons.tsx";
+import { CallingIcon } from "@/ui/svgs/icons/callIcons.tsx";
+import { EmailEditIcon } from "@/ui/svgs/icons/emailIcons.tsx";
 
 interface INavLinks {
   to: string;
@@ -259,7 +251,7 @@ export const USER_DROPDOWN_ITEMS: Array<{
   to?: string;
 }> = [
   {
-    icon: <BagIcon />,
+    icon: <BasketIcon />,
     label: "Orders",
     to: "/",
   },

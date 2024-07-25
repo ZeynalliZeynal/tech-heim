@@ -1,7 +1,7 @@
-import Container from '@/ui/Container.tsx';
-import Header from '@/layout/header/Header.tsx';
-import Sidebar from '@/features/auth/dashboardSidebar/sidebar/Sidebar.tsx';
-import { Outlet } from 'react-router-dom';
+import Container from "@/ui/Container.tsx";
+import Header from "@/layout/header/Header.tsx";
+import Sidebar from "@/features/auth/dashboardSidebar/sidebar/Sidebar.tsx";
+import { Outlet } from "react-router-dom";
 
 const DashboardLayout = () => {
   return (
@@ -10,7 +10,7 @@ const DashboardLayout = () => {
       <main>
         <Container>
           <Sidebar />
-          <main>
+          <main className="place-self-start">
             <Outlet />
           </main>
         </Container>

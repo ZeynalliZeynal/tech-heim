@@ -1,9 +1,9 @@
 import Button from "@/ui/Button.tsx";
 import MenuDropdown from "@/ui/MenuDropdown.tsx";
-import { BasketIcon } from "@/ui/svgs/icons.tsx";
 import CartMenu from "@/features/cart/CartMenu.tsx";
 import { useCart } from "@/features/cart/useCart.ts";
 import Spinner from "@/ui/Spinner.tsx";
+import { BasketIcon } from "@/ui/svgs/icons/shopIcons.tsx";
 
 const Cart = () => {
   const { cartSize, isPending } = useCart();

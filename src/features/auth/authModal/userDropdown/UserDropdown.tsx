@@ -1,8 +1,8 @@
 import Button from "@/ui/Button.tsx";
-import { UserIcon } from "@/ui/svgs/icons.tsx";
 import { useUser } from "@/features/auth/useUser.ts";
 import MenuDropdown from "@/ui/MenuDropdown.tsx";
 import UserDropdownMenu from "@/features/auth/authModal/userDropdown/UserDropdownMenu.tsx";
+import { UserIcon } from "@/ui/svgs/icons/userIcons.tsx";
 
 const UserDropdown = () => {
   const { user } = useUser();

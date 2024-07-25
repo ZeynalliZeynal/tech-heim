@@ -1,5 +1,5 @@
 import classNames from "classnames";
-import { EyeIcon, EyeSlashIcon } from "@/ui/svgs/icons.tsx";
+import { EyeIcon, EyeSlashIcon } from "@/ui/svgs/icons/securityIcons";
 import { ReactElement, ReactNode } from "react";
 import {
   FieldError,

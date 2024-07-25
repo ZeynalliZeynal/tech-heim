@@ -1,8 +1,8 @@
 import { FOOTER_LINKS } from "../../utils/variables.tsx";
 import { Link } from "react-router-dom";
-import { UserIcon } from "../../ui/svgs/icons.tsx";
 import { LuChevronRight } from "react-icons/lu";
 import { ADMIN_INFO } from "../../data/adminInfo.tsx";
+import { UserIcon } from "@/ui/svgs/icons/userIcons.tsx";
 
 const FooterTop = () => {
   return (

@@ -1,10 +1,10 @@
 import Button from "@/ui/Button.tsx";
-import { BagCheckIcon, CartIcon } from "@/ui/svgs/icons.tsx";
 import { useAddToCart } from "@/features/cart/useAddToCart.ts";
 import { useUser } from "@/features/auth/useUser.ts";
 import Spinner from "@/ui/Spinner.tsx";
 import { useCart } from "@/features/cart/useCart.ts";
 import { useDeleteFromCart } from "@/features/cart/useDeleteFromCart.ts";
+import { BasketCheckIcon, CartIcon } from "@/ui/svgs/icons/shopIcons.tsx";
 
 const ProductAddToCart = ({
   productId,
@@ -50,7 +50,7 @@ const ProductAddToCart = ({
         ) : (
           <>
             <span className="size-6">
-              <BagCheckIcon />
+              <BasketCheckIcon />
             </span>
             Already in cart
           </>

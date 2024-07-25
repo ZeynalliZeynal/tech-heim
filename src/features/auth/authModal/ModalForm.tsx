@@ -1,14 +1,16 @@
-import InputBox from "@/ui/form/InputBox.tsx";
-import { EmailIcon, KeyIcon, UserIcon } from "@/ui/svgs/icons.tsx";
-import { REGEX_PATTERNS } from "@/utils/constants.ts";
-import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import InputBox from "@/ui/form/InputBox";
+import { REGEX_PATTERNS } from "@/utils/constants";
 import { useState } from "react";
-import ModalFormAuthButtons from "@/features/auth/authModal/ModalFormAuthButtons.tsx";
-import { useModalFormTabContext } from "@/context/useModalFormTabContext.ts";
-import ModalFormBottom from "@/features/auth/authModal/ModalFormBottom.tsx";
-import ModalFormCheckbox from "@/features/auth/authModal/ModalFormCheckbox.tsx";
-import { useSignup } from "@/features/auth/useSignup.ts";
-import { useLogin } from "@/features/auth/useLogin.ts";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
+import ModalFormAuthButtons from "@/features/auth/authModal/ModalFormAuthButtons";
+import { useModalFormTabContext } from "@/context/useModalFormTabContext";
+import ModalFormBottom from "@/features/auth/authModal/ModalFormBottom";
+import ModalFormCheckbox from "@/features/auth/authModal/ModalFormCheckbox";
+import { useSignup } from "@/features/auth/useSignup";
+import { useLogin } from "@/features/auth/useLogin";
+import { UserIcon } from "@/ui/svgs/icons/userIcons";
+import { EmailIcon } from "@/ui/svgs/icons/emailIcons";
+import { KeyIcon } from "@/ui/svgs/icons/securityIcons";
 
 const ModalForm = ({ closeModal }: { closeModal: () => void }) => {
   const { activeTab } = useModalFormTabContext();

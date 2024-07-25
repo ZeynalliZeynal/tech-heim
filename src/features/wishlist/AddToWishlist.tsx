@@ -1,11 +1,10 @@
 import Button from "@/ui/Button.tsx";
 import { useWishlist } from "@/features/wishlist/useWishlist.ts";
-import { HeartFillIcon } from "@/ui/svgs/icons.tsx";
 import { useAddToWishlist } from "@/features/wishlist/useAddToWishlist.ts";
 import { useDeleteFromWishlist } from "@/features/wishlist/useDeleteFromWishlist.ts";
 import Spinner from "@/ui/Spinner.tsx";
 import { useUser } from "@/features/auth/useUser.ts";
-import { HeartIcon } from "@/ui/svgs/userDropdownIcons.tsx";
+import { HeartFillIcon, HeartIcon } from "@/ui/svgs/icons/supportIcons.tsx";
 
 const AddToWishlist = ({ productId }: { productId: number }) => {
   const { user } = useUser();

@@ -1,5 +1,4 @@
 import { RxCross2 } from "react-icons/rx";
-import { TrashIcon, TruckIcon, VerifyIcon } from "@/ui/svgs/icons.tsx";
 import { formatCurrency } from "@/helpers/converters.ts";
 import Button from "@/ui/Button.tsx";
 import Spinner from "@/ui/Spinner.tsx";
@@ -7,6 +6,8 @@ import { FiMinus, FiPlus } from "react-icons/fi";
 import { useCart } from "@/features/cart/useCart.ts";
 import { useDeleteFromCart } from "@/features/cart/useDeleteFromCart.ts";
 import { useUpdateQuantityInCart } from "@/features/cart/useUpdateQuantityInCart.ts";
+import { TrashIcon, VerifyIcon } from "@/ui/svgs/icons/essentialIcons.tsx";
+import { TruckIcon } from "@/ui/svgs/icons/deliveryIcons.tsx";
 
 const CartItems = () => {
   const { cart } = useCart();

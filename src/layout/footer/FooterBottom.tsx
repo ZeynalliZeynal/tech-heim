@@ -1,5 +1,5 @@
-import { CopyrightIcon } from "@/ui/svgs/icons.tsx";
 import { Link } from "react-router-dom";
+import { CopyrightIcon } from "@/ui/svgs/icons/essentialIcons.tsx";
 
 export const FooterBottom = () => {
   return (

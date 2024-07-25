@@ -1,10 +1,10 @@
-import { UserCircleIcon } from "@/ui/svgs/icons.tsx";
 import { USER_DROPDOWN_ITEMS } from "@/utils/variables.tsx";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "@/features/auth/useUser.ts";
 import { useLogout } from "@/features/auth/useLogout.ts";
 import Spinner from "@/ui/Spinner.tsx";
 import { useWindowComponentContext } from "@/hooks/useWindowComponentContext.ts";
+import { UserCircleIcon } from "@/ui/svgs/icons/userIcons.tsx";
 
 const UserDropdownMenu = () => {
   const { close } = useWindowComponentContext();

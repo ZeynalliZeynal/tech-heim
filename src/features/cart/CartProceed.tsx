@@ -1,8 +1,8 @@
 import { formatCurrency } from "@/helpers/converters.ts";
 import Button from "@/ui/Button.tsx";
-import { CartIcon } from "@/ui/svgs/icons.tsx";
 import { useUpdateQuantityInCart } from "@/features/cart/useUpdateQuantityInCart.ts";
 import { useCart } from "@/features/cart/useCart.ts";
+import { CartIcon } from "@/ui/svgs/icons/shopIcons.tsx";
 
 const CartProceed = () => {
   const { cart } = useCart();
