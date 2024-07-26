@@ -74,10 +74,11 @@ li {
   justify-content: flex-start;
 }
 
-section {
+section,
+aside {
   background-size: contain;
   background-repeat: no-repeat;
-  padding-block: 1.5rem;
+  margin-block: 1.5rem;
 }
 
 dialog {
