@@ -1,7 +1,8 @@
 import { useUser } from "@/features/auth/useUser.ts";
 import { DASHBOARD_LINKS } from "@/utils/variables.tsx";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import { DefaultUserIcon } from "@/ui/svgs/icons/userIcons.tsx";
+import { ExportIcon } from "@/ui/svgs/icons/arrowIcons.tsx";
 
 const Sidebar = () => {
   const { user } = useUser();
@@ -12,10 +13,21 @@ const Sidebar = () => {
         <header className="flex gap-4 items-center p-2">
           <div className="size-16 rounded-full overflow-hidden">
             {user?.user_metadata.avatar ? (
-              <img
-                src={user?.user_metadata.avatar}
-                alt={user?.user_metadata.fullName}
-              />
+              <Link
+                to={user?.user_metadata.avatar}
+                target="_blank"
+                className="relative group"
+              >
+                <img
+                  src={user?.user_metadata.avatar}
+                  alt={user?.user_metadata.fullName}
+                />
+                <span className="absolute inset-0 text-white bg-white/30 inline-flex items-center justify-center rounded-full z-10 opacity-0 group-hover:opacity-100 transition">
+                  <span className="size-6 relative z-20 rounded-full">
+                    <ExportIcon />
+                  </span>
+                </span>
+              </Link>
             ) : (
               <DefaultUserIcon />
             )}

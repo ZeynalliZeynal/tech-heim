@@ -7,27 +7,66 @@ import { DirectIcon } from "@/ui/svgs/icons/emailIcons";
 import { REGEX_PATTERNS } from "@/utils/constants";
 import { HouseIcon } from "@/ui/svgs/icons/buildingIcons";
 import { useUpdateUser } from "@/features/auth/useUpdateUser.ts";
-import { PiFile } from "react-icons/pi";
-import { useState } from "react";
-import Button from "@/ui/Button.tsx";
+import { useEffect, useState } from "react";
+import { FolderCloudIcon } from "@/ui/svgs/icons/fileIcons.tsx";
+
+interface IUserInfo {
+  email: string;
+  address: string;
+  fullName: string;
+}
 
 const PersonalData = () => {
   const { user, isAuthenticated } = useUser();
   const { updateUser, isPending } = useUpdateUser();
   const [avatar, setAvatar] = useState<File | undefined>(undefined);
+  const [initialValues, setInitialValues] = useState<IUserInfo>({
+    email: "",
+    address: "",
+    fullName: "",
+  });
 
-  const { register, formState, getValues, reset, handleSubmit } = useForm();
+  const { register, formState, reset, handleSubmit } = useForm();
   const { errors } = formState;
 
   const navigate = useNavigate();
 
-  if (!isAuthenticated) navigate("/");
+  useEffect(() => {
+    if (!isAuthenticated) navigate("/");
+
+    // Set initial form values
+    setInitialValues({
+      email: user?.email || "",
+      address: user?.user_metadata.address || "",
+      fullName: user?.user_metadata.fullName || "",
+    });
+
+    // Reset form values to initial values
+    reset({
+      email: user?.email,
+      address: user?.user_metadata.address,
+      fullName: user?.user_metadata.fullName,
+    });
+  }, [isAuthenticated, user, reset, navigate]);
 
   const handleForm: SubmitHandler<FieldValues> = ({
     email,
     address,
     fullName,
   }) => {
+    const currentValues = {
+      email,
+      address,
+      fullName,
+    };
+
+    // Compare initial values with current values
+    const isChanged = (Object.keys(initialValues) as (keyof IUserInfo)[]).some(
+      (key) => initialValues[key] !== currentValues[key],
+    );
+
+    if (!isChanged && !avatar) return;
+
     updateUser({
       email,
       data: { address, fullName, avatar },
@@ -43,7 +82,7 @@ const PersonalData = () => {
       </div>
       <form
         className="grid grid-cols-2 mt-6 gap-6"
-        onSubmit={handleSubmit(handleForm)}
+        onBlur={handleSubmit(handleForm)}
       >
         <InputBox
           icon={<UserIcon />}
@@ -95,7 +134,7 @@ const PersonalData = () => {
             {...register("address")}
           />
         </InputBox>
-        <InputBox icon={<PiFile />}>
+        <InputBox icon={<FolderCloudIcon />}>
           <input
             type="file"
             accept="image/*"
@@ -103,11 +142,6 @@ const PersonalData = () => {
             className="flex file:border-none file:text-primary file:bg-primary-25 file:rounded-md cursor-pointer"
           />
         </InputBox>
-        <div>
-          <Button type="submit" size="sm" style="primary-outline">
-            Save
-          </Button>
-        </div>
       </form>
     </section>
   );
