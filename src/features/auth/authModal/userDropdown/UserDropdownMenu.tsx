@@ -35,7 +35,7 @@ const UserDropdownMenu = () => {
           <button
             onClick={() => {
               close();
-              if (o.to) navigate("/blog");
+              if (o.to) navigate(o.to);
               else logout();
             }}
             className="grid gap-4 w-full text-start grid-cols-[24px_1fr] p-2 rounded-md group hover:bg-primary-25/50"

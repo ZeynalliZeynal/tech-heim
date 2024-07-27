@@ -46,7 +46,7 @@ const Button = ({
           "h-9 rounded-md px-2": size === "sm",
           "md:h-12 h-10 rounded-md px-2": size === "md",
           "md:h-14 h-8 rounded-md px-2": size === "lg",
-          "size-9 rounded-xl p-1 hover:shadow-none focus-within:border-2 focus-within:border-solid focus-within:border-primary transition hover:bg-neutral-gray-300":
+          "size-9 rounded-xl p-1 hover:shadow-none focus-within:border-2 focus-within:border-solid focus-within:border-primary transition":
             size === "icon",
           "bg-primary text-white md:hover:bg-primary/80 disabled:bg-primary":
             style === "primary-regular",

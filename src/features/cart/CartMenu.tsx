@@ -13,7 +13,12 @@ const CartMenu = () => {
       <div className="sm:w-[200px] w-full h-full justify-between flex items-center flex-col">
         <h4 className="sm:text-h4 text-body-xl">No item added</h4>
         <Lottie animationData={emptyList} />
-        <Button full size="sm" style="primary-outline" className="mb-16">
+        <Button
+          full
+          size="sm"
+          style="primary-outline"
+          className="sm:mb-0 mb-16"
+        >
           Add items
         </Button>
       </div>
@@ -21,7 +26,7 @@ const CartMenu = () => {
 
   return (
     <div className="flex flex-col gap-3 sm:w-[500px] w-full sm:h-auto h-full sm:justify-start justify-between">
-      <div className="overflow-auto h-full mb-16 sm:mb-0">
+      <div className="overflow-auto h-full sm:m-0 mb-16">
         <p className="text-body-lg sticky top-0 bg-white">
           {cartSize > 1 ? `${cartSize} items` : `${cartSize} item`}
         </p>

@@ -253,17 +253,17 @@ export const USER_DROPDOWN_ITEMS: Array<{
   {
     icon: <BasketIcon />,
     label: "Orders",
-    to: "/",
+    to: "/dashboard/orders",
   },
   {
     icon: <HeartIcon />,
-    label: "Wish List",
-    to: "/",
+    label: "Wishlist",
+    to: "/dashboard/wishlist",
   },
   {
     icon: <DollarCircleIcon />,
     label: "Payments",
-    to: "/",
+    to: "/dashboard/paymentInstallments",
   },
   {
     icon: <LogoutIcon />,

@@ -30,7 +30,7 @@ const ProductCardBottom = ({
             productId={product.id}
             selectedColor={selectedColor}
           />
-          <AddToWishlist productId={product?.id} color={selectedColor} />
+          <AddToWishlist productId={product?.id} />
         </div>
       </div>
       <div className="lg:flex hidden flex-col h-12 w-full overflow-hidden">
@@ -70,7 +70,7 @@ const ProductCardBottom = ({
             selectedColor={selectedColor}
           />
 
-          <AddToWishlist productId={product?.id} color={selectedColor} />
+          <AddToWishlist productId={product?.id} />
         </motion.div>
       </div>
     </>
