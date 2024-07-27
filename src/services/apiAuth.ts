@@ -63,10 +63,10 @@ export const updateCurrentUser = async ({
 }: DUserAttributes) => {
   const { fullName, avatar, address } = data;
   let updatedData: DUserAttributes = {};
-  if (fullName) updatedData = { data: { fullName } };
-  if (address) updatedData = { data: { address } };
-  if (email) updatedData = { email };
-  if (password) updatedData = { password };
+  if (fullName) updatedData.data = { ...updatedData.data, fullName };
+  if (address) updatedData.data = { ...updatedData.data, address };
+  if (email) updatedData.email = email;
+  if (password) updatedData.password = password;
 
   const { data: updatedUser, error: updateError } =
     await supabase.auth.updateUser(updatedData);

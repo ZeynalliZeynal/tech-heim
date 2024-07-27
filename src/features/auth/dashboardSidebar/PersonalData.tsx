@@ -9,6 +9,7 @@ import { HouseIcon } from "@/ui/svgs/icons/buildingIcons";
 import { useUpdateUser } from "@/features/auth/useUpdateUser.ts";
 import { PiFile } from "react-icons/pi";
 import { useState } from "react";
+import Button from "@/ui/Button.tsx";
 
 const PersonalData = () => {
   const { user, isAuthenticated } = useUser();
@@ -27,16 +28,10 @@ const PersonalData = () => {
     address,
     fullName,
   }) => {
-    if (
-      user?.email !== email &&
-      user?.user_metadata.fullName !== fullName &&
-      user?.user_metadata.address !== address
-    ) {
-      updateUser({
-        email,
-        data: { address, fullName, avatar },
-      });
-    }
+    updateUser({
+      email,
+      data: { address, fullName, avatar },
+    });
     setAvatar(undefined);
   };
 
@@ -48,7 +43,7 @@ const PersonalData = () => {
       </div>
       <form
         className="grid grid-cols-2 mt-6 gap-6"
-        onBlur={handleSubmit(handleForm)}
+        onSubmit={handleSubmit(handleForm)}
       >
         <InputBox
           icon={<UserIcon />}
@@ -105,8 +100,14 @@ const PersonalData = () => {
             type="file"
             accept="image/*"
             onChange={(e) => e.target.files && setAvatar(e.target.files[0])}
+            className="flex file:border-none file:text-primary file:bg-primary-25 file:rounded-md cursor-pointer"
           />
         </InputBox>
+        <div>
+          <Button type="submit" size="sm" style="primary-outline">
+            Save
+          </Button>
+        </div>
       </form>
     </section>
   );

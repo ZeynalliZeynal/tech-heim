@@ -30,8 +30,8 @@ svg {
 }
 
 select,
-button {
-  display: flex;
+button, input::file-selector-button {
+  display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
