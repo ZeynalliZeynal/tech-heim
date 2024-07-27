@@ -40,3 +40,14 @@ interface DCartItem {
   quantity?: number;
   color?: string | undefined;
 }
+
+interface DUserAttributes {
+  email?: string;
+  password?: string;
+  phone?: string;
+  data?: {
+    fullName?: string;
+    avatar?: File;
+    address?: string;
+  };
+}

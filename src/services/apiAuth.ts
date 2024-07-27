@@ -1,4 +1,4 @@
-import { supabase } from "@/services/supabase.ts";
+import { supabase, supabaseUrl } from "@/services/supabase.ts";
 
 interface IAuthData {
   fullName?: string;
@@ -55,6 +55,41 @@ export const getCurrentUser = async () => {
   if (error) throw new Error(error.message);
 
   return user?.user;
+};
+export const updateCurrentUser = async ({
+  password,
+  email,
+  data = {},
+}: DUserAttributes) => {
+  const { fullName, avatar, address } = data;
+  let updatedData: DUserAttributes = {};
+  if (fullName) updatedData = { data: { fullName } };
+  if (address) updatedData = { data: { address } };
+  if (email) updatedData = { email };
+  if (password) updatedData = { password };
+
+  const { data: updatedUser, error: updateError } =
+    await supabase.auth.updateUser(updatedData);
+
+  if (updateError) throw new Error(updateError.message);
+  if (!avatar) return updatedUser;
+
+  const fileName = `avatar-${updatedUser.user.id}-${Math.random()}`;
+  const { error: storageError } = await supabase.storage
+    .from("avatars")
+    .upload(fileName, avatar);
+
+  if (storageError) throw new Error(storageError.message);
+
+  const { data: updated, error } = await supabase.auth.updateUser({
+    data: {
+      avatar: `${supabaseUrl}/storage/v1/object/public/avatars/${fileName}`,
+    },
+  });
+
+  if (error) throw new Error(error.message);
+
+  return updated;
 };
 
 // * for session storage
