@@ -48,7 +48,10 @@ const DropdownNav = memo(() => {
                   to={`/products/${name.replaceAll(" ", "").toLowerCase()}`}
                   onMouseEnter={() => setCategoryId(id)}
                 >
-                  {CATEGORIES_ICONS[name]} {name}
+                  <span className="size-4 md:size-6">
+                    {CATEGORIES_ICONS[name]}
+                  </span>{" "}
+                  {name}
                 </NavLink>
               </li>
             ))}

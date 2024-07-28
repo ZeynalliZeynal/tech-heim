@@ -19,17 +19,20 @@ const Checkbox = ({
   color: "dark" | "blue";
 }) => {
   return (
-    <div className="flex gap-3 items-center">
+    <div className="flex gap-4 items-center">
       <button
         type="button"
         onClick={onChange}
-        className={classNames("size-5 border rounded-md text-white", {
-          "border-neutral-gray-800": color === "dark" && !disabled,
-          "border-primary": color === "blue" && !disabled,
-          "bg-primary": color === "blue" && checked,
-          "bg-neutral-gray-800": color === "dark" && checked,
-          "border-neutral-gray-500 bg-neutral-gray-500": disabled,
-        })}
+        className={classNames(
+          "size-5 border rounded-sm text-white cursor-auto",
+          {
+            "border-neutral-gray-800": color === "dark" && !disabled,
+            "border-primary": color === "blue" && !disabled,
+            "bg-primary": color === "blue" && checked,
+            "bg-neutral-gray-800": color === "dark" && checked,
+            "border-neutral-gray-500 bg-neutral-gray-500": disabled,
+          },
+        )}
       >
         <span
           className={classNames("p-0.5", {

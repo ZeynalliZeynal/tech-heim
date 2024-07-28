@@ -62,10 +62,11 @@ export const WindowComponentContext = createContext<IWindowContext | null>(
 const WindowComponent = ({
   children,
   type = "modal",
+  hideScroll,
 }: {
   children: ReactNode;
+  hideScroll?: true;
   type?: "dropdown" | "modal" | "drawer";
-  hideScroll?: boolean;
 }) => {
   const [{ currentWindow, isAnimating }, dispatch] = useReducer(
     reducer,
@@ -73,7 +74,7 @@ const WindowComponent = ({
   );
 
   const open = (name: string) => {
-    document.body.style.overflow = "hidden";
+    if (!hideScroll) document.body.style.overflow = "hidden";
     dispatch({ type: WindowActionKind.open, payload: name });
   };
 

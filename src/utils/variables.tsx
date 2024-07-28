@@ -98,51 +98,15 @@ export const DASHBOARD_LINKS = [
 ];
 
 export const CATEGORIES_ICONS: Record<string, ReactNode> = {
-  "Mobile Phones": (
-    <span className="size-4 md:size-6">
-      <MobileIcon />,
-    </span>
-  ),
-  "Laptops & Computers": (
-    <span className="size-4 md:size-6">
-      <MonitorIcon />
-    </span>
-  ),
-  Wearables: (
-    <span className="size-4 md:size-6">
-      <WatchIcon />
-    </span>
-  ),
-  Audio: (
-    <span className="size-4 md:size-6">
-      <HeadphoneIcon />
-    </span>
-  ),
-  Cameras: (
-    <span className="size-4 md:size-6">
-      <CameraIcon />
-    </span>
-  ),
-  Gaming: (
-    <span className="size-4 md:size-6">
-      <ConsoleIcon />
-    </span>
-  ),
-  Networking: (
-    <span className="size-4 md:size-6">
-      <NetworkIcon />
-    </span>
-  ),
-  Accessories: (
-    <span className="size-4 md:size-6">
-      <AccessoryIcon />
-    </span>
-  ),
-  "Household Appliances": (
-    <span className="size-4 md:size-6">
-      <TVIcon />
-    </span>
-  ),
+  "Mobile Phones": <MobileIcon />,
+  "Laptops & Computers": <MonitorIcon />,
+  Wearables: <WatchIcon />,
+  Audio: <HeadphoneIcon />,
+  Cameras: <CameraIcon />,
+  Gaming: <ConsoleIcon />,
+  Networking: <NetworkIcon />,
+  Accessories: <AccessoryIcon />,
+  "Household Appliances": <TVIcon />,
 };
 
 export const SERVICES: Array<{ text: string; icon: ReactNode }> = [
