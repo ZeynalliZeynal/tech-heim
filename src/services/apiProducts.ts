@@ -2,7 +2,7 @@ import {
   isQueryMethod,
   queryMethodMap,
   supabase,
-} from "@/services/supabase.ts";
+} from '@/services/supabase.ts';
 
 export const getFilteredProducts = async ({
   filter,
@@ -12,9 +12,9 @@ export const getFilteredProducts = async ({
   method: string;
 }): Promise<DProducts[]> => {
   let query = supabase
-    .from("products")
+    .from('products')
     .select(
-      "id, rating, price, discount_percent, model, image, product_brands(name))",
+      'id, rating, price, discount_percent, model, image, product_brands(name))'
     );
 
   if (filter !== null && isQueryMethod(method))
@@ -24,18 +24,42 @@ export const getFilteredProducts = async ({
   if (error) {
     console.error(error.message);
     throw new Error(
-      `Error occurred. Couldn't get filtered products based on ${method} filter.`,
+      `Error occurred. Couldn't get filtered products based on ${method} filter.`
     );
   }
 
   return filteredProducts as unknown as DProducts[];
 };
 
+export const getBrandIds = async (brandNames: string[]) => {
+  const { data, error } = await supabase
+    .from('product_brands')
+    .select('id')
+    .in('name', brandNames);
+
+  if (error) throw new Error(error.message);
+
+  return data.map((brand) => brand.id);
+};
+
+export const getMultiFilteredProducts = async (filters) => {
+  let query = supabase.from('products').select('*');
+
+  if (filters) {
+    if (filters.brands) query = query.in('brand_id', filters.brands);
+  }
+  const { data, error } = await query;
+
+  if (error) throw new Error(error.message);
+
+  return data;
+};
+
 export const getColors = async (productId: number) => {
   const { data, error } = await supabase
-    .from("product_colors")
-    .select("id, name, hex_code")
-    .eq("product_id", productId);
+    .from('product_colors')
+    .select('id, name, hex_code')
+    .eq('product_id', productId);
 
   if (error) {
     console.error(error.message);
@@ -47,9 +71,9 @@ export const getColors = async (productId: number) => {
 
 export const getProductImages = async (colorId: number) => {
   const { data: images, error } = await supabase
-    .from("product_images")
-    .select("*")
-    .eq("product_color_id", colorId);
+    .from('product_images')
+    .select('*')
+    .eq('product_color_id', colorId);
 
   if (error) {
     throw new Error("Error occurred. Couldn't get products images.");
@@ -60,8 +84,8 @@ export const getProductImages = async (colorId: number) => {
 
 export const getCategories = async () => {
   const { data: categories, error } = await supabase
-    .from("product_categories")
-    .select("*");
+    .from('product_categories')
+    .select('*');
 
   if (error) {
     console.error(error.message);
@@ -73,9 +97,9 @@ export const getCategories = async () => {
 
 export const getSubcategoriesById = async (id: number) => {
   const { data: subcategories, error } = await supabase
-    .from("product_subcategories")
-    .select("*")
-    .eq("category_id", id);
+    .from('product_subcategories')
+    .select('*')
+    .eq('category_id', id);
 
   if (error) {
     console.error(error.message);
@@ -87,7 +111,7 @@ export const getSubcategoriesById = async (id: number) => {
 
 export const getDistinctSubcategories = async () => {
   const { data: subcategories, error } = await supabase.rpc(
-    "get_distinct_subcategory_items",
+    'get_distinct_subcategory_items'
   );
 
   if (error) {
@@ -100,8 +124,8 @@ export const getDistinctSubcategories = async () => {
 
 export const getBrands = async () => {
   const { data: brands, error } = await supabase
-    .from("product_brands")
-    .select("*");
+    .from('product_brands')
+    .select('*');
 
   if (error) {
     console.error(error.message);
