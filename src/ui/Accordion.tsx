@@ -1,16 +1,16 @@
-import { ReactNode } from 'react';
-import { HiMiniChevronDown } from 'react-icons/hi2';
-import classNames from 'classnames';
-import { motion } from 'framer-motion';
-import { useWindowComponentContext } from '../hooks/useWindowComponentContext';
-import WindowComponent from '@/ui/WindowComponent.tsx';
-import Spinner from './Spinner';
+import { ReactNode } from "react";
+import classNames from "classnames";
+import { motion } from "framer-motion";
+import { useWindowComponentContext } from "../hooks/useWindowComponentContext";
+import WindowComponent from "@/ui/WindowComponent.tsx";
+import Spinner from "./Spinner";
+import { ArrowDownIcon } from "@/ui/svgs/icons/arrowIcons.tsx";
 
 const Accordion = ({ children }: { children: ReactNode }) => {
   return <WindowComponent hideScroll>{children}</WindowComponent>;
 };
 const Body = ({ children }: { children: ReactNode }) => {
-  return <div className='flex flex-col overflow-hidden w-full'>{children}</div>;
+  return <div className="flex flex-col overflow-hidden w-full">{children}</div>;
 };
 
 const Head = ({
@@ -24,21 +24,22 @@ const Head = ({
 }) => {
   const { currentWindow, open, close } = useWindowComponentContext();
   const handleClick = () => {
-    currentWindow === '' || currentWindow !== name ? open(name) : close();
+    currentWindow === "" || currentWindow !== name ? open(name) : close();
   };
+
   return (
-    <div className='flex w-full justify-between'>
-      {children}
+    <div className="flex w-full justify-between">
+      {children}{" "}
       {loading ? (
-        <Spinner color='black' />
+        <Spinner color="black" />
       ) : (
         <button
-          className={classNames('size-5', {
-            'rotate-180 text-primary': currentWindow === name,
+          className={classNames("size-5", {
+            "rotate-180 text-primary": currentWindow === name,
           })}
           onClick={handleClick}
         >
-          <HiMiniChevronDown />
+          <ArrowDownIcon />
         </button>
       )}
     </div>
@@ -55,17 +56,16 @@ const Item = ({ children, name }: { children: ReactNode; name: string }) => {
       animate={
         !isAnimating
           ? {
-              gridTemplateRows: ['0fr', '1fr'],
+              gridTemplateRows: ["0fr", "1fr"],
             }
-          : { gridTemplateRows: ['1fr', '0fr'] }
+          : { gridTemplateRows: ["1fr", "0fr"] }
       }
       transition={{
         duration: 0.3,
       }}
-      className={classNames('grid')}
-      style={{}}
+      className="grid"
     >
-      <div className='overflow-hidden'>{children}</div>
+      <div className="overflow-hidden">{children}</div>
     </motion.div>
   );
 };

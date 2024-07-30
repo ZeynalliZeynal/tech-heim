@@ -105,7 +105,7 @@ input.range-input {
   @apply absolute -top-2 h-2 appearance-none bg-none pointer-events-none;
 
   &::-webkit-slider-thumb {
-    @apply size-4 bg-primary rounded-full pointer-events-auto appearance-none;
+    @apply size-4 bg-primary rounded-full pointer-events-auto appearance-none transition-all hover:scale-125;
   }
 }
 
