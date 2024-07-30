@@ -134,3 +134,25 @@ export const getBrands = async () => {
 
   return brands;
 };
+
+export const getMinMaxPricedProduct = async () => {
+  const { data: maxPrice, error: maxError } = await supabase
+    .from('products')
+    .select('price')
+    .order('price', { ascending: false })
+    .limit(1)
+    .single();
+
+  if (maxError) throw new Error("Couldn't get max priced product");
+
+  const { data: minPrice, error: minError } = await supabase
+    .from('products')
+    .select('price')
+    .order('price', { ascending: true })
+    .limit(1)
+    .single();
+
+  if (minError) throw new Error("Couldn't get min priced product");
+
+  return { minPrice, maxPrice };
+};
