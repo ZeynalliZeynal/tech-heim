@@ -1,14 +1,11 @@
-import { Link } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useState } from "react";
 
-import ProductCardColors from './ProductCardColors.tsx';
-import ProductCardImage from './ProductCardImage.tsx';
-import ProductCardBadges from './ProductCardBadges.tsx';
-import ProductCardBottom from './ProductCardBottom.tsx';
-import { useProductColors } from '@/features/products/useProductColors.ts';
-import useWindowSize from '@/hooks/useWindowSize.ts';
-
-// todo: brand names not showing
+import ProductCardColors from "./ProductCardColors.tsx";
+import ProductCardImage from "./ProductCardImage.tsx";
+import ProductCardBadges from "./ProductCardBadges.tsx";
+import ProductCardBottom from "./ProductCardBottom.tsx";
+import { useProductColors } from "@/features/products/useProductColors.ts";
+import useWindowSize from "@/hooks/useWindowSize.ts";
 
 const ProductCard = ({ product }: { product: DProducts }) => {
   const { colors } = useProductColors(product.id);
@@ -23,9 +20,8 @@ const ProductCard = ({ product }: { product: DProducts }) => {
   }, [width]);
 
   return (
-    <Link
-      to='/'
-      className='md:min-h-[370px] md:h-full min-h-[280px] rounded-md shadow-sm hover:shadow-md p-4 justify-between sm:items-start items-center flex-col w-full group relative'
+    <div
+      className="flex md:min-h-[370px] md:h-full min-h-[280px] rounded-md shadow-sm hover:shadow-md p-4 justify-between sm:items-start items-center flex-col w-full group relative"
       onMouseEnter={() => setIsHovering(true)}
       onMouseLeave={() => setIsHovering(false)}
     >
@@ -45,7 +41,7 @@ const ProductCard = ({ product }: { product: DProducts }) => {
         isHovering={isHovering}
         selectedColor={colors?.at(selectedColor)?.name}
       />
-    </Link>
+    </div>
   );
 };
 

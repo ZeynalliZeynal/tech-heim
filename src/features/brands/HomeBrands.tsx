@@ -45,7 +45,7 @@ const HomeBrands = () => {
             }}
           >
             {isPending ? (
-              <Skeleton h="[100px]" />
+              <Skeleton h={100} />
             ) : (
               <ul
                 ref={scrollerInnerRef}

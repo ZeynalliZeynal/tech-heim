@@ -1,7 +1,7 @@
 import { createBrowserRouter, Navigate } from "react-router-dom";
 import MainLayout from "@/layout/MainLayout.tsx";
 import Home from "@/pages/home/Home.tsx";
-import Products from "@/pages/products/Products.tsx";
+import Products from "@/pages/Products.tsx";
 import Blog from "@/pages/blog/Blog.tsx";
 import Faq from "@/pages/faq/Faq.tsx";
 import ContactUs from "@/pages/contact/Contact.tsx";

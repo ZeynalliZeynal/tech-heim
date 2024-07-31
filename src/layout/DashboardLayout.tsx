@@ -5,9 +5,9 @@ import Container from "@/ui/Container.tsx";
 
 const DashboardLayout = () => {
   return (
-    <div className="h-screen">
+    <>
       <Header />
-      <main className="my-6">
+      <main className="py-6 mt-16">
         <Container>
           <Sidebar />
           <main className="place-self-start overflow-auto">
@@ -15,7 +15,7 @@ const DashboardLayout = () => {
           </main>
         </Container>
       </main>
-    </div>
+    </>
   );
 };
 

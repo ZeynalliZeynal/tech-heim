@@ -22,7 +22,7 @@ const ProductPrice = () => {
       </span>
       <Accordion.Item name="price">
         <div className="flex flex-col px-4 gap-4">
-          <div className="grid grid-cols-2 place-items-center gap-6">
+          <div className="grid grid-cols-2 place-items-center gap-2">
             <span className="border border-neutral-gray-700 rounded-md h-11 px-5 py-2">
               <input
                 type="number"

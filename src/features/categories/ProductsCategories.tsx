@@ -8,7 +8,7 @@ const ProductsCategories = () => {
   return (
     <section>
       <Container>
-        <ul className="items-stretch gap-8 justify-center w-full">
+        <ul className="items-stretch gap-8 justify-center w-full flex-wrap">
           {categories?.map((c) => (
             <li key={c.id} className="items-stretch">
               <NavLink

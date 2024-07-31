@@ -106,7 +106,7 @@ export default {
     },
     extend: {
       backgroundColor: {
-        ripple: "rgba(255, 255, 255, 0.1)",
+        ripple: "rgba(0, 0, 0, 0.6)",
       },
       boxShadow: {
         sm: "-2px 2px 15px -1px rgba(113, 113, 113, 0.12)",
@@ -134,7 +134,7 @@ export default {
         fadeOut: "fadeOut 300ms ease-in-out forwards",
         slideRight: "slideRight 300ms ease-in-out forwards",
         slideLeft: "slideLeft 300ms ease-in-out forwards",
-        skeleton: "skeleton 1s ease infinite forwards",
+        skeleton: "skeleton 0.5s ease infinite forwards",
       },
       keyframes: {
         skeleton: {
@@ -151,10 +151,16 @@ export default {
           },
         },
         ripple: {
+          "0%": {
+            opacity: 0,
+            transform: "scale(0)",
+          },
+          "50%": {
+            opacity: 1,
+          },
           to: {
             opacity: 0,
-            transform: "scale(500)",
-            backgroundColor: "rgba(255, 255, 255, 1)",
+            transform: "scale(50)",
           },
         },
         swipe: {
