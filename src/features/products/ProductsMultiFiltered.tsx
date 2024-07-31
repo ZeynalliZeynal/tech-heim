@@ -6,7 +6,7 @@ import ProductCardSkeleton from "@/features/products/productCard/ProductCardSkel
 
 const ProductsMultiFiltered = () => {
   const [searchParams] = useSearchParams();
-  const { brandIds } = useBrandIds(searchParams.get("brand")?.split(","));
+  const { brandIds } = useBrandIds(searchParams.get("brand")?.split(",") || []);
   const { multiFilteredProducts, isPending } = useMultiFilteredProducts({
     brands: brandIds?.length ? brandIds : undefined,
     discount: searchParams.get("discount") || undefined,

@@ -3,6 +3,7 @@ import {
   queryMethodMap,
   supabase,
 } from "@/services/supabase.ts";
+import { IMultiFilters } from "@/features/products/useMultiFilteredProducts.ts";
 
 export const getFilteredProducts = async ({
   filter,
@@ -41,13 +42,6 @@ export const getBrandIds = async (brandNames: string[]) => {
 
   return data.map((brand) => brand.id);
 };
-
-interface IMultiFilters {
-  brands: number[];
-  discount: string;
-  minPrice: string;
-  maxPrice: string;
-}
 
 export const getMultiFilteredProducts = async (filters: IMultiFilters) => {
   let query = supabase.from("products").select("*, product_brands(name)");
