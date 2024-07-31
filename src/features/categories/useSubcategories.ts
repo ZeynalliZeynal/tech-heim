@@ -1,9 +1,9 @@
-import { useQuery } from "@tanstack/react-query";
-import { getDistinctSubcategories } from "@/services/apiProducts.ts";
+import { useQuery } from '@tanstack/react-query';
+import { getDistinctSubcategories } from '@/services/apiCategories';
 
 export const useSubcategories = () => {
   const { data: subcategories, isPending } = useQuery({
-    queryKey: ["products/categories/subcategories"],
+    queryKey: ['products/categories/subcategories'],
     queryFn: getDistinctSubcategories,
   });
 

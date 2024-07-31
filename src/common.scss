@@ -30,7 +30,8 @@ svg {
 }
 
 select,
-button, input::file-selector-button {
+button,
+input::file-selector-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -77,7 +78,7 @@ li {
 section {
   background-size: contain;
   background-repeat: no-repeat;
-  margin-block: 1.5rem;
+  padding-block: 1.5rem;
 }
 
 dialog {

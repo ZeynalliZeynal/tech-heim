@@ -47,6 +47,9 @@ export const getMultiFilteredProducts = async (filters) => {
 
   if (filters) {
     if (filters.brands) query = query.in('brand_id', filters.brands);
+    if (filters.discount) query = query.neq('discount_percent', 0);
+    if (filters.minPrice) query = query.gte('price', filters.minPrice);
+    if (filters.maxPrice) query = query.lte('price', filters.maxPrice);
   }
   const { data, error } = await query;
 
@@ -80,46 +83,6 @@ export const getProductImages = async (colorId: number) => {
   }
 
   return images;
-};
-
-export const getCategories = async () => {
-  const { data: categories, error } = await supabase
-    .from('product_categories')
-    .select('*');
-
-  if (error) {
-    console.error(error.message);
-    throw new Error("Error occurred. Couldn't get categories.");
-  }
-
-  return categories;
-};
-
-export const getSubcategoriesById = async (id: number) => {
-  const { data: subcategories, error } = await supabase
-    .from('product_subcategories')
-    .select('*')
-    .eq('category_id', id);
-
-  if (error) {
-    console.error(error.message);
-    throw new Error("Error occurred. Couldn't get subcategories by given id.");
-  }
-
-  return subcategories;
-};
-
-export const getDistinctSubcategories = async () => {
-  const { data: subcategories, error } = await supabase.rpc(
-    'get_distinct_subcategory_items'
-  );
-
-  if (error) {
-    console.error(error.message);
-    throw new Error("Error occurred. Couldn't get subcategories.");
-  }
-
-  return subcategories;
 };
 
 export const getBrands = async () => {

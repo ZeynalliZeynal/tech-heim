@@ -1,8 +1,6 @@
-import { useSingleParams } from "@/hooks/useSingleParams";
-import { ChangeEvent, useRef, useState } from "react";
-import { useSearchParams } from "react-router-dom";
-
-// todo: style slider more; add value indicator while dragging
+import { useSingleParams } from '@/hooks/useSingleParams';
+import { ChangeEvent, useRef, useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 interface ISlider {
   maxValue: number;
@@ -58,30 +56,30 @@ const Slider = ({ maxValue, minValue, gap, field }: ISlider) => {
 
   return (
     <>
-      <div className="h-2 rounded-md w-full bg-neutral-gray-400 relative z-10">
+      <div className='h-2 rounded-md w-full bg-neutral-gray-400 relative z-10'>
         <div
-          className="absolute inset-0 rounded-md bg-primary"
+          className='absolute inset-0 rounded-md bg-primary'
           style={calculateFill()}
         />
       </div>
-      <div className="relative z-20">
+      <div className='relative z-20'>
         <input
-          type="range"
+          type='range'
           min={minValue}
           max={maxValue}
           value={Number(searchParams.get(`min${field}`) || minValue)}
           onChange={handleChangeMin}
           ref={minInputRef}
-          className="range-input"
+          className='range-input'
         />
         <input
-          type="range"
+          type='range'
           min={minValue}
           value={Number(searchParams.get(`max${field}`) || maxValue)}
           max={maxValue}
           onChange={handleChangeMax}
           ref={maxInputRef}
-          className="range-input"
+          className='range-input'
         />
       </div>
     </>

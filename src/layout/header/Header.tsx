@@ -1,8 +1,8 @@
-import { memo, useEffect, useRef, useState } from "react";
+import { memo, useEffect, useRef, useState } from 'react';
 
-import Container from "@/ui/Container.tsx";
-import Navbar from "@/layout/navbar/Navbar.tsx";
-import classNames from "classnames";
+import Container from '@/ui/Container.tsx';
+import Navbar from '@/layout/navbar/Navbar.tsx';
+import classNames from 'classnames';
 
 const Header = memo(() => {
   const [lastScrollY, setLastScrollY] = useState(0);
@@ -41,9 +41,9 @@ const Header = memo(() => {
       }
        */
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      window.removeEventListener('scroll', handleScroll);
     };
   }, [lastScrollY]);
 
@@ -51,12 +51,12 @@ const Header = memo(() => {
     <header
       ref={headerRef}
       className={classNames(
-        "top-0 left-0 w-full relative text-body-lg z-[900] h-16 transition border-b bg-white",
+        'top-0 left-0 w-full fixed text-body-lg z-[900] h-16 transition border-b bg-white',
         {
-          "border-primary backdrop-blur backdrop-filter bg-white/80":
+          'border-primary backdrop-blur backdrop-filter bg-white/80':
             lastScrollY > 64,
-          "border-white": lastScrollY < 64,
-        },
+          'border-white': lastScrollY < 64,
+        }
       )}
     >
       <Container>
