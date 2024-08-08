@@ -44,6 +44,7 @@ export const getBrandIds = async (brandNames: string[]) => {
 };
 
 export const getMultiFilteredProducts = async (filters: IMultiFilters) => {
+  console.log(filters);
   let query = supabase.from("products").select("*, product_brands(name)");
 
   if (filters) {
@@ -51,6 +52,7 @@ export const getMultiFilteredProducts = async (filters: IMultiFilters) => {
     if (filters.discount) query = query.neq("discount_percent", 0);
     if (filters.minPrice) query = query.gte("price", filters.minPrice);
     if (filters.maxPrice) query = query.lte("price", filters.maxPrice);
+    if (filters.category) query = query.eq("category_id", filters.category);
   }
   const { data, error } = await query;
 

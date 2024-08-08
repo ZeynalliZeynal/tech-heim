@@ -1,9 +1,9 @@
-import { supabase } from './supabase';
+import { isQueryMethod, queryMethodMap, supabase } from "./supabase";
 
 export const getCategories = async () => {
   const { data: categories, error } = await supabase
-    .from('product_categories')
-    .select('*');
+    .from("product_categories")
+    .select("*");
 
   if (error) {
     console.error(error.message);
@@ -12,12 +12,33 @@ export const getCategories = async () => {
 
   return categories;
 };
+export const getCategory = async ({
+  filter,
+  method,
+}: {
+  filter: { field: string; value?: string | number };
+  method: string;
+}): Promise<DCategories> => {
+  let query = supabase.from("product_categories").select("*");
 
+  if (filter !== null && isQueryMethod(method))
+    query = queryMethodMap[method](query, filter.field, filter.value).single();
+  else throw new Error(`Invalid query method: ${method}`);
+  const { data: category, error } = await query;
+  if (error) {
+    console.error(error.message);
+    throw new Error(
+      `Error occurred. Couldn't get category based on ${method} filter.`,
+    );
+  }
+
+  return category as unknown as DCategories;
+};
 export const getSubcategoriesById = async (id: number) => {
   const { data: subcategories, error } = await supabase
-    .from('product_subcategories')
-    .select('*')
-    .eq('category_id', id);
+    .from("product_subcategories")
+    .select("*")
+    .eq("category_id", id);
 
   if (error) {
     console.error(error.message);
@@ -29,7 +50,7 @@ export const getSubcategoriesById = async (id: number) => {
 
 export const getDistinctSubcategories = async () => {
   const { data: subcategories, error } = await supabase.rpc(
-    'get_distinct_subcategory_items'
+    "get_distinct_subcategory_items",
   );
 
   if (error) {

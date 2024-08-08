@@ -6,6 +6,7 @@ export interface IMultiFilters {
   discount?: string;
   minPrice?: string;
   maxPrice?: string;
+  category?: number;
 }
 
 export const useMultiFilteredProducts = (filters: IMultiFilters) => {

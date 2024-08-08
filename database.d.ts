@@ -41,6 +41,12 @@ interface DCartItem {
   color?: string | undefined;
 }
 
+interface DCategories {
+  id?: number;
+  created_at?: Date;
+  name: string;
+}
+
 interface DUserAttributes {
   email?: string;
   password?: string;

@@ -4,13 +4,10 @@ import { useFilteredProducts } from "@/features/products/useFilteredProducts.ts"
 import { getWithinHours } from "@/helpers/converters.ts";
 
 const HomeNew = () => {
-  const { products, isPending } = useFilteredProducts(
-    {
-      filter: { field: "created_at", value: getWithinHours(24 * 18000) },
-      method: "gte",
-    },
-    "new",
-  );
+  const { products, isPending } = useFilteredProducts({
+    filter: { field: "created_at", value: getWithinHours(24 * 18000) },
+    method: "gte",
+  });
 
   const lastFourProducts: DProducts[] = (products || []).slice(0, 4);
 

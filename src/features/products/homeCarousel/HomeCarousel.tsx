@@ -14,13 +14,10 @@ const HomeCarousel = () => {
   const [isBeginning, setIsBeginning] = useState<boolean>(true);
   const [isEnd, setIsEnd] = useState<boolean>(false);
 
-  const { products, isPending } = useFilteredProducts(
-    {
-      filter: { field: "discount_percent", value: 0 },
-      method: "gt",
-    },
-    "with-discount",
-  );
+  const { products, isPending } = useFilteredProducts({
+    filter: { field: "discount_percent", value: 0 },
+    method: "gt",
+  });
 
   const swiperRef = useRef(null);
 

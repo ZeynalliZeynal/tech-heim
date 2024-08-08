@@ -27,7 +27,7 @@ export const routes = createBrowserRouter([
         element: <Products />,
         children: [
           {
-            path: ":device",
+            path: ":child",
             element: <Products />,
           },
         ],

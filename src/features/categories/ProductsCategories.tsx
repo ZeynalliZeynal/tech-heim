@@ -12,7 +12,7 @@ const ProductsCategories = () => {
           {categories?.map((c) => (
             <li key={c.id} className="items-stretch">
               <NavLink
-                to={c.name.replaceAll(" ", "").toLowerCase()}
+                to={c.name.replaceAll(" ", "_")}
                 className={({ isActive }) =>
                   `flex-col gap-2 w-max justify-between text-center text-body-lg relative ${isActive ? "before:absolute before:w-full before:h-1 before:rounded before:bg-primary before:top-[calc(100%+8px)]" : ""}`
                 }

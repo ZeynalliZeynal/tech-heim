@@ -2,10 +2,10 @@ import Accordion from "@/ui/Accordion.tsx";
 import ProductsBrandsAccordionItem from "@/features/brands/ProductsBrandsAccordionItem";
 import ProductPrice from "./ProductPrice";
 import ProductDiscount from "./ProductDiscount";
-import { useSearchParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const ProductsFilter = () => {
-  const [_, setSearchParams] = useSearchParams();
+  const navigate = useNavigate();
   return (
     <div>
       <div className="flex flex-col sticky top-[80px]">
@@ -13,7 +13,7 @@ const ProductsFilter = () => {
           <h5>Filters</h5>
           <button
             className="text-primary justify-self-end"
-            onClick={() => setSearchParams("")}
+            onClick={() => navigate("")}
           >
             Clear all
           </button>

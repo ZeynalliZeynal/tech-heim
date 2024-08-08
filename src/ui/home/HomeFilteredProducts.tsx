@@ -17,7 +17,7 @@ const HomeFilteredProducts = ({
     <HomeSectionContainer title={title} to={to}>
       <div className="w-full grid sm:grid-cols-2 grid-cols-1 xl:grid-cols-4 lg:grid-cols-3 gap-6">
         {isLoading
-          ? Array.from({ length: 4 }, () => <ProductCardSkeleton />)
+          ? Array.from({ length: 4 }, (_, i) => <ProductCardSkeleton key={i} />)
           : products.map((product: DProducts) => (
               <ProductCard product={product} key={product.id} />
             ))}

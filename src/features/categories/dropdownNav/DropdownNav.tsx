@@ -45,7 +45,7 @@ const DropdownNav = memo(() => {
                       "text-primary-100": categoryId === id,
                     })
                   }
-                  to={`/products/${name.replaceAll(" ", "").toLowerCase()}`}
+                  to={`/products/${name.replaceAll(" ", "_")}`}
                   onMouseEnter={() => setCategoryId(id)}
                 >
                   <span className="size-4 md:size-6">
